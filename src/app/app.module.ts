@@ -14,6 +14,7 @@ import { FreshBlogAreaComponent } from './fresh-blog-area/fresh-blog-area.compon
 import { TestimonialAreaComponent } from './testimonial-area/testimonial-area.component';
 import { BrandingAreaComponent } from './branding-area/branding-area.component';
 import { FooterComponent } from './footer/footer.component';
+import { LayoutComponent } from './layout/layout.component';
 
 @NgModule({
   declarations: [
@@ -29,7 +30,8 @@ import { FooterComponent } from './footer/footer.component';
     FreshBlogAreaComponent,
     TestimonialAreaComponent,
     BrandingAreaComponent,
-    FooterComponent
+    FooterComponent,
+    LayoutComponent
   ],
   imports: [
     BrowserModule
