@@ -15,7 +15,9 @@ import { TestimonialAreaComponent } from './testimonial-area/testimonial-area.co
 import { BrandingAreaComponent } from './branding-area/branding-area.component';
 import { FooterComponent } from './footer/footer.component';
 import { LayoutComponent } from './layout/layout.component';
-
+import { AppRoutingModule } from './app-routing.module';
+import { FormsModule } from '@angular/forms';
+import { LoginComponent } from './login/login.component';
 @NgModule({
   declarations: [
     AppComponent,
@@ -31,10 +33,13 @@ import { LayoutComponent } from './layout/layout.component';
     TestimonialAreaComponent,
     BrandingAreaComponent,
     FooterComponent,
-    LayoutComponent
+    LayoutComponent,
+    LoginComponent
   ],
   imports: [
-    BrowserModule
+    BrowserModule,
+    AppRoutingModule,
+    FormsModule,
   ],
   providers: [],
   bootstrap: [AppComponent]
