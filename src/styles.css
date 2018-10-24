@@ -1,7 +1,7 @@
 /*===========================================
 
 
-Template Name: NIMIS
+Template Name: NIMISpromo_text
 Author: Hastech
 Author URI: http://hastech.company/
 Version: 1.0
@@ -844,7 +844,7 @@ transition: all 0.75s ease 0s;
 z-index: 1;
 }
 .promo_text > h5, .promo_text_bottom > h5 {
-  color: #232323;
+  color: #FFFFFF;
   font-size: 22px;
   font-weight: 400;
 }
@@ -853,7 +853,7 @@ z-index: 1;
   margin-bottom: 2px;
 }
 .promo_text > a, .promo_text_bottom > a {
-  color: #666666;
+  color: #C1C1C1;
   font-size: 13px;
 }
 .promotion_bottom {
