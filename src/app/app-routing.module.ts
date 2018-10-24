@@ -4,6 +4,7 @@ import { LayoutComponent } from './layout/layout.component';
 import { LoginComponent } from './login/login.component';
 import { RegisterComponent } from './register/register.component';
 import { CheckoutComponent } from './checkout/checkout.component';
+import { AboutComponent } from './about/about.component';
 const routes: Routes = [
   {
     path: '',
@@ -20,7 +21,11 @@ const routes: Routes = [
   {
     path: 'checkout',
     component: CheckoutComponent,
-  }
+  },
+  {
+    path: 'about',
+    component: AboutComponent,
+  },
 ];
 
 @NgModule({

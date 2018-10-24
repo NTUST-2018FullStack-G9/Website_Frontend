@@ -25,7 +25,12 @@
             "styles": [
               "src/styles.css"
             ],
-            "scripts": []
+            "scripts": [
+				"node_modules/jquery/dist/core.js",
+				"node_modules/jquery/dist/jquery.js",
+				"node_modules/jquery/dist/jquery.min.js",
+				"node_modules/jquery/dist/jquery.slim.js",
+			]
           },
           "configurations": {
             "production": {
