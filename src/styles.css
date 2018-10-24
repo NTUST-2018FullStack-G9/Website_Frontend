@@ -206,7 +206,7 @@ text-transform: uppercase;
 }
 
 .header_center {
-  margin: 43px 0 0;
+  margin: 43px 0;
   text-align: center;
 }
 .header_left {
@@ -667,7 +667,7 @@ text-transform: uppercase;
   overflow: hidden;
 }
 .cart_view_bottom .c_totals_left {
-  background: none repeat scroll 0 0 #eb5e5d;
+  background: none repeat scroll 0 0 #D00056;
   padding: 15px;
   text-align: center;
   width: 50%;
