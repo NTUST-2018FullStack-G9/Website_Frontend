@@ -106,7 +106,7 @@
     <div class="nav_center">
       <nav class="mainmenu">
         <ul id="nav">
-          <li class="current-page-item"><a href="index.html">Home</a>
+          <li class="current-page-item"><a [routerLink]="['']" routerLinkActive="active">Home</a>
             <ul id="sub-menu4">
               <li><a href="index-2.html">Home Version Two</a></li>
             </ul>
@@ -138,7 +138,7 @@
               <li><a href="404.html">404 page</a></li>
             </ul>
           </li>
-          <li><a href="blog.html">Blog</a></li>
+          <li><a [routerLink]="['/about']" routerLinkActive="active">About</a></li>
         </ul>
       </nav>
     </div>
