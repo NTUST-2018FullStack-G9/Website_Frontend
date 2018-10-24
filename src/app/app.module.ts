@@ -11,6 +11,13 @@ import { RegisterComponent } from './register/register.component';
 import { CheckoutComponent } from './checkout/checkout.component';
 import { AboutComponent } from './about/about.component';
 import { HeaderComponent } from './header/header.component';
+import { ErrorComponent } from './error/error.component';
+import { Category1Component } from './category1/category1.component';
+import { Category2Component } from './category2/category2.component';
+import { ContactComponent } from './contact/contact.component';
+import { ProductDetailComponent } from './product-detail/product-detail.component';
+import { SingleBlogComponent } from './single-blog/single-blog.component';
+import { CartComponent } from './cart/cart.component';
 @NgModule({
   declarations: [
     AppComponent,
@@ -20,7 +27,14 @@ import { HeaderComponent } from './header/header.component';
     RegisterComponent,
     CheckoutComponent,
     AboutComponent,
-    HeaderComponent
+    HeaderComponent,
+    ErrorComponent,
+    Category1Component,
+    Category2Component,
+    ContactComponent,
+    ProductDetailComponent,
+    SingleBlogComponent,
+    CartComponent
   ],
   imports: [
     BrowserModule,
