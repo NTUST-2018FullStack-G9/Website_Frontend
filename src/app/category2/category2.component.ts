@@ -6,7 +6,7 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./category2.component.css']
 })
 export class Category2Component implements OnInit {
-
+  Type = 'Wiskey';
   constructor() { }
 
   ngOnInit() {
