@@ -113,11 +113,11 @@
     <div class="nav_center">
       <nav class="mainmenu">
         <ul id="nav">
-          <li class="current-page-item"><a [routerLink]="['']" routerLinkActive="active">Home</a>
+          <li><a [routerLink]="['']" routerLinkActive="current" [routerLinkActiveOptions]="{exact: true}">Home</a>
           </li>
-          <li class="current-page-item"><a [routerLink]="['/category2']">shop</a>
+          <li ><a [routerLink]="['/category2']" routerLinkActive="current" [routerLinkActiveOptions]="{exact: true}">shop</a>
           </li>
-          <li class="current-page-item"><a [routerLink]="['/category1']">Trending</a>
+          <li><a [routerLink]="['/category1']" routerLinkActive="current" [routerLinkActiveOptions]="{exact: true}">Trending</a>
             <ul id="sub-menu">
               <li><a href="">Top 10 Beer</a></li>
               <li><a href="">Top 10 Spirits</a></li>
@@ -135,7 +135,7 @@
       <div class="cart_menu">
         <div class="cart_items">
           <div class="c_item_img floatleft">
-            <a [routerLink]="['/productDetail']"><img src="../../images/c_item1.jpg" alt="" /></a>
+            <a [routerLink]="['/productDetail']"><img src="../../assets/images/c_item1.jpg" alt="" /></a>
           </div>
           <div class="c_item_totals floatleft">
             <div class="c_item_totals_detail floatleft">
@@ -143,13 +143,13 @@
               <span>2 x $ 130.00</span>
             </div>
             <div class="close_icon_cart floatleft">
-              <img src="../../images/close.png" alt="" />
+              <img src="../../assets/images/close.png" alt="" />
             </div>
           </div>
         </div>
         <div class="cart_items">
           <div class="c_item_img floatleft">
-            <a [routerLink]="['/productDetail']"><img src="../../images/c_item2.jpg" alt="" /></a>
+            <a [routerLink]="['/productDetail']"><img src="../../assets/images/c_item2.jpg" alt="" /></a>
           </div>
           <div class="c_item_totals floatleft">
             <div class="c_item_totals_detail floatleft">
@@ -157,7 +157,7 @@
               <span>2 x $ 130.00</span>
             </div>
             <div class="close_icon_cart floatleft">
-              <img src="../../images/close.png" alt="" />
+              <img src="../../assets/images/close.png" alt="" />
             </div>
           </div>
         </div>
@@ -192,7 +192,7 @@
         <div id='cssmenu'>
           <ul>
             <li class='has-sub'>
-              <a [routerLink]="['/']"><span>Home</span></a>
+              <a [routerLink]="['']"><span>Home</span></a>
               <ul class="sub-nav">
                 <li><a [routerLink]="['/']"><span>Home 1</span></a></li>
                 <li><a [routerLink]="['/']"><span>Home 2</span></a></li>
@@ -239,7 +239,7 @@
                     <div class="clearfix"></div>
                     <div class="row in1">
                       <div class="col-md-6">
-                        <a href="#"><img src="../../images/menu_cat.png" class="img-responsive" alt=""/></a>
+                        <a href="#"><img src="../../assets/images/menu_cat.png" class="img-responsive" alt=""/></a>
                       </div>
                       <div class="col-md-6">
                       </div>

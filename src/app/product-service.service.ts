@@ -19,11 +19,11 @@ export class ProductServiceService {
       Price: 81000, // 價格
       AfterPrice: 81, // 折扣後的價格
       Discount: true, // 是否減價 1,0
-      Dp : 90,
+      Dp : 99,
       Type: 'brand'
     },
     {
-      Name: '你媽的酒',
+      Name: 'hen棒的酒',
       Image: '../../assets/images/t_item2.jpg',
       Price: 666, // 價格
       AfterPrice: 666, // 折扣後的價格
@@ -293,5 +293,26 @@ export class ProductServiceService {
       Type: 'wisky'
     }
   ];
+  carts = [
+      {
+        Name : '123',
+        price : 0,
+        num : 0,
+        Image : 'sss',
+        Type : 'Wisky'
+      }
+
+
+
+
+
+
+
+
+  ];
+
+
+
+
   constructor() { }
 }
