@@ -63,7 +63,7 @@
         <div class="main_category_right cat-2">
           <div class="row">
             <!--商品描述-->
-            <ng-container *ngFor="let item of products | slice: showNumb :showNume;">
+            <ng-container *ngFor="let item of products | slice: showNumb :showNume;let index = index">
                 <div class="col-md-4 col-sm-6 col-xs-12">
                   <div class="main_cat_item">
                     <div class="item">
@@ -72,7 +72,7 @@
                         <div class="tr-add-cart">
                           <ul>
                             <li><a class="fa fa-shopping-cart tr_cart" href="#"></a></li>
-                            <li><a class="tr_text" href="#">ADD TO CART</a></li>
+                            <li><a (click)= 'addCart(item,index)' class="tr_text" [routerLink]="['/category2']">ADD TO CART</a></li>
                             <li><a class="fa fa-heart tr_heart" href="#"></a></li>
                             <li><a class="fa fa-search tr_search" href="product-detail.html"></a></li>
                           </ul>

@@ -1,4 +1,3 @@
-
 <section class="breadcumb_top_area">
   <div class="container">
     <div class="row">
@@ -16,9 +15,9 @@
       <div class="col-md-12 col-sm-12 col-xs-12">
         <div class="bread_box">
           <ul class="breadcumb">
-            <li routerLinkActive = ""><a [routerLink]="['']">home <span>|</span></a></li>
-            <li><a [routerLink]="['/category1']">Shop <span>|</span></a></li>
-            <li><a [routerLink]="['/category2']">Category <span>|</span></a></li>
+            <li routerLinkActive=""><a [routerLink]="['']">home <span>|</span></a></li>
+            <li><a [routerLink]="['./category1']">Shop <span>|</span></a></li>
+            <li><a [routerLink]="['./category2']">Category <span>|</span></a></li>
             <li class="active"><a href="">{{ Type }}</a></li>
           </ul>
         </div>
@@ -46,13 +45,13 @@
       </div>
       <div class="col-md-6 col-sm-4 col-xs-12">
         <div class="filter_box_right">
-          <a class="dropdown-toggle" data-toggle="dropdown" href="#">sort by newness <span class="caret"></span></a>
-            <ul class="dropdown-menu">
-            <li><a href="#">Top Seller </a></li>
-            <li><a href="#">Most Popular</a></li>
-            <li><a href="#">Alphabetically</a></li>
-            <li><a href="#">Older First</a></li>
-            </ul>
+          <a class="dropdown-toggle" data-toggle="dropdown" [routerLink]="['/cart']">sort by newness <span class="caret"></span></a>
+          <ul class="dropdown-menu">
+            <li><a [routerLink]="['/cart']">Top Seller </a></li>
+            <li><a [routerLink]="['/cart']">Most Popular</a></li>
+            <li><a [routerLink]="['/cart']">Alphabetically</a></li>
+            <li><a [routerLink]="['/cart']">Older First</a></li>
+          </ul>
         </div>
       </div>
     </div>
@@ -65,84 +64,136 @@
         <div class="main_category_left">
 
           <div class="panel-group" id="home-accordion" role="tablist" aria-multiselectable="true">
+
+            <!--BEER------------------------>
             <div class="panel panel-default">
-            <div class="panel-heading" role="tab" id="headingOne">
-              <h4 class="panel-title">
-              <a data-toggle="collapse" data-parent="#home-accordion" href="#collapseOne" aria-expanded="true" aria-controls="collapseOne">
-                CATEGORIES
-                <span class="floatright"><i class="fa fa-minus"></i></span>
-              </a>
-              </h4>
-            </div>
-            <div id="collapseOne" class="panel-collapse collapse in" role="tabpanel" aria-labelledby="headingOne">
-              <div class="panel-body">
-              <ul id="c_tab1">
-                <li><a href="">Brandy ({{Brandy}})</a></li>
-                <li><a href="">Whisky ({{Whisky}})</a></li>
-                <li><a href="">Rum ({{Rum}})</a></li>
-                <li><a href="">Tequlia ({{Tequlia}})</a></li>
-                <li><a href="">Vodka ({{Vodka}})</a></li>
-              </ul>
+              <div class="panel-heading" role="tab" id="headingOne">
+                <h4 class="panel-title">
+                  <a data-toggle="collapse" data-parent="#home-accordion" href="#collapseOne" aria-expanded="true"
+                    aria-controls="collapseOne">
+                    BEER
+                    <span class="floatright"><i class="fa fa-minus"></i></span>
+                  </a>
+                </h4>
               </div>
-            </div>
-            </div>
-            <div class="panel panel-default">
-            <div class="panel-heading" role="tab" id="headingTwo">
-              <h4 class="panel-title">
-              <a class="collapsed" data-toggle="collapse" data-parent="#home-accordion" href="#collapseTwo" aria-expanded="false" aria-controls="collapseTwo">
-                PRICE FILTER
-                <span class="floatright"><i class="fa fa-plus"></i></span>
-              </a>
-              </h4>
-            </div>
-            <div id="collapseTwo" class="panel-collapse collapse" role="tabpanel" aria-labelledby="headingTwo">
-              <div class="panel-body">
-              <div id="slider-range"></div>
-                <div class="cat_filter_box">
-                  <p>
-                    <label for="amount" (onclick) = "filterPrice()" >Filter</label>
-                    <input type="text" id="amount" readonly style="border:0; color:#000; font-weight:bold;">
-                  </p>
+              <div id="collapseOne" class="panel-collapse collapse in" role="tabpanel" aria-labelledby="headingOne">
+                <div class="panel-body">
+                  <ul id="c_tab1">
+                    <li><a href="">Ale ({{getNum(0)}})</a></li>
+                    <li><a href="">Lager ({{getNum(1)}})</a></li>
+                    <li><a href="">Lambic ({{getNum(2)}})</a></li>
+                  </ul>
                 </div>
               </div>
             </div>
-            </div>
+            <!------------------------------>
+            <!--SPIRIT---------------------->
             <div class="panel panel-default">
-            <div class="panel-heading" role="tab" id="headingFive">
-              <h4 class="panel-title">
-              <a class="collapsed" data-toggle="collapse" data-parent="#home-accordion" href="#collapseFive" aria-expanded="false" aria-controls="collapseFive">
-                Brands
-                <span class="floatright"><i class="fa fa-plus"></i></span>
-              </a>
-              </h4>
-            </div>
-            <div id="collapseFive" class="panel-collapse collapse" role="tabpanel" aria-labelledby="headingFive">
-              <div class="panel-body">
-              <ul id="c_tab2">
-                <li><a href="">Tom tailor  (72)</a></li>
-                <li><a href="">incult  (14)</a></li>
-                <li><a href="">jack & jones  (23)</a></li>
-                <li><a href="">locomotive  (62)</a></li>
-                <li><a href="">river island  (19)</a></li>
-                <li><a href="">Steve madden  (37)</a></li>
-              </ul>
+              <div class="panel-heading" role="tab" id="headingOne">
+                <h4 class="panel-title">
+                  <a data-toggle="collapse" data-parent="#home-accordion" href="#collapseOne" aria-expanded="true"
+                    aria-controls="collapseOne">
+                    SPIRIT
+                    <span class="floatright"><i class="fa fa-minus"></i></span>
+                  </a>
+                </h4>
+              </div>
+              <div id="collapseOne" class="panel-collapse collapse in" role="tabpanel" aria-labelledby="headingOne">
+                <div class="panel-body">
+                  <ul id="c_tab1">
+                    <li><a href="">Brandy ({{getNum(3)}})</a></li>
+                    <li><a href="">Whisky ({{getNum(4)}})</a></li>
+                    <li><a href="">Rum ({{getNum(5)}})</a></li>
+                    <li><a href="">Mezcal ({{getNum(6)}})</a></li>
+                    <li><a href="">Gin ({{getNum(7)}})</a></li>
+                    <li><a href="">Vodka ({{getNum(8)}})</a></li>
+                  </ul>
+                </div>
               </div>
             </div>
-            </div>
+            <!------------------------------>
+            <!--WINE---------------------->
             <div class="panel panel-default">
-            <div class="panel-heading" role="tab" id="headingEight">
-              <h4 class="panel-title">
-              <a class="collapsed" data-toggle="collapse" data-parent="#home-accordion" href="#collapseEight" aria-expanded="false" aria-controls="collapseEight">
-               Best Seller
-                <span class="floatright"><i class="fa fa-plus"></i></span>
-              </a>
-              </h4>
+              <div class="panel-heading" role="tab" id="headingOne">
+                <h4 class="panel-title">
+                  <a data-toggle="collapse" data-parent="#home-accordion" href="#collapseOne" aria-expanded="true"
+                    aria-controls="collapseOne">
+                    WINE
+                    <span class="floatright"><i class="fa fa-minus"></i></span>
+                  </a>
+                </h4>
+              </div>
+              <div id="collapseOne" class="panel-collapse collapse in" role="tabpanel" aria-labelledby="headingOne">
+                <div class="panel-body">
+                  <ul id="c_tab1">
+                    <li><a href="">Sauvignon Blanc ({{getNum(9)}})</a></li>
+                    <li><a href="">Riesling ({{getNum(10)}})</a></li>
+                    <li><a href="">Cabernet Sauvignon({{getNum(11)}})</a></li>
+                    <li><a href="">Merlet({{getNum(12)}})</a></li>
+                    <li><a href="">Pinot Noir ({{getNum(13)}})</a></li>
+                  </ul>
+                </div>
+              </div>
             </div>
-            <div id="collapseEight" class="panel-collapse collapse" role="tabpanel" aria-labelledby="headingEight">
-              <div class="panel-body">
+            <!------------------------------>
 
+            <!--PRICE-->
+            <div class="panel panel-default">
+              <div class="panel-heading" role="tab" id="headingTwo">
+                <h4 class="panel-title">
+                  <a class="collapsed" data-toggle="collapse" data-parent="#home-accordion" href="#collapseTwo"
+                    aria-expanded="false" aria-controls="collapseTwo">
+                    PRICE FILTER
+                    <span class="floatright"><i class="fa fa-plus"></i></span>
+                  </a>
+                </h4>
+              </div>
+              <div id="collapseTwo" class="panel-collapse collapse" role="tabpanel" aria-labelledby="headingTwo">
+                <div class="panel-body">
+                  <div id="slider-range"></div>
+                  <div class="cat_filter_box">
+                    <p>
+                      <label for="amount" (onclick)="filterPrice()">Filter</label>
+                      <input type="text" id="amount" readonly style="border:0; color:#000; font-weight:bold;">
+                    </p>
+                  </div>
+                </div>
               </div>
             </div>
+            <!---->
+            <div class="panel panel-default">
+              <div class="panel-heading" role="tab" id="headingFive">
+                <h4 class="panel-title">
+                  <a class="collapsed" data-toggle="collapse" data-parent="#home-accordion" href="#collapseFive"
+                    aria-expanded="false" aria-controls="collapseFive">
+                    Brands
+                    <span class="floatright"><i class="fa fa-plus"></i></span>
+                  </a>
+                </h4>
+              </div>
+              <div id="collapseFive" class="panel-collapse collapse" role="tabpanel" aria-labelledby="headingFive">
+                <div class="panel-body">
+                  <ul id="c_tab2">
+                    <li><a href="">to be continue...</a></li>
+                  </ul>
+                </div>
+              </div>
+            </div>
+            <div class="panel panel-default">
+              <div class="panel-heading" role="tab" id="headingEight">
+                <h4 class="panel-title">
+                  <a class="collapsed" data-toggle="collapse" data-parent="#home-accordion" href="#collapseEight"
+                    aria-expanded="false" aria-controls="collapseEight">
+                    Best Seller
+                    <span class="floatright"><i class="fa fa-plus"></i></span>
+                  </a>
+                </h4>
+              </div>
+              <div id="collapseEight" class="panel-collapse collapse" role="tabpanel" aria-labelledby="headingEight">
+                <div class="panel-body">
+
+                </div>
+              </div>
             </div>
           </div>
         </div>
@@ -152,303 +203,35 @@
       <div class="col-md-9 col-sm-8 col-xs-12">
         <div class="main_category_right">
           <div class="row">
-<!---------商品的------------->
-<ng-container *ngFor="let item of products | slice: showNumb :showNume ;">
-    <div class="col-md-4 col-sm-6 col-xs-12">
-      <div class="main_cat_item">
-        <div class="item">
-          <div class="item-img">
-            <img [src]="item.Image" alt="" />
-            <div class="tr-add-cart">
-              <ul>
-                <li><a class="fa fa-shopping-cart tr_cart" href="#"></a></li>
-                <li><a class="tr_text" href="#">ADD TO CART</a></li>
-                <li><a class="fa fa-heart tr_heart" href="#"></a></li>
-                <li><a class="fa fa-search tr_search" href="product-detail.html"></a></li>
-              </ul>
-            </div>
-          </div>
-          <div class="item-new" *ngIf="item.Discount">
-            <p>New</p>
-            <span>-{{item.Dp}}%</span>
-          </div>
-          <div class="item-sub">
-            <a href="product-detail.html"><h5>{{item.Name}}</h5></a>
-            <p>$ {{item.AfterPrice}} <span><ng-container *ngIf="item.Discount"><del>$ {{item.Price}}</del></ng-container></span></p>
-          </div>
-        </div>
-      </div>
-    </div>
-</ng-container>
-<!--
-             <div class="col-md-4 col-sm-6 col-xs-12">
-              <div class="main_cat_item">
-                <div class="item">
-                  <div class="item-img">
-                    <img src="../../assets/images/t_item2.jpg" alt="" />
-                    <div class="tr-add-cart">
-                      <ul>
-                        <li><a class="fa fa-shopping-cart tr_cart" href="#"></a></li>
-                        <li><a class="tr_text" href="#">ADD TO CART</a></li>
-                        <li><a class="fa fa-heart tr_heart" href="#"></a></li>
-                        <li><a class="fa fa-search tr_search" href="product-detail.html"></a></li>
-                      </ul>
+            <!---------商品的------------->
+            <ng-container *ngFor="let item of products | slice: showNumb :showNume;let index = index">
+                <div class="col-md-4 col-sm-6 col-xs-12">
+                  <div class="main_cat_item">
+                    <div class="item">
+                      <div class="item-img">
+                        <img [src]="item.Image" alt="" />
+                        <div class="tr-add-cart">
+                          <ul>
+                            <li><a class="fa fa-shopping-cart tr_cart" href="#"></a></li>
+                            <li><a (click)= 'addCart(item,index)' class="tr_text" [routerLink]="['/category1']">ADD TO CART</a></li>
+                            <li><a class="fa fa-heart tr_heart" href="#"></a></li>
+                            <li><a class="fa fa-search tr_search" href="product-detail.html"></a></li>
+                          </ul>
+                        </div>
+                      </div>
+                      <div class="item-new" *ngIf="item.Discount">
+                        <p>New</p>
+                        <span>-{{item.Dp}}%</span>
+                      </div>
+                      <div class="item-sub">
+                        <a href="product-detail.html"><h5>{{item.Name}}</h5></a>
+                        <p>$ {{item.AfterPrice}} <span><ng-container *ngIf="item.Discount"><del>$ {{item.Price}}</del></ng-container></span></p>
+                      </div>
                     </div>
                   </div>
-                  <div class="item-new">
-                    <p>New</p>
-                  </div>
-                  <div class="item-sub">
-                    <a href="product-detail.html"><h5>v-neck men blue t-shirt </h5></a>
-                    <p>$ 95.66</p>
-                  </div>
                 </div>
-              </div>
-            </div>
-            <div class="col-md-4 col-sm-6 col-xs-12">
-              <div class="main_cat_item">
-                <div class="item">
-                  <div class="item-img">
-                    <img src="../../assets/images/t_item3.jpg" alt="" />
-                    <div class="tr-add-cart">
-                      <ul>
-                        <li><a class="fa fa-shopping-cart tr_cart" href="#"></a></li>
-                        <li><a class="tr_text" href="#">ADD TO CART</a></li>
-                        <li><a class="fa fa-heart tr_heart" href="#"></a></li>
-                        <li><a class="fa fa-search tr_search" href="product-detail.html"></a></li>
-                      </ul>
-                    </div>
-                  </div>
-                  <div class="item-new">
-                    <p>New</p>
-                  </div>
-                  <div class="item-sub">
-                    <a href="product-detail.html"><h5>gray shadow jean shirt</h5></a>
-                    <p>$ 158.78</p>
-                  </div>
-                </div>
-              </div>
-            </div>
-            <div class="col-md-4 col-sm-6 col-xs-12">
-              <div class="main_cat_item">
-                <div class="item">
-                  <div class="item-img">
-                    <img src="../../assets/images/t_item5.jpg" alt="" />
-                    <div class="tr-add-cart">
-                      <ul>
-                        <li><a class="fa fa-shopping-cart tr_cart" href="#"></a></li>
-                        <li><a class="tr_text" href="#">ADD TO CART</a></li>
-                        <li><a class="fa fa-heart tr_heart" href="#"></a></li>
-                        <li><a class="fa fa-search tr_search" href="product-detail.html"></a></li>
-                      </ul>
-                    </div>
-                  </div>
-                  <div class="item-new">
-                    <p>New</p>
-                  </div>
-                  <div class="item-sub">
-                    <a href="product-detail.html"><h5>AROS SLIM HEAVY CHINO</h5></a>
-                    <p>$ 181.00<span><del>$ 212.00</del></span></p>
-                  </div>
-                </div>
-              </div>
-            </div>
-            <div class="col-md-4 col-sm-6 col-xs-12">
-              <div class="main_cat_item">
-                <div class="item">
-                  <div class="item-img">
-                    <img src="../../assets/images/t_item6.jpg" alt="" />
-                    <div class="tr-add-cart">
-                      <ul>
-                        <li><a class="fa fa-shopping-cart tr_cart" href="#"></a></li>
-                        <li><a class="tr_text" href="#">ADD TO CART</a></li>
-                        <li><a class="fa fa-heart tr_heart" href="#"></a></li>
-                        <li><a class="fa fa-search tr_search" href="product-detail.html"></a></li>
-                      </ul>
-                    </div>
-                  </div>
-                  <div class="item-new">
-                    <p>New</p>
-                    <span>-10%</span>
-                  </div>
-                  <div class="item-sub">
-                    <a href="product-detail.html"><h5>volv checked casual shirt</h5></a>
-                    <p>$ 95.66</p>
-                  </div>
-                </div>
-              </div>
-            </div>
-            <div class="col-md-4 col-sm-6 col-xs-12">
-              <div class="main_cat_item">
-                <div class="item">
-                  <div class="item-img">
-                    <img src="../../assets/images/t_item7.jpg" alt="" />
-                    <div class="tr-add-cart">
-                      <ul>
-                        <li><a class="fa fa-shopping-cart tr_cart" href="#"></a></li>
-                        <li><a class="tr_text" href="#">ADD TO CART</a></li>
-                        <li><a class="fa fa-heart tr_heart" href="#"></a></li>
-                        <li><a class="fa fa-search tr_search" href="product-detail.html"></a></li>
-                      </ul>
-                    </div>
-                  </div>
-                  <div class="item-new">
-                    <p>New</p>
-                  </div>
-                  <div class="item-sub">
-                    <a href="product-detail.html"><h5>yellow Clover Robe Jacket</h5></a>
-                    <p>$ 100.00</p>
-                  </div>
-                </div>
-              </div>
-            </div>
-            <div class="col-md-4 col-sm-6 col-xs-12">
-              <div class="main_cat_item">
-                <div class="item">
-                  <div class="item-img">
-                    <img src="../../assets/images/t_item8.jpg" alt="" />
-                    <div class="tr-add-cart">
-                      <ul>
-                        <li><a class="fa fa-shopping-cart tr_cart" href="#"></a></li>
-                        <li><a class="tr_text" href="#">ADD TO CART</a></li>
-                        <li><a class="fa fa-heart tr_heart" href="#"></a></li>
-                        <li><a class="fa fa-search tr_search" href="product-detail.html"></a></li>
-                      </ul>
-                    </div>
-                  </div>
-                  <div class="item-new">
-                    <p>New</p>
-                  </div>
-                  <div class="item-sub">
-                    <a href="product-detail.html"><h5>super Clover Robe Jacket</h5></a>
-                    <p>$ 124.22<span><del>$ 248.44</del></span></p>
-                  </div>
-                </div>
-              </div>
-            </div>
-            <div class="col-md-4 col-sm-6 col-xs-12">
-              <div class="main_cat_item">
-                <div class="item">
-                  <div class="item-img">
-                    <img src="../../assets/images/t_item9.jpg" alt="" />
-                    <div class="tr-add-cart">
-                      <ul>
-                        <li><a class="fa fa-shopping-cart tr_cart" href="#"></a></li>
-                        <li><a class="tr_text" href="#">ADD TO CART</a></li>
-                        <li><a class="fa fa-heart tr_heart" href="#"></a></li>
-                        <li><a class="fa fa-search tr_search" href="product-detail.html"></a></li>
-                      </ul>
-                    </div>
-                  </div>
-                  <div class="item-new">
-                    <p>New</p>
-                    <span>-50%</span>
-                  </div>
-                  <div class="item-sub">
-                    <a href="product-detail.html"><h5>full hand animal jacket</h5></a>
-                    <p>$ 100.00</p>
-                  </div>
-                </div>
-              </div>
-            </div>
-            <div class="col-md-4 col-sm-6 col-xs-12">
-              <div class="main_cat_item">
-                <div class="item">
-                  <div class="item-img">
-                    <img src="../../assets/images/t_item10.jpg" alt="" />
-                    <div class="tr-add-cart">
-                      <ul>
-                        <li><a class="fa fa-shopping-cart tr_cart" href="#"></a></li>
-                        <li><a class="tr_text" href="#">ADD TO CART</a></li>
-                        <li><a class="fa fa-heart tr_heart" href="#"></a></li>
-                        <li><a class="fa fa-search tr_search" href="product-detail.html"></a></li>
-                      </ul>
-                    </div>
-                  </div>
-                  <div class="item-new">
-                    <p>Sale</p>
-                  </div>
-                  <div class="item-sub">
-                    <a href="product-detail.html"><h5>men’s fashion blue jean coat</h5></a>
-                    <p>$ 130.00<span><del>$ 150.00</del></span></p>
-                  </div>
-                </div>
-              </div>
-            </div>
-            <div class="col-md-4 col-sm-6 col-xs-12">
-              <div class="main_cat_item">
-                <div class="item">
-                  <div class="item-img">
-                    <img src="../../assets/images/t_item4.jpg" alt="" />
-                    <div class="tr-add-cart">
-                      <ul>
-                        <li><a class="fa fa-shopping-cart tr_cart" href="#"></a></li>
-                        <li><a class="tr_text" href="#">ADD TO CART</a></li>
-                        <li><a class="fa fa-heart tr_heart" href="#"></a></li>
-                        <li><a class="fa fa-search tr_search" href="product-detail.html"></a></li>
-                      </ul>
-                    </div>
-                  </div>
-                  <div class="item-new">
-                    <p>Sale</p>
-                  </div>
-                  <div class="item-sub">
-                    <a href="product-detail.html"><h5>black men leather coat</h5></a>
-                    <p>$ 160.00<span><del>$ 200.00</del></span></p>
-                  </div>
-                </div>
-              </div>
-            </div>
-            <div class="col-md-4 col-sm-6 col-xs-12">
-              <div class="main_cat_item">
-                <div class="item">
-                  <div class="item-img">
-                    <img src="../../assets/images/t_item11.jpg" alt="" />
-                    <div class="tr-add-cart">
-                      <ul>
-                        <li><a class="fa fa-shopping-cart tr_cart" href="#"></a></li>
-                        <li><a class="tr_text" href="#">ADD TO CART</a></li>
-                        <li><a class="fa fa-heart tr_heart" href="#"></a></li>
-                        <li><a class="fa fa-search tr_search" href="product-detail.html"></a></li>
-                      </ul>
-                    </div>
-                  </div>
-                  <div class="item-new">
-                    <p>New</p>
-                  </div>
-                  <div class="item-sub">
-                    <a href="product-detail.html"><h5>houndsmooth wool t-shirt</h5></a>
-                    <p>$ 168.00<span><del>$ 212.00</del></span></p>
-                  </div>
-                </div>
-              </div>
-            </div>
-            <div class="col-md-4 col-sm-6 col-xs-12">
-              <div class="main_cat_item">
-                <div class="item">
-                  <div class="item-img">
-                    <img src="../../assets/images/t_item12.jpg" alt="" />
-                    <div class="tr-add-cart">
-                      <ul>
-                        <li><a class="fa fa-shopping-cart tr_cart" href="#"></a></li>
-                        <li><a class="tr_text" href="#">ADD TO CART</a></li>
-                        <li><a class="fa fa-heart tr_heart" href="#"></a></li>
-                        <li><a class="fa fa-search tr_search" href="product-detail.html"></a></li>
-                      </ul>
-                    </div>
-                  </div>
-                  <div class="item-new">
-                    <p>New</p>
-                    <span>-20%</span>
-                  </div>
-                  <div class="item-sub">
-                    <a href="product-detail.html"><h5>structured collarless coat</h5></a>
-                    <p>$ 133.20<span><del>$ 148.00</del></span></p>
-                  </div>
-                </div>
-              </div>
-            </div>-->
-<!---------------------->
+            </ng-container>
+
           </div>
           <div class="row">
             <div class="col-md-12 col-sm-12 col-xs-12">
