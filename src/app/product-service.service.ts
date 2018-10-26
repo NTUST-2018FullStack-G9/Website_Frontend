@@ -1,5 +1,4 @@
 import { Injectable } from '@angular/core';
-
 @Injectable({
   providedIn: 'root'
 })
@@ -293,9 +292,6 @@ export class ProductServiceService {
       Dp : 10, // 折扣百分比
       Type: 'wisky'
     }
-
-
-
   ];
   constructor() { }
 }
