@@ -1,3 +1,4 @@
+import { ProductServiceService } from './../product-service.service';
 import { Component, OnInit } from '@angular/core';
 
 @Component({
@@ -12,7 +13,18 @@ export class Category1Component implements OnInit {
   Tequlia = 0;
   Vodka = 0;
   Type = 'Wisky';
-  constructor() { }
+  showNumb = 0;
+  showNume = 12;
+  get products() {
+    return this.dataService.products;
+  }
+  constructor(private dataService: ProductServiceService) {
+  }
+
+  filterPrice() {
+    console.log('filter');
+  }
+
   ngOnInit() {
   }
 }

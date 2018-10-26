@@ -62,7 +62,35 @@
       <div class="col-md-12 col-sm-12 col-xs-12">
         <div class="main_category_right cat-2">
           <div class="row">
-            <div class="col-md-3 col-sm-4 col-xs-12">
+            <!--商品描述-->
+            <ng-container *ngFor="let item of products | slice: showNumb :showNume;">
+                <div class="col-md-4 col-sm-6 col-xs-12">
+                  <div class="main_cat_item">
+                    <div class="item">
+                      <div class="item-img">
+                        <img [src]="item.Image" alt="" />
+                        <div class="tr-add-cart">
+                          <ul>
+                            <li><a class="fa fa-shopping-cart tr_cart" href="#"></a></li>
+                            <li><a class="tr_text" href="#">ADD TO CART</a></li>
+                            <li><a class="fa fa-heart tr_heart" href="#"></a></li>
+                            <li><a class="fa fa-search tr_search" href="product-detail.html"></a></li>
+                          </ul>
+                        </div>
+                      </div>
+                      <div class="item-new" *ngIf="item.Discount">
+                        <p>New</p>
+                        <span>-{{item.Dp}}%</span>
+                      </div>
+                      <div class="item-sub">
+                        <a href="product-detail.html"><h5>{{item.Name}}</h5></a>
+                        <p>$ {{item.AfterPrice}} <span><ng-container *ngIf="item.Discount"><del>$ {{item.Price}}</del></ng-container></span></p>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+            </ng-container>
+           <!-- <div class="col-md-3 col-sm-4 col-xs-12">
               <div class="main_cat_item">
                 <div class="item">
                   <div class="item-img">
@@ -86,7 +114,9 @@
                 </div>
               </div>
             </div>
-            <div class="col-md-3 col-sm-4 col-xs-12">
+
+
+             <div class="col-md-3 col-sm-4 col-xs-12">
               <div class="main_cat_item">
                 <div class="item">
                   <div class="item-img">
@@ -450,7 +480,7 @@
                   </div>
                 </div>
               </div>
-            </div>
+            </div> -->
           </div>
           <div class="row">
             <div class="col-md-12 col-sm-12 col-xs-12">

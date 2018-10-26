@@ -113,11 +113,11 @@
     <div class="nav_center">
       <nav class="mainmenu">
         <ul id="nav">
-          <li class="current-page-item"><a [routerLink]="['']" routerLinkActive="active">Home</a>
+          <li><a [routerLink]="['']" routerLinkActive="current" [routerLinkActiveOptions]="{exact: true}">Home</a>
           </li>
-          <li><a [routerLink]="['/category2']">shop</a>
+          <li ><a [routerLink]="['/category2']" routerLinkActive="current" [routerLinkActiveOptions]="{exact: true}">shop</a>
           </li>
-          <li><a [routerLink]="['/category1']">Trending</a>
+          <li><a [routerLink]="['/category1']" routerLinkActive="current" [routerLinkActiveOptions]="{exact: true}">Trending</a>
             <ul id="sub-menu">
               <li><a href="">Top 10 Beer</a></li>
               <li><a href="">Top 10 Spirits</a></li>

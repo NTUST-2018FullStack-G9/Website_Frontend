@@ -100,7 +100,7 @@
               <div id="slider-range"></div>
                 <div class="cat_filter_box">
                   <p>
-                    <label for="amount">Filter</label>
+                    <label for="amount" (onclick) = "filterPrice()" >Filter</label>
                     <input type="text" id="amount" readonly style="border:0; color:#000; font-weight:bold;">
                   </p>
                 </div>
@@ -147,35 +147,41 @@
           </div>
         </div>
       </div>
+      <!--商品列ㄅ-->
+
       <div class="col-md-9 col-sm-8 col-xs-12">
         <div class="main_category_right">
           <div class="row">
-            <div class="col-md-4 col-sm-6 col-xs-12">
-              <div class="main_cat_item">
-                <div class="item">
-                  <div class="item-img">
-                    <img src="../../assets/images/t_item1.jpg" alt="" />
-                    <div class="tr-add-cart">
-                      <ul>
-                        <li><a class="fa fa-shopping-cart tr_cart" href="#"></a></li>
-                        <li><a class="tr_text" href="#">ADD TO CART</a></li>
-                        <li><a class="fa fa-heart tr_heart" href="#"></a></li>
-                        <li><a class="fa fa-search tr_search" href="product-detail.html"></a></li>
-                      </ul>
-                    </div>
-                  </div>
-                  <div class="item-new">
-                    <p>New</p>
-                    <span>-10%</span>
-                  </div>
-                  <div class="item-sub">
-                    <a href="product-detail.html"><h5>ABERFELDY艾柏迪艾柏迪12年單ㄧ純麥威士忌</h5></a>
-                    <p>$ 90.00 <span><del>$ 100</del></span></p>
-                  </div>
-                </div>
-              </div>
+<!---------商品的------------->
+<ng-container *ngFor="let item of products | slice: showNumb :showNume ;">
+    <div class="col-md-4 col-sm-6 col-xs-12">
+      <div class="main_cat_item">
+        <div class="item">
+          <div class="item-img">
+            <img [src]="item.Image" alt="" />
+            <div class="tr-add-cart">
+              <ul>
+                <li><a class="fa fa-shopping-cart tr_cart" href="#"></a></li>
+                <li><a class="tr_text" href="#">ADD TO CART</a></li>
+                <li><a class="fa fa-heart tr_heart" href="#"></a></li>
+                <li><a class="fa fa-search tr_search" href="product-detail.html"></a></li>
+              </ul>
             </div>
-            <div class="col-md-4 col-sm-6 col-xs-12">
+          </div>
+          <div class="item-new" *ngIf="item.Discount">
+            <p>New</p>
+            <span>-{{item.Dp}}%</span>
+          </div>
+          <div class="item-sub">
+            <a href="product-detail.html"><h5>{{item.Name}}</h5></a>
+            <p>$ {{item.AfterPrice}} <span><ng-container *ngIf="item.Discount"><del>$ {{item.Price}}</del></ng-container></span></p>
+          </div>
+        </div>
+      </div>
+    </div>
+</ng-container>
+<!--
+             <div class="col-md-4 col-sm-6 col-xs-12">
               <div class="main_cat_item">
                 <div class="item">
                   <div class="item-img">
@@ -441,7 +447,8 @@
                   </div>
                 </div>
               </div>
-            </div>
+            </div>-->
+<!---------------------->
           </div>
           <div class="row">
             <div class="col-md-12 col-sm-12 col-xs-12">
