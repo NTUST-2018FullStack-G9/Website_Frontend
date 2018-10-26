@@ -293,5 +293,22 @@ export class ProductServiceService {
       Type: 'wisky'
     }
   ];
+  carts = [
+    {
+      Name : '123',
+      price : 20,
+      num : 0,
+      Image : '../../assets/images/t_item1.jpg',
+      Type : 'Wisky'
+    }
+
+
+
+
+
+
+
+
+];
   constructor() { }
 }
