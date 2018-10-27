@@ -16,7 +16,7 @@ interface ProductsType {
   styleUrls: ['./category2.component.css']
 })
 export class Category2Component implements OnInit {
-  Type = 'Wiskey';
+  Type = 'ALL';
   showNumb = 0;
   showNume = 15;
   get products() {

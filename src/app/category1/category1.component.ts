@@ -16,7 +16,7 @@ interface ProductsType {
   styleUrls: ['./category1.component.css']
 })
 export class Category1Component implements OnInit {
-  Type = 'Wisky';
+  Type = 'ALL';
   showNumb = 0;
   showNume = 12;
   get products() {
@@ -34,6 +34,7 @@ export class Category1Component implements OnInit {
     console.log('1512');
   }
   search(keyword) {
+    this.Type = keyword;
     this.dataService.search(keyword);
   }
   addCart(item: ProductsType, index: number) {
