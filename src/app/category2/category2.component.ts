@@ -25,7 +25,7 @@ export class Category2Component implements OnInit {
   constructor(private dataService: ProductServiceService) {
   }
   addCart(item: ProductsType, index: number) {
-    alert(index);
+    alert('add to cart!');
     for (const i of this.dataService.carts) {
         if (i.Name === item.Name) {
           this.dataService.carts[index].Amount += 1;

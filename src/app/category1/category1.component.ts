@@ -33,8 +33,11 @@ export class Category1Component implements OnInit {
   log() {
     console.log('1512');
   }
+  search(keyword) {
+    this.dataService.search(keyword);
+  }
   addCart(item: ProductsType, index: number) {
-    alert(index);
+    alert('add to cart!');
     for (const i of this.dataService.carts) {
         if (i.Name === item.Name) {
           this.dataService.carts[index].Amount += 1;

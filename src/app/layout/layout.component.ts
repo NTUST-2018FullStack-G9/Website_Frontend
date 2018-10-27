@@ -18,7 +18,6 @@ interface ProductsType {
 export class LayoutComponent implements OnInit {
   upperNum = 0;
   lowerNum = 9;
-
   upNum = 0;
   loNum = 6;
   get products() {
@@ -27,19 +26,22 @@ export class LayoutComponent implements OnInit {
   constructor(private dataService: ProductServiceService) {
   }
   addCart(item: ProductsType, index: number) {
+    alert('add to cart');
     for (const i of this.dataService.carts) {
         if (i.Name === item.Name) {
-          this.dataService.carts[index].Amount += 1;
-          return 0;
+          this.dataService.carts[index].Amount ++;
         }
     }
+
     this.dataService.carts.push({
-            Name: item.Name,
-            Price: item.Price, // 價格
-            Amount: 1,
-            Image: item.Carts,
-            Type: item.Type
-    });
+        Name: item.Name,
+        Price: item.Price, // 價格
+        Amount: 1,
+        Image: item.Carts,
+        Type: item.Type
+  });
+
+
   }
   ngOnInit() {}
 }

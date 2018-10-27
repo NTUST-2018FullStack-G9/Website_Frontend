@@ -79,9 +79,9 @@
               <div id="collapseOne" class="panel-collapse collapse in" role="tabpanel" aria-labelledby="headingOne">
                 <div class="panel-body">
                   <ul id="c_tab1">
-                    <li><a href="">Ale ({{getNum(0)}})</a></li>
-                    <li><a href="">Lager ({{getNum(1)}})</a></li>
-                    <li><a href="">Lambic ({{getNum(2)}})</a></li>
+                    <li (click)="search('Ale')"><a>Ale ({{getNum(0)}})</a></li>
+                    <li><a (click)="search('Lager')">Lager ({{getNum(1)}})</a></li>
+                    <li><a (click)="search('Lambic')">Lambic ({{getNum(2)}})</a></li>
                   </ul>
                 </div>
               </div>
@@ -101,12 +101,12 @@
               <div id="collapseOne" class="panel-collapse collapse in" role="tabpanel" aria-labelledby="headingOne">
                 <div class="panel-body">
                   <ul id="c_tab1">
-                    <li><a href="">Brandy ({{getNum(3)}})</a></li>
-                    <li><a href="">Whisky ({{getNum(4)}})</a></li>
-                    <li><a href="">Rum ({{getNum(5)}})</a></li>
-                    <li><a href="">Mezcal ({{getNum(6)}})</a></li>
-                    <li><a href="">Gin ({{getNum(7)}})</a></li>
-                    <li><a href="">Vodka ({{getNum(8)}})</a></li>
+                    <li><a (click)="search('Brandy')">Brandy ({{getNum(3)}})</a></li>
+                    <li><a (click)="search('Whisky')">Whisky ({{getNum(4)}})</a></li>
+                    <li><a (click)="search('Rum')">Rum ({{getNum(5)}})</a></li>
+                    <li><a (click)="search('Mezcal')">Mezcal ({{getNum(6)}})</a></li>
+                    <li><a (click)="search('Gin')">Gin ({{getNum(7)}})</a></li>
+                    <li><a (click)="search('Vodka')">Vodka ({{getNum(8)}})</a></li>
                   </ul>
                 </div>
               </div>
@@ -126,11 +126,11 @@
               <div id="collapseOne" class="panel-collapse collapse in" role="tabpanel" aria-labelledby="headingOne">
                 <div class="panel-body">
                   <ul id="c_tab1">
-                    <li><a href="">Sauvignon Blanc ({{getNum(9)}})</a></li>
-                    <li><a href="">Riesling ({{getNum(10)}})</a></li>
-                    <li><a href="">Cabernet Sauvignon({{getNum(11)}})</a></li>
-                    <li><a href="">Merlet({{getNum(12)}})</a></li>
-                    <li><a href="">Pinot Noir ({{getNum(13)}})</a></li>
+                    <li><a (click)="search('Sauvignon Blanc')">Sauvignon Blanc ({{getNum(9)}})</a></li>
+                    <li><a (click)="search('Riesling')">Riesling ({{getNum(10)}})</a></li>
+                    <li><a (click)="search('Cabernet Sauvignon')">Cabernet Sauvignon({{getNum(11)}})</a></li>
+                    <li><a (click)="search('Merlet')">Merlet({{getNum(12)}})</a></li>
+                    <li><a (click)="search('Pinot Noir')">Pinot Noir ({{getNum(13)}})</a></li>
                   </ul>
                 </div>
               </div>
@@ -212,8 +212,8 @@
                         <img [src]="item.Image" alt="" />
                         <div class="tr-add-cart">
                           <ul>
-                            <li><a class="fa fa-shopping-cart tr_cart" href="#"></a></li>
-                            <li><a (click)= 'addCart(item,index)' class="tr_text" [routerLink]="['/category1']">ADD TO CART</a></li>
+                            <li><a class="fa fa-shopping-cart tr_cart" [routerLink]="['/cart']"></a></li>
+                            <li><a (click)= 'addCart(item,index)' class="tr_text" [routerLink]="['/category1']" >ADD TO CART</a></li>
                             <li><a class="fa fa-heart tr_heart" href="#"></a></li>
                             <li><a class="fa fa-search tr_search" href="product-detail.html"></a></li>
                           </ul>

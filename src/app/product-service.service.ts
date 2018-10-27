@@ -256,6 +256,7 @@ export class ProductServiceService {
       Type: 'Whisky'
     }
   ];
+  original = this.products;
   carts: CartsType[] = [
   ];
   wineType = [
@@ -277,12 +278,20 @@ export class ProductServiceService {
   num = 0;
   getNum(id) { // 讀取商品數量
     this.num = 0;
-    for (const i of this.products) {
+    for (const i of this.original) {
       if ( i.Type === this.wineType[id] ) {
           this.num ++;
       }
     }
     return this.num;
+  }
+
+  search(keyword) {
+    if ( keyword.trim() === '' ) {
+        this.products = this.original;
+    } else {
+        this.products = this.original.filter(products => products.Type.indexOf(keyword) !== -1);
+    }
   }
 
   constructor() { }

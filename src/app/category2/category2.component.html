@@ -71,7 +71,7 @@
                         <img [src]="item.Image" alt="" />
                         <div class="tr-add-cart">
                           <ul>
-                            <li><a class="fa fa-shopping-cart tr_cart" href="#"></a></li>
+                            <li><a class="fa fa-shopping-cart tr_cart" [routerLink]="['/cart']"></a></li>
                             <li><a (click)= 'addCart(item,index)' class="tr_text" [routerLink]="['/category2']">ADD TO CART</a></li>
                             <li><a class="fa fa-heart tr_heart" href="#"></a></li>
                             <li><a class="fa fa-search tr_search" href="product-detail.html"></a></li>

@@ -111,8 +111,8 @@
                         <img [src]="item.Image" alt="" />
                         <div class="tr-add-cart">
                           <ul>
-                            <li><a class="fa fa-shopping-cart tr_cart" href="#"></a></li>
-                            <li><a (click)= 'addCart(item,index)' class="tr_text" [routerLink]="['/category1']">ADD TO CART</a></li>
+                            <li><a class="fa fa-shopping-cart tr_cart" href="#" [routerLink]="['/cart']"></a></li>
+                            <li><a (click)='addCart(item,index)' class="tr_text" [routerLink]="['/']">ADD TO CART</a></li>
                             <li><a class="fa fa-heart tr_heart" href="#"></a></li>
                             <li><a class="fa fa-search tr_search" href="product-detail.html"></a></li>
                           </ul>
@@ -178,7 +178,7 @@
                         <img [src]="items.Image" alt="" />
                         <div class="tr-add-cart">
                           <ul>
-                            <li><a class="fa fa-shopping-cart tr_cart" href="#"></a></li>
+                            <li><a class="fa fa-shopping-cart tr_cart" [routerLink]="['/cart']"></a></li>
                             <li><a class="tr_text" href="#">ADD TO CART</a></li>
                             <li><a class="fa fa-heart tr_heart" href="#"></a></li>
                             <li><a class="fa fa-search tr_search" href="product-detail.html"></a></li>
@@ -245,7 +245,7 @@
 </section>
 
 <!-- ttobslider -->
- <!-- item image not change-->
+<!-- item image not change-->
 <section class="t_to_b_slider_area">
   <div class="container">
     <div class="row">
