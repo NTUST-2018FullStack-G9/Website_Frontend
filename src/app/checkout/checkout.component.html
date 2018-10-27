@@ -122,34 +122,19 @@
               <p>Product</p>
               <span>Total</span>
             </div>
+          <ng-container *ngFor="let item of carts">
             <div class="c_single_item">
-              <p>collarless coat x 1</p>
-              <span>$115.00</span>
+              <p>{{item.Name}}} x {{item.Amount}}</p>
+              <span>${{item.Amount*item.Price}}}</span>
             </div>
-            <div class="c_single_item">
-              <p>wool t-shirt x 1</p>
-              <span>$184.00</span>
-            </div>
-            <div class="c_single_item">
-              <p>jean coat x 3 </p>
-              <span>$205.00</span>
-            </div>
-            <div class="c_single_item sp_single_item">
-              <p>casual shirt x 2</p>
-              <span>$375.00</span>
-            </div>
-            <div class="c_single_item">
-              <p>subtotal</p>
-              <span>$854.00</span>
-            </div>
-            <div class="c_single_item sp_single_item">
-              <p>Shipping Charge</p>
-              <span>Free</span>
-            </div>
+          </ng-container>
+
             <div class="c_total_item sp_single_item">
               <p>Order Total</p>
-              <span>$854.00</span>
+              <span>${{getCartprice()}}</span>
             </div>
+
+
             <div class="c_payment">
               <p>Select Payment Method</p>
               <select class="selectpicker sel_state">

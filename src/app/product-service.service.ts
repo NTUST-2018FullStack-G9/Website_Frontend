@@ -257,7 +257,7 @@ export class ProductServiceService {
     }
   ];
   original = this.products;
-  carts: CartsType[] = [
+  carts: CartsType[] = [  // 購物車
   ];
   wineType = [
     'Ale',
@@ -286,7 +286,7 @@ export class ProductServiceService {
     return this.num;
   }
 
-  search(keyword) {
+  search(keyword) { // 搜尋
     if ( keyword.trim() === '' ) {
         this.products = this.original;
     } else {

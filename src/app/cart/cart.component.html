@@ -93,17 +93,16 @@
                 </div>
                 <div id="collapseTwo" class="panel-collapse collapse" role="tabpanel" aria-labelledby="headingTwo">
                   <div class="panel-body cart_p_body">
-                    <div class="c_single_item">
-                      <p>SubTotal</p>
-                      <span>$184.00</span>
-                    </div>
-                    <div class="c_single_item cart_last_total">
-                      <p>Shipping Charge</p>
-                      <span>Free</span>
-                    </div>
+                    <ng-container *ngFor="let item of carts">
+                      <div class="c_single_item">
+                        <p>{{item.Name}}} x {{item.Amount}}</p>
+                        <span>${{item.Amount*item.Price}}</span>
+                      </div>
+                    </ng-container>
+
                     <div class="c_total_item sp_single_item">
                       <p>Total</p>
-                      <span>$854.00</span>
+                      <span>$ {{ getCartprice() }}</span>
                     </div>
                   </div>
                 </div>

@@ -8,7 +8,7 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./cart.component.css']
 })
 export class CartComponent implements OnInit {
-
+  price = 0;
   get carts () {
     return this.dataService.carts;
   }
@@ -23,5 +23,13 @@ export class CartComponent implements OnInit {
   }
   clickplus(index) {
     this.dataService.carts[index].Amount++;
+  }
+
+  getCartprice() {
+    this.price = 0;
+    for (const i of this.carts) {
+      this.price += i.Amount * i.Price;
+    }
+    return this.price;
   }
 }
