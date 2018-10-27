@@ -47,10 +47,10 @@ export class LayoutComponent implements OnInit {
   // tslint:disable-next-line:use-life-cycle-interface
   ngAfterViewInit(): void {
     // <script src="assets/js/rs-plugin/js/jquery.themepunch.plugins.min.js"></script>
-    const test = document.createElement('script');
-    test.type = 'text/javascript';
-    test.src = 'assets/js/rs-plugin/rs.home.js';
-    this.elementRef.nativeElement.appendChild(test);
+    const sliderTop = document.createElement('script');
+    sliderTop.type = 'text/javascript';
+    sliderTop.src = 'assets/js/rs-plugin/rs.home.js';
+    this.elementRef.nativeElement.appendChild(sliderTop);
 
     // <script src="assets/js/bootstrap.min.js"></script>
     const tItem = document.createElement('script');
@@ -58,6 +58,7 @@ export class LayoutComponent implements OnInit {
     tItem.src = 'assets/js/main.js';
     this.elementRef.nativeElement.appendChild(tItem);
 
+    // ttobslider
     $('.slider8').bxSlider({
       mode: 'vertical',
       slideWidth: 300,
