@@ -1,5 +1,76 @@
 <!-- slider wrap -->
+<!-- HOME SLIDER -->
+<div class="slider-wrap">
+		<div class="fullwidthbanner-container" >
+			<div class="fullwidthbanner">
+				<ul>
+					<li data-transition="random" data-slotamount="7" data-masterspeed="1000">
+						<img src="assets/images/slider-temp.jpg" alt="slide" >
 
+						<div class="tp-caption large_black sfr" data-x="120" data-y="140" data-speed="1100" data-start="1100" data-easing="easeInOutBack"
+							style="font-size: 95px; font-weight: normal; text-transform: inherit; color: #ff6766;font-family: manustrialmanustrial;font-style:italic;text-shadow:0px 0px 3px #000;">
+							Summer
+						</div>
+						<div class="tp-caption large_black sfr" data-x="120" data-y="230" data-speed="1100" data-start="1400" data-easing="easeInOutBack"
+							style="font-family: 'Montserrat', sans-serif; font-size: 68px; font-weight: 700; line-height:80px;text-transform: uppercase; color: #232323; text-shadow: 0 0 3px #fff">
+							2015 collection
+						</div>
+						<div class="tp-caption large_black sfr carousel-caption-inner" data-x="120" data-y="300" data-speed="1100" data-start="1400" data-easing="easeInOutBack"
+							style="">
+							<img src="assets/images/sep-b.png" alt="" />
+						</div>
+						<div class="tp-caption lfb carousel-caption-inner" data-x="120" data-y="350" data-speed="1300" data-start="1700" data-easing="easeInOutBack"
+							style="font-family: cabin Sans; font-size: 17px; font-weight: bold; text-transform: uppercase; color: #232323;">
+							get upto 50% offer for order over $499!
+						</div>
+					</li>
+
+					<li data-transition="random" data-slotamount="7" data-masterspeed="1000">
+						<img src="assets/images/slider-temp2.jpg" alt="slide" >
+
+						<div class="tp-caption large_black sfr" data-x="120" data-y="140" data-speed="1100" data-start="1100" data-easing="easeInOutBack"
+							style="font-size: 95px; font-weight: normal; text-transform: inherit; color: #ff6766;font-family: manustrialmanustrial;font-style:italic;text-shadow:0px 0px 3px #000;">
+							Summer
+						</div>
+						<div class="tp-caption large_black sfr" data-x="120" data-y="230" data-speed="1100" data-start="1400" data-easing="easeInOutBack"
+							style="font-family: 'Montserrat', sans-serif; font-size: 68px; font-weight: 700; line-height:80px;text-transform: uppercase; color: #232323; text-shadow: 0 0 3px #fff">
+							20015 collection
+						</div>
+						<div class="tp-caption large_black sfr carousel-caption-inner" data-x="120" data-y="300" data-speed="1100" data-start="1400" data-easing="easeInOutBack"
+							style="">
+							<img src="assets/images/sep-b.png" alt="" />
+						</div>
+						<div class="tp-caption lfb carousel-caption-inner" data-x="120" data-y="350" data-speed="1300" data-start="1700" data-easing="easeInOutBack"
+							style="font-family: cabin Sans; font-size: 17px; font-weight: bold; text-transform: uppercase; color: #232323;">
+							get upto 50% offer for order over $499!
+						</div>
+					</li>
+
+					<li data-transition="random" data-slotamount="7" data-masterspeed="1000">
+						<img src="assets/images/slider-temp.jpg" alt="slide" >
+
+						<div class="tp-caption large_black sfr" data-x="120" data-y="140" data-speed="1100" data-start="1100" data-easing="easeInOutBack"
+							style="font-size: 95px; font-weight: normal; text-transform: inherit; color: #ff6766;font-family: manustrialmanustrial;font-style:italic;text-shadow:0px 0px 3px #000;">
+							Summer
+						</div>
+						<div class="tp-caption large_black sfr" data-x="120" data-y="230" data-speed="1100" data-start="1400" data-easing="easeInOutBack"
+							style="font-family: 'Montserrat', sans-serif; font-size: 68px; font-weight: 700; line-height:80px;text-transform: uppercase; color: #232323; text-shadow: 0 0 3px #fff">
+							20015 collection
+						</div>
+						<div class="tp-caption large_black sfr carousel-caption-inner" data-x="120" data-y="300" data-speed="1100" data-start="1400" data-easing="easeInOutBack"
+							style="">
+							<img src="assets/images/sep-b.png" alt="" />
+						</div>
+						<div class="tp-caption lfb carousel-caption-inner" data-x="120" data-y="350" data-speed="1300" data-start="1700" data-easing="easeInOutBack"
+							style="font-family: cabin Sans; font-size: 17px; font-weight: bold; text-transform: uppercase; color: #232323;">
+							get upto 50% offer for order over $499!
+						</div>
+					</li>
+				</ul>
+			</div>
+		</div>
+	</div>
+	<!-- HOME SLIDER -->
 <!-- promotion -->
 <section class="promotion_area">
   <div class="container">
@@ -105,29 +176,29 @@
               <div role="tabpanel" class="tab-pane active" id="home">
                 <div id="owl-example" class="owl-carousel">
                   <!-- all items -->
-                  <ng-container *ngFor="let item of products | slice : upperNum: lowerNum ;let index of index">
+                  <ng-container *ngFor="let items of products | slice : upperNum: lowerNum ;">
                     <div class="item">
                       <div class="item-img">
-                        <img [src]="item.Image" alt="" />
+                        <img [src]="items.Image" alt="" />
                         <div class="tr-add-cart">
                           <ul>
-                            <li><a class="fa fa-shopping-cart tr_cart" href="#" [routerLink]="['/cart']"></a></li>
-                            <li><a (click)='addCart(item,index)' class="tr_text" [routerLink]="['/']">ADD TO CART</a></li>
+                            <li><a class="fa fa-shopping-cart tr_cart" href="#"></a></li>
+                            <li><a class="tr_text" href="#">ADD TO CART</a></li>
                             <li><a class="fa fa-heart tr_heart" href="#"></a></li>
                             <li><a class="fa fa-search tr_search" href="product-detail.html"></a></li>
                           </ul>
                         </div>
                       </div>
-                      <div class="item-new" *ngIf="item.Discount">
+                      <div class="item-new" *ngIf="items.Discount">
                         <p>New</p>
-                        <span>-{{item.Dp}}%</span>
+                        <span>-{{items.Dp}}%</span>
                       </div>
                       <div class="item-sub">
                         <a href="product-detail.html">
-                          <h5>{{item.Name}}</h5>
+                          <h5>{{items.Name}}</h5>
                         </a>
-                        <p>$ {{item.AfterPrice}} <span>
-                            <ng-container *ngIf="item.Discount"><del>$ {{item.Price}}</del></ng-container>
+                        <p>$ {{items.AfterPrice}} <span>
+                            <ng-container *ngIf="items.Discount"><del>$ {{items.Price}}</del></ng-container>
                           </span></p>
                       </div>
                     </div>
@@ -178,7 +249,7 @@
                         <img [src]="items.Image" alt="" />
                         <div class="tr-add-cart">
                           <ul>
-                            <li><a class="fa fa-shopping-cart tr_cart" [routerLink]="['/cart']"></a></li>
+                            <li><a class="fa fa-shopping-cart tr_cart" href="#"></a></li>
                             <li><a class="tr_text" href="#">ADD TO CART</a></li>
                             <li><a class="fa fa-heart tr_heart" href="#"></a></li>
                             <li><a class="fa fa-search tr_search" href="product-detail.html"></a></li>
@@ -245,7 +316,7 @@
 </section>
 
 <!-- ttobslider -->
-<!-- item image not change-->
+ <!-- item image not change-->
 <section class="t_to_b_slider_area">
   <div class="container">
     <div class="row">
