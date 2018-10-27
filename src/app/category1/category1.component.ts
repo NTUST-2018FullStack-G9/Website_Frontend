@@ -37,7 +37,8 @@ export class Category1Component implements OnInit {
     this.Type = keyword;
     this.dataService.search(keyword);
   }
-  addCart(item: ProductsType, index: number) {
+  addCart(item: ProductsType, index: number, $event: Event) {
+    $event.preventDefault();
     alert('add to cart!');
     for (const i of this.dataService.carts) {
         if (i.Name === item.Name) {
