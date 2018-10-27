@@ -20,7 +20,7 @@ export class Category2Component implements OnInit {
   showNumb = 0;
   showNume = 15;
   get products() {
-    return this.dataService.products;
+    return this.dataService.original;
   }
   constructor(private dataService: ProductServiceService) {
   }
