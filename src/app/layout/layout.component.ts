@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, ElementRef } from '@angular/core';
 import { ProductServiceService } from '../product-service.service';
 interface ProductsType {
   Name: string;
@@ -10,6 +10,7 @@ interface ProductsType {
   Dp: number; // 折扣百分比
   Type: string;
 }
+declare let $: any;
 @Component({
   selector: 'app-layout',
   templateUrl: './layout.component.html',
@@ -23,25 +24,57 @@ export class LayoutComponent implements OnInit {
   get products() {
     return this.dataService.products;
   }
-  constructor(private dataService: ProductServiceService) {
-  }
-  addCart(item: ProductsType, index: number) {
-    alert('add to cart');
+  constructor(public elementRef: ElementRef, private dataService: ProductServiceService) {}
+  addCart(item: ProductsType, index: number, $event: Event) {
+    $event.preventDefault();
+    alert('add to cart!');
     for (const i of this.dataService.carts) {
-        if (i.Name === item.Name) {
-          this.dataService.carts[index].Amount ++;
-        }
+      if (i.Name === item.Name) {
+        this.dataService.carts[index].Amount += 1;
+        return 0;
+      }
     }
-
     this.dataService.carts.push({
-        Name: item.Name,
-        Price: item.Price, // 價格
-        Amount: 1,
-        Image: item.Carts,
-        Type: item.Type
-  });
-
-
+      Name: item.Name,
+      Price: item.Price, // 價格
+      Amount: 1,
+      Image: item.Carts,
+      Type: item.Type
+    });
   }
   ngOnInit() {}
+
+  // tslint:disable-next-line:use-life-cycle-interface
+  ngAfterViewInit(): void {
+    // <script src="assets/js/rs-plugin/js/jquery.themepunch.plugins.min.js"></script>
+    const test = document.createElement('script');
+    test.type = 'text/javascript';
+    test.src = 'assets/js/rs-plugin/rs.home.js';
+    this.elementRef.nativeElement.appendChild(test);
+
+    // <script src="assets/js/bootstrap.min.js"></script>
+    const tItem = document.createElement('script');
+    tItem.type = 'text/javascript';
+    tItem.src = 'assets/js/main.js';
+    this.elementRef.nativeElement.appendChild(tItem);
+
+    $('.slider8').bxSlider({
+      mode: 'vertical',
+      slideWidth: 300,
+      minSlides: 3,
+      slideMargin: 10
+    });
+    $('.slider9').bxSlider({
+      mode: 'vertical',
+      slideWidth: 300,
+      minSlides: 3,
+      slideMargin: 10
+    });
+    $('.slider10').bxSlider({
+      mode: 'vertical',
+      slideWidth: 300,
+      minSlides: 3,
+      slideMargin: 10
+    });
+  }
 }
