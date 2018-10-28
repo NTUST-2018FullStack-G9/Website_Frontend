@@ -9,7 +9,11 @@
       </div>
       <div class="col-md-6 col-sm-6 col-xs-12">
         <div class="header_top_right floatright">
-          <p><a [routerLink]="['/login']" routerLinkActive="active">login</a> / <a [routerLink]="['/register']" routerLinkActive="active">register</a></p>
+          <p *ngIf="!Islogin;else logined"><a [routerLink]="['/login']">login</a> / <a [routerLink]="['/register']">register</a></p>
+          <ng-template #logined>
+            <p>{{name+'你好'}}</p>
+            <a href="javascript:void(0)" (click)="logout()">登出</a>
+          </ng-template>
           <nav class="currency alignleft">
             <ul>
               <li><a href="">USD</a>
@@ -36,7 +40,7 @@
       <div class="col-md-3 col-sm-3 col-xs-12">
         <div class="header_left floatleft">
           <a class="fa fa-search" href=""></a>
-          <input type="text" placeholder="search"/>
+          <input type="text" placeholder="search" />
         </div>
       </div>
       <div class="col-md-6 col-sm-5 col-xs-12">
@@ -64,60 +68,60 @@
     <div class="nav_left floatleft">
       <a [routerLink]="['/category1']">category<i class="fa fa-bars"></i></a>
       <div class="cat_mega_menu">
-          <div class="cat_left">
-            <h5>Beer</h5>
-            <div class="cat_menu_line"></div>
-            <ul class="cat_nav">
-              <li><a href="">Ale</a></li>
-              <li><a href="">Lager</a></li>
-              <li><a href="">Lambic</a></li>
-            </ul>
-          </div>
-          <div class="cat_middle">
-            <h5>Spirits</h5>
-            <div class="cat_menu_line"></div>
-            <ul class="cat_nav">
-              <li><a href="">Brandy</a></li>
-              <li><a href="">Whisky</a></li>
-              <li><a href="">Rum</a></li>
-              <li><a href="">Mezcal</a></li>
-              <li><a href="">Gin</a></li>
-              <li><a href="">Vodka</a></li>
-            </ul>
-          </div>
-          <div class="cat_middle">
-            <h5>Wine</h5>
-            <div class="cat_menu_line"></div>
-            <ul class="cat_nav">
-              <li><a href="">Sauvignon Blanc</a></li>
-              <li><a href="">Riesling</a></li>
-              <li><a href="">Cabernet Sauvignon</a></li>
-              <li><a href="">Merlet</a></li>
-              <li><a href="">Pinor Noir</a></li>
-            </ul>
-          </div>
-          <div class="cat_middle_right">
-            <h5>Drinkware</h5>
-            <div class="cat_menu_line"></div>
-            <ul class="cat_nav">
-              <li><a href="">Drinkware1</a></li>
-              <li><a href="">Drinkware2</a></li>
-              <li><a href="">Drinkware3</a></li>
-              <li><a href="">Drinkware4</a></li>
-              <li><a href="">Drinkware5</a></li>
-            </ul>
-          </div>
+        <div class="cat_left">
+          <h5>Beer</h5>
+          <div class="cat_menu_line"></div>
+          <ul class="cat_nav">
+            <li><a href="">Ale</a></li>
+            <li><a href="">Lager</a></li>
+            <li><a href="">Lambic</a></li>
+          </ul>
+        </div>
+        <div class="cat_middle">
+          <h5>Spirits</h5>
+          <div class="cat_menu_line"></div>
+          <ul class="cat_nav">
+            <li><a href="">Brandy</a></li>
+            <li><a href="">Whisky</a></li>
+            <li><a href="">Rum</a></li>
+            <li><a href="">Mezcal</a></li>
+            <li><a href="">Gin</a></li>
+            <li><a href="">Vodka</a></li>
+          </ul>
+        </div>
+        <div class="cat_middle">
+          <h5>Wine</h5>
+          <div class="cat_menu_line"></div>
+          <ul class="cat_nav">
+            <li><a href="">Sauvignon Blanc</a></li>
+            <li><a href="">Riesling</a></li>
+            <li><a href="">Cabernet Sauvignon</a></li>
+            <li><a href="">Merlet</a></li>
+            <li><a href="">Pinor Noir</a></li>
+          </ul>
+        </div>
+        <div class="cat_middle_right">
+          <h5>Drinkware</h5>
+          <div class="cat_menu_line"></div>
+          <ul class="cat_nav">
+            <li><a href="">Drinkware1</a></li>
+            <li><a href="">Drinkware2</a></li>
+            <li><a href="">Drinkware3</a></li>
+            <li><a href="">Drinkware4</a></li>
+            <li><a href="">Drinkware5</a></li>
+          </ul>
+        </div>
 
       </div>
     </div>
     <div class="nav_center">
       <nav class="mainmenu">
         <ul id="nav">
-          <li routerLinkActive="current-page-item"  [routerLinkActiveOptions]="{exact: true}"><a [routerLink]="['']">Home</a>
+          <li routerLinkActive="current-page-item" [routerLinkActiveOptions]="{exact: true}"><a [routerLink]="['']">Home</a>
           </li>
-          <li  routerLinkActive="current-page-item"><a [routerLink]="['/category2']" >shop</a>
+          <li routerLinkActive="current-page-item"><a [routerLink]="['/category2']">shop</a>
           </li>
-          <li routerLinkActive="current-page-item"><a [routerLink]="['/category1']" >Trending</a>
+          <li routerLinkActive="current-page-item"><a [routerLink]="['/category1']">Trending</a>
             <ul id="sub-menu">
               <li><a href="">Top 10 Beer</a></li>
               <li><a href="">Top 10 Spirit</a></li>
@@ -134,28 +138,30 @@
       <a [routerLink]="['/cart']"><img src="../../assets/images/bag.png" alt="Bag" />cart: {{carts.length}} items</a>
       <!---->
       <div class="cart_menu">
-<ng-container *ngFor="let items of carts;let index of index">
-        <div class="cart_items">
-          <div class="c_item_img floatleft">
-            <a [routerLink]="['/productDetail']"><img [src] = 'items.Image' alt="" /></a>
-          </div>
-          <div class="c_item_totals floatleft">
-            <div class="c_item_totals_detail floatleft">
-              <a [routerLink]="['/productDetail']"><h5>men’s fashion blue jean coat</h5></a>
-              <span>{{items.Amount}} x $ {{items.Price}}</span>
+        <ng-container *ngFor="let items of carts;let index of index">
+          <div class="cart_items">
+            <div class="c_item_img floatleft">
+              <a [routerLink]="['/productDetail']"><img [src]='items.Image' alt="" /></a>
             </div>
-            <div  (click)= ' deleteCarts(index)' class="close_icon_cart floatleft">
-              <img src="../../assets/images/close.png" alt="" />
+            <div class="c_item_totals floatleft">
+              <div class="c_item_totals_detail floatleft">
+                <a [routerLink]="['/productDetail']">
+                  <h5>men’s fashion blue jean coat</h5>
+                </a>
+                <span>{{items.Amount}} x $ {{items.Price}}</span>
+              </div>
+              <div (click)=' deleteCarts(index)' class="close_icon_cart floatleft">
+                <img src="../../assets/images/close.png" alt="" />
+              </div>
             </div>
           </div>
-        </div>
-</ng-container>
+        </ng-container>
         <div class="cart_totals">
           <div class="c_totals_left floatleft">
             <p>Free shipping</p>
           </div>
           <div class="c_totals_right floatleft">
-            <p>total   ${{ getCartprice() }}</p>
+            <p>total ${{ getCartprice() }}</p>
           </div>
         </div>
         <div class="cart_view_bottom">
@@ -229,7 +235,7 @@
                     <div class="clearfix"></div>
                     <div class="row in1">
                       <div class="col-md-6">
-                        <a href="#"><img src="../../assets/images/menu_cat.png" class="img-responsive" alt=""/></a>
+                        <a href="#"><img src="../../assets/images/menu_cat.png" class="img-responsive" alt="" /></a>
                       </div>
                       <div class="col-md-6">
                       </div>
