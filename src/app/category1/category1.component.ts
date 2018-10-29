@@ -41,7 +41,7 @@ export class Category1Component implements OnInit {
     alert('add to cart!');
     for (const i of this.dataService.carts) {
       if (i.Name === item.Name) {
-        this.dataService.carts[index].Amount += 1;
+        i.Amount += 1;
         return 0;
       }
     }
