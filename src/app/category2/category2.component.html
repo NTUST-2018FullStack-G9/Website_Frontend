@@ -71,8 +71,8 @@
                         <img [src]="item.Image" alt="" />
                         <div class="tr-add-cart">
                           <ul>
-                            <li><a class="fa fa-shopping-cart tr_cart" [routerLink]="['/cart']"></a></li>
-                            <li><a (click)= 'addCart(item,index)' class="tr_text" [routerLink]="['/category2']">ADD TO CART</a></li>
+                            <li><a  class="fa fa-shopping-cart tr_cart" [routerLink]="['/cart']"></a></li>
+                            <li><a href="javascript: void(0)" (click)= 'addCart(item,index, $event)' class="tr_text">ADD TO CART</a></li>
                             <li><a class="fa fa-heart tr_heart" href="#"></a></li>
                             <li><a class="fa fa-search tr_search" href="product-detail.html"></a></li>
                           </ul>
@@ -90,30 +90,6 @@
                   </div>
                 </div>
             </ng-container>
-           <!-- <div class="col-md-3 col-sm-4 col-xs-12">
-              <div class="main_cat_item">
-                <div class="item">
-                  <div class="item-img">
-                    <img src="../../assets/images/t_item13.jpg" alt="" />
-                    <div class="tr-add-cart">
-                      <ul>
-                        <li><a class="fa fa-shopping-cart tr_cart" href="#"></a></li>
-                        <li><a class="tr_text" href="#">ADD TO CART</a></li>
-                        <li><a class="fa fa-heart tr_heart" href="#"></a></li>
-                        <li><a class="fa fa-search tr_search" href="product-detail.html"></a></li>
-                      </ul>
-                    </div>
-                  </div>
-                  <div class="item-new">
-                    <p>Sale</p>
-                  </div>
-                  <div class="item-sub">
-                    <a href="product-detail.html"><h5>Alexander 亞歷山大氣泡酒</h5></a>
-                    <p>$ 130.00<span><del>$ 150.00</del></span></p>
-                  </div>
-                </div>
-              </div>
-            </div>
 
 
              <div class="col-md-3 col-sm-4 col-xs-12">

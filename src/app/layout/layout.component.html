@@ -176,29 +176,29 @@
               <div role="tabpanel" class="tab-pane active" id="home">
                 <div id="owl-example" class="owl-carousel">
                   <!-- all items -->
-                  <ng-container *ngFor="let items of products | slice : upperNum: lowerNum ;">
+                  <ng-container *ngFor="let item of products | slice : upperNum: lowerNum ;">
                     <div class="item">
                       <div class="item-img">
-                        <img [src]="items.Image" alt="" />
+                        <img [src]="item.Image" alt="" />
                         <div class="tr-add-cart">
                           <ul>
-                            <li><a class="fa fa-shopping-cart tr_cart" href="#"></a></li>
-                            <li><a class="tr_text" href="#">ADD TO CART</a></li>
+                            <li><a  class="fa fa-shopping-cart tr_cart" [routerLink]="['/cart']"></a></li>
+                            <li><a href="javascript: void(0)" (click)= 'addCart( item, $event)' class="tr_text">ADD TO CART</a></li>
                             <li><a class="fa fa-heart tr_heart" href="#"></a></li>
                             <li><a class="fa fa-search tr_search" href="product-detail.html"></a></li>
                           </ul>
                         </div>
                       </div>
-                      <div class="item-new" *ngIf="items.Discount">
+                      <div class="item-new" *ngIf="item.Discount">
                         <p>New</p>
-                        <span>-{{items.Dp}}%</span>
+                        <span>-{{item.Dp}}%</span>
                       </div>
                       <div class="item-sub">
                         <a href="product-detail.html">
-                          <h5>{{items.Name}}</h5>
+                          <h5>{{item.Name}}</h5>
                         </a>
-                        <p>$ {{items.AfterPrice}} <span>
-                            <ng-container *ngIf="items.Discount"><del>$ {{items.Price}}</del></ng-container>
+                        <p>$ {{item.AfterPrice}} <span>
+                            <ng-container *ngIf="item.Discount"><del>$ {{ item.Price}}</del></ng-container>
                           </span></p>
                       </div>
                     </div>
