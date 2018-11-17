@@ -22,15 +22,27 @@ export class Category2Component implements OnInit {
   get products() {
     return this.dataService.original;
   }
+<<<<<<< HEAD
   constructor(private dataService: ProductServiceService) {}
+=======
+  constructor(private dataService: ProductServiceService) {
+  }
+>>>>>>> e94550d61119361387bbd2c05e40ca22bca5e602
   addCart(item: ProductsType, index: number, $event: Event) {
     $event.preventDefault();
     alert('add to cart!');
     for (const i of this.dataService.carts) {
+<<<<<<< HEAD
       if (i.Name === item.Name) {
         i.Amount++;
         return 0;
       }
+=======
+        if (i.Name === item.Name) {
+          i.Amount++;
+          return 0;
+        }
+>>>>>>> e94550d61119361387bbd2c05e40ca22bca5e602
     }
     this.dataService.carts.push({
       Name: item.Name,
