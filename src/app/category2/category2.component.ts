@@ -22,25 +22,23 @@ export class Category2Component implements OnInit {
   get products() {
     return this.dataService.original;
   }
-  constructor(private dataService: ProductServiceService) {
-  }
-  addCart(item: ProductsType, index: number) {
+  constructor(private dataService: ProductServiceService) {}
+  addCart(item: ProductsType, index: number, $event: Event) {
+    $event.preventDefault();
     alert('add to cart!');
     for (const i of this.dataService.carts) {
-        if (i.Name === item.Name) {
-          this.dataService.carts[index].Amount += 1;
-          return 0;
-        }
+      if (i.Name === item.Name) {
+        i.Amount++;
+        return 0;
+      }
     }
     this.dataService.carts.push({
-            Name: item.Name,
-            Price: item.Price, // 價格
-            Amount: 1,
-            Image: item.Carts,
-            Type: item.Type
+      Name: item.Name,
+      Price: item.Price, // 價格
+      Amount: 1,
+      Image: item.Carts,
+      Type: item.Type
     });
   }
-  ngOnInit() {
-  }
-
+  ngOnInit() {}
 }

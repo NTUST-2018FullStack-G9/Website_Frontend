@@ -10,7 +10,7 @@
         <a href="javascript: void(0)" class="fb btn">
           <i class="fa fa-facebook fa-fw"></i> Login with Facebook
         </a>
-        <a href="javascript: void(0)"class="twitter btn">
+        <a href="javascript: void(0)" class="twitter btn">
           <i class="fa fa-twitter fa-fw"></i> Login with Twitter
         </a>
         <a href="javascript: void(0)" class="google btn">
@@ -22,9 +22,9 @@
         <div class="hide-md-lg">
           <p>Or sign in manually:</p>
         </div>
-        <input type="email" name="username" placeholder="Username" [(ngModel)]="userID" required >
+        <input type="email" name="username" placeholder="Username" [(ngModel)]="userID" required>
         <input type="password" name="password" placeholder="Password" [(ngModel)]="userPassword" required>
-        <input type="submit" value="Login" (click)="loginSubmit()" >
+        <input type="submit" value="Login" (click)="loginSubmit()">
       </div>
 
     </div>
@@ -34,7 +34,7 @@
 <div class="bottom-container">
   <div class="row">
     <div class="col">
-      <a [routerLink]="['/register']" routerLinkActive="router-link-active"  style="color:white" class="btn">Sign up</a>
+      <a [routerLink]="['/register']" routerLinkActive="router-link-active" style="color:white" class="btn">Sign up</a>
     </div>
     <div class="col">
       <a href="#" style="color:white" class="btn">Forgot password?</a>

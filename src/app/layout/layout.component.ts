@@ -30,7 +30,7 @@ export class LayoutComponent implements OnInit {
     alert('add to cart!');
     for (const i of this.dataService.carts) {
       if (i.Name === item.Name) {
-        this.dataService.carts[index].Amount += 1;
+        i.Amount++;
         return 0;
       }
     }
