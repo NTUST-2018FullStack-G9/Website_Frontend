@@ -25,6 +25,7 @@ export class LayoutComponent implements OnInit {
     return this.dataService.products;
   }
   constructor(public elementRef: ElementRef, private dataService: ProductServiceService) {}
+
   addCart(item: ProductsType, index: number, $event: Event) {
     $event.preventDefault();
     alert('add to cart!');
