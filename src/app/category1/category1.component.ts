@@ -1,5 +1,6 @@
 import { ProductServiceService } from './../product-service.service';
 import { Component, OnInit } from '@angular/core';
+import { Product } from '../product';
 interface ProductsType {
   Name: string;
   Image: string;
@@ -19,13 +20,14 @@ export class Category1Component implements OnInit {
   Type = 'ALL';
   showNumb = 0;
   showNume = 12;
-  get products() {
+  /*get products() {
     return this.dataService.products;
-  }
+  }*/
+  products: Product[];
   constructor(private dataService: ProductServiceService) {}
-  getNum(id) {
+  /*getNum(id) {
     return this.dataService.getNum(id);
-  }
+  }*/
   filterPrice() {
     console.log('filter');
   }
@@ -53,5 +55,12 @@ export class Category1Component implements OnInit {
       Type: item.Type
     });
   }
-  ngOnInit() {}
+  ngOnInit() {
+    // console.log('ngOnInit');
+    this.dataService.getProducts()
+    .subscribe((data: Product[]) => {
+      this.products = data;
+      console.log(data);
+    });
+  }
 }

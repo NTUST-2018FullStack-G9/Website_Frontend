@@ -2,7 +2,7 @@ export interface Product {
   id: number;
   listprice: number;
   saleprice: number;
-  isSaling: number;
+  isSeling: number;
   name: string;
   unit: string;
   description: string;

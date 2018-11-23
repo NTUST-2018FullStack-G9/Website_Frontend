@@ -1,4 +1,6 @@
 import { Injectable } from '@angular/core';
+import { HttpClient } from '@angular/common/http';
+import { environment } from '../environments/environment';
 interface ProductsType {
   Name: string;
   Image: string;
@@ -23,7 +25,7 @@ interface CartsType {
 
 
 export class ProductServiceService {
-
+  constructor(private httpClient: HttpClient) {}
   products: ProductsType[] = [
     {
       Name: 'ABERFELDY12年單ㄧ純麥威士忌',
@@ -293,6 +295,21 @@ export class ProductServiceService {
         this.products = this.original.filter(products => products.Type.indexOf(keyword) !== -1);
     }
   }
+// ===========================
+getProducts() {
+  return this.httpClient
+    .get('http://localhost:8000/api/products');
+}
+getProduct(id) {
+  return this.httpClient
+    .get(`${environment.api}/${id}`);
+}
 
-  constructor() { }
+
+
+
+
+
+// =============================
+
 }
