@@ -1,6 +1,7 @@
 import { Injectable } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
 import { environment } from '../environments/environment';
+// import { Product } from './product';
 interface ProductsType {
   Name: string;
   Image: string;
@@ -11,13 +12,13 @@ interface ProductsType {
   Dp: number; // 折扣百分比
   Type: string;
 }
-interface CartsType {
-  Name: string;
-  Price: number; // 價格
-  Amount: number;
-  Image: string;
-  Type: string;
-}
+// interface CartsType {
+//   Name: string;
+//   Price: number; // 價格
+//   Amount: number;
+//   Image: string;
+//   Type: string;
+// }
 
 @Injectable({
   providedIn: 'root'
@@ -259,8 +260,6 @@ export class ProductServiceService {
     }
   ];
   original = this.products;
-  carts: CartsType[] = [  // 購物車
-  ];
   wineType = [
     'Ale',
     'Lager',

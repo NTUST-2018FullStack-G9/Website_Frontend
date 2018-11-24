@@ -3,6 +3,7 @@ export interface Carts {
   member_id: number;
   product_id: number;
   quantity: number;
+  price: number;
   created_at: string;
   updated_at: string;
 }

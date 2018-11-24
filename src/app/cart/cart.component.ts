@@ -1,6 +1,5 @@
-import { ProductServiceService } from './../product-service.service';
 import { Component, OnInit } from '@angular/core';
-
+import { CartServiceService } from '../cart-service.service';
 
 @Component({
   selector: 'app-cart',
@@ -9,26 +8,28 @@ import { Component, OnInit } from '@angular/core';
 })
 export class CartComponent implements OnInit {
   price = 0;
+  constructor(private dataService: CartServiceService) {
+  }
+
   get carts () {
     return this.dataService.carts;
   }
-  constructor(private dataService: ProductServiceService) {
-  }
+
   ngOnInit() {}
   clickminus(index) {
-
-    if (this.dataService.carts[index].Amount > 0) {
-      this.dataService.carts[index].Amount--;
+    if (this.dataService.carts[index].quantity > 0) {
+      this.dataService.carts[index].quantity--;
     }
   }
+
   clickplus(index) {
-    this.dataService.carts[index].Amount++;
+    this.dataService.carts[index].quantity++;
   }
 
   getCartprice() {
     this.price = 0;
     for (const i of this.carts) {
-      this.price += i.Amount * i.Price;
+      this.price += i.quantity * i.price;
     }
     return this.price;
   }
