@@ -1,7 +1,7 @@
-import { ProductServiceService } from './../product-service.service';
+import { ProductService } from './../product.service';
 import { Component, OnInit } from '@angular/core';
 import { Product } from '../product';
-import { CartServiceService } from '../cart-service.service';
+import { CartService } from '../cart.service';
 // interface ProductsType {
 //   Name: string;
 //   Image: string;
@@ -18,6 +18,7 @@ import { CartServiceService } from '../cart-service.service';
   templateUrl: './category1.component.html',
   styleUrls: ['./category1.component.css']
 })
+
 export class Category1Component implements OnInit {
   Type = 'ALL';
   showNumb = 0;
@@ -26,7 +27,7 @@ export class Category1Component implements OnInit {
     return this.dataService.products;
   }*/
   products: Product[];
-  constructor(private dataService: ProductServiceService, private cartService: CartServiceService) {}
+  constructor(private dataService: ProductService, private cartService: CartService) {}
   /*getNum(id) {
     return this.dataService.getNum(id);
   }*/

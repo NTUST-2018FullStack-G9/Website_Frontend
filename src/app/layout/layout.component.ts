@@ -1,15 +1,8 @@
 import { Component, OnInit, ElementRef } from '@angular/core';
-import { ProductServiceService } from '../product-service.service';
-interface ProductsType {
-  Name: string;
-  Image: string;
-  Carts: string;
-  Price: number; // 價格
-  AfterPrice: number; // 折扣後的價格
-  Discount: boolean; // 是否減價 1;0
-  Dp: number; // 折扣百分比
-  Type: string;
-}
+import { ProductService } from '../product.service';
+import { CartService } from '../cart.service';
+import { Product } from '../product';
+
 declare let $: any;
 @Component({
   selector: 'app-layout',
@@ -17,31 +10,39 @@ declare let $: any;
   styleUrls: ['./layout.component.css']
 })
 export class LayoutComponent implements OnInit {
+  // for style
   upperNum = 0;
   lowerNum = 9;
   upNum = 0;
   loNum = 6;
+
   get products() {
     return this.dataService.products;
   }
-  constructor(public elementRef: ElementRef, private dataService: ProductServiceService) {}
 
-  addCart(item: ProductsType, index: number, $event: Event) {
+  get carts() {
+    return this.cartService.carts;
+  }
+
+  constructor(public elementRef: ElementRef, private dataService: ProductService, private cartService: CartService) {}
+
+  addCart(item: Product, index: number, $event: Event) {
     $event.preventDefault();
     alert('add to cart!');
-    for (const i of this.dataService.carts) {
-      if (i.Name === item.Name) {
-        i.Amount++;
+    for (const i of this.carts) {
+      if (i.product_id === item.id) {
+        i.quantity++;
         return 0;
       }
     }
-    this.dataService.carts.push({
-      Name: item.Name,
-      Price: item.Price, // 價格
-      Amount: 1,
-      Image: item.Carts,
-      Type: item.Type
-    });
+
+    // this.carts.push({
+    //   Name: item.Name,
+    //   Price: item.Price, // 價格
+    //   Amount: 1,
+    //   Image: item.Carts,
+    //   Type: item.Type
+    // });
   }
   ngOnInit() {}
 
@@ -78,5 +79,6 @@ export class LayoutComponent implements OnInit {
       minSlides: 3,
       slideMargin: 10
     });
+
   }
 }

@@ -134,6 +134,8 @@
         </ul>
       </nav>
     </div>
+
+    <!-- CART IN HEADER -->
     <div class="nav_right floatright">
       <a [routerLink]="['/cart']"><img src="../../assets/images/bag.png" alt="Bag" />cart: {{carts.length}} items</a>
       <!---->
@@ -141,7 +143,7 @@
         <ng-container *ngFor="let items of carts;let index of index">
           <div class="cart_items">
             <div class="c_item_img floatleft">
-              <a [routerLink]="['/productDetail']"><img [src]='items.Image' alt="" /></a>
+              <a [routerLink]="['/productDetail']"><img [src]='Image_Need' alt="" /></a> <!---Image need-->
             </div>
             <div class="c_item_totals floatleft">
               <div class="c_item_totals_detail floatleft">

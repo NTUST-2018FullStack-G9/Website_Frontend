@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
-import { ProductServiceService } from './../product-service.service';
-import { CartServiceService } from '../cart-service.service';
+import { ProductService } from './../product.service';
+import { CartService } from '../cart.service';
 import { Product } from '../product';
 // interface ProductsType {
 //   Name: string;
@@ -24,7 +24,7 @@ export class Category2Component implements OnInit {
   get products() {
     return this.dataService.original;
   }
-  constructor(private dataService: ProductServiceService, private cartService: CartServiceService) {}
+  constructor(private dataService: ProductService, private cartService: CartService) {}
   addCart(item: Product, $event: Event) {
     $event.preventDefault();
     alert('add to cart!');

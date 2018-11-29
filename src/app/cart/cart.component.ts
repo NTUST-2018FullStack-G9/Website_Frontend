@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { CartServiceService } from '../cart-service.service';
+import { CartService } from '../cart.service';
 
 @Component({
   selector: 'app-cart',
@@ -8,22 +8,22 @@ import { CartServiceService } from '../cart-service.service';
 })
 export class CartComponent implements OnInit {
   price = 0;
-  constructor(private dataService: CartServiceService) {
+  constructor(private cartService: CartService) {
   }
 
   get carts () {
-    return this.dataService.carts;
+    return this.cartService.carts;
   }
 
   ngOnInit() {}
   clickminus(index) {
-    if (this.dataService.carts[index].quantity > 0) {
-      this.dataService.carts[index].quantity--;
+    if (this.cartService.carts[index].quantity > 0) {
+      this.cartService.carts[index].quantity--;
     }
   }
 
   clickplus(index) {
-    this.dataService.carts[index].quantity++;
+    this.cartService.carts[index].quantity++;
   }
 
   getCartprice() {
