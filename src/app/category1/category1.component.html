@@ -18,7 +18,6 @@
             <li><a [routerLink]="['']">home <span>|</span></a></li>
             <li><a [routerLink]="['./category1']">Shop <span>|</span></a></li>
             <li><a [routerLink]="['./category2']">Category <span>|</span></a></li>
-            <li class="active"><a href="">{{Type}}}</a></li>
           </ul>
         </div>
       </div>
@@ -218,7 +217,7 @@
                 <div class="main_cat_item">
                   <div class="item">
                     <div class="item-img">
-                      <img [src]="item.Image" alt="" />
+                      <img [src]="imageToShow" alt="" />
                       <div class="tr-add-cart">
                         <ul>
                           <li><a  class="fa fa-shopping-cart tr_cart" [routerLink]="['/cart']"></a></li>

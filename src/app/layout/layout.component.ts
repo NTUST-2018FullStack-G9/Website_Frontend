@@ -22,7 +22,7 @@ export class LayoutComponent implements OnInit {
   upNum = 0;
   loNum = 6;
   get products() {
-    return this.dataService.products;
+    return 0;
   }
   constructor(public elementRef: ElementRef, private dataService: ProductServiceService) {}
 

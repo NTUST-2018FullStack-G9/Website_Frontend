@@ -11,15 +11,10 @@ export class Category1Component implements OnInit {
   showNumb = 0;
   showNume = 12;
   num;
-  /*get products() {
-    return this.dataService.products;
-  }*/
+  imageToShow: any;
   products: Product[];
   Oriproducts: Product[];
   constructor(private dataService: ProductServiceService) {}
-  filterPrice() {
-    console.log('filter');
-  }
   getNum(id) { // 讀取商品數量
     this.num = 0;
     for (const i of this.Oriproducts) {
@@ -36,9 +31,28 @@ export class Category1Component implements OnInit {
   }
   bigfilter(id) {
   }
-
+  createImageFromBlob(image: Blob) {
+    const reader = new FileReader();
+    reader.addEventListener('load', () => {
+       this.imageToShow = reader.result;
+    }, false);
+    if (image) {
+       reader.readAsDataURL(image);
+    }
+  }
+  getImageFromService(name) {
+    // this.isImageLoading = true;
+    this.dataService.getImage(name).subscribe((data: any) => {
+      this.createImageFromBlob(data);
+      // this.isImageLoading = false;
+    }, error => {
+      // this.isImageLoading = false;
+      // console.log(error);
+    });
+    // return this.imageToShow;
+  }
   ngOnInit() {
-    // console.log('ngOnInit');
+    this.getImageFromService('51.jpeg');
     this.dataService.getProducts()
     .subscribe((data: Product[]) => {
       this.products = data;
