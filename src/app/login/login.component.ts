@@ -8,12 +8,30 @@ import { Router } from '../../../node_modules/@angular/router';
   styleUrls: ['./login.component.css']
 })
 export class LoginComponent implements OnInit {
-  userID = '';
-  userPassword = '';
+  user = {
+    email: '',
+    password: ''
+  };
   constructor(private memberServise: MemberService, private router: Router) {}
 
+
+
+
   ngOnInit() {}
-  loginSubmit() {
+  login() {
+    // 帳號密碼的檢查
+
+    this.memberServise.login(this.user).subscribe((data: any) => {
+      if (data.token) {
+        localStorage.setItem('token', data.token);
+        this.router.navigate(['/']);
+      } else {
+        console.log('fail');
+      }
+      console.log(data);
+    });
+  }
+  /*loginSubmit() {
     if (this.userID === '') {
       alert('帳號不能為白');
       return;
@@ -35,6 +53,6 @@ export class LoginComponent implements OnInit {
     }
     alert('登入失敗');
     this.userID = '';
-    this.userPassword = '';
-  }
+    this.userPassword = '';*/
 }
+

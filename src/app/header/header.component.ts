@@ -9,7 +9,10 @@ import { Router } from '../../../node_modules/@angular/router';
 })
 export class HeaderComponent implements OnInit {
   get carts() {
-    return this.dataService.carts;
+    return 0;
+  }
+  get isLogin() {
+    return this.memberService.isLogin();
   }
   constructor(
     private dataService: ProductServiceService,
@@ -17,26 +20,23 @@ export class HeaderComponent implements OnInit {
     private router: Router
   ) {}
   price = 0;
-  get Islogin() {
+  /*get Islogin() {
     return this.memberService.Islogin;
   }
   get name() {
     return this.memberService.members[this.memberService.nowloginmemberindex]
       .ID;
-  }
+  }*/
   getCartprice() {
-    this.price = 0;
-    for (const i of this.carts) {
-      this.price += i.Amount * i.Price;
-    }
+
     return this.price;
   }
   deleteCarts(index) {
-    this.carts.splice(index, 1);
+
   }
   ngOnInit() {}
-  logout() {
+ /* logout() {
     this.memberService.Islogin = false;
     location.reload();
-  }
+  }*/
 }

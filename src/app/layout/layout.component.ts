@@ -29,19 +29,7 @@ export class LayoutComponent implements OnInit {
   addCart(item: ProductsType, index: number, $event: Event) {
     $event.preventDefault();
     alert('add to cart!');
-    for (const i of this.dataService.carts) {
-      if (i.Name === item.Name) {
-        i.Amount++;
-        return 0;
-      }
-    }
-    this.dataService.carts.push({
-      Name: item.Name,
-      Price: item.Price, // 價格
-      Amount: 1,
-      Image: item.Carts,
-      Type: item.Type
-    });
+
   }
   ngOnInit() {}
 

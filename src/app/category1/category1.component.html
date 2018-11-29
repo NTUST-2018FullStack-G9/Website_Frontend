@@ -3,7 +3,7 @@
     <div class="row">
       <div class="col-md-12 col-sm-12 col-xs-12">
         <div class="bread_top_box">
-          <h2>John 99</h2>
+          <h2>Men</h2>
         </div>
       </div>
     </div>
@@ -15,10 +15,10 @@
       <div class="col-md-12 col-sm-12 col-xs-12">
         <div class="bread_box">
           <ul class="breadcumb">
-            <li routerLinkActive=""><a [routerLink]="['']">home <span>|</span></a></li>
+            <li><a [routerLink]="['']">home <span>|</span></a></li>
             <li><a [routerLink]="['./category1']">Shop <span>|</span></a></li>
             <li><a [routerLink]="['./category2']">Category <span>|</span></a></li>
-            <li class="active"><a href="">{{ Type }}</a></li>
+            <li class="active"><a href="">{{Type}}}</a></li>
           </ul>
         </div>
       </div>
@@ -33,9 +33,9 @@
           <p>FILTERING:</p>
           <div class="filter_cont">
             <ul>
-              <li><a [routerLink]="['/category1']">on</a></li>
-              <li><img src="../../assets/images/filter_ico.png" alt="" /></li>
-              <li><a [routerLink]="['/category2']">off</a></li>
+              <li><a [routerLink]="['./category1']">on</a></li>
+              <li><img src="images/filter_ico.png" alt="" /></li>
+              <li><a [routerLink]="['./category2']">off</a></li>
             </ul>
           </div>
           <div class="s_results">
@@ -45,13 +45,13 @@
       </div>
       <div class="col-md-6 col-sm-4 col-xs-12">
         <div class="filter_box_right">
-          <a class="dropdown-toggle" data-toggle="dropdown" [routerLink]="['/cart']">sort by newness <span class="caret"></span></a>
-          <ul class="dropdown-menu">
-            <li><a [routerLink]="['/cart']">Top Seller </a></li>
-            <li><a [routerLink]="['/cart']">Most Popular</a></li>
-            <li><a [routerLink]="['/cart']">Alphabetically</a></li>
-            <li><a [routerLink]="['/cart']">Older First</a></li>
-          </ul>
+          <a class="dropdown-toggle" data-toggle="dropdown" href="#">sort by newness <span class="caret"></span></a>
+            <ul class="dropdown-menu">
+            <li><a href="#">Top Seller </a></li>
+            <li><a href="#">Most Popular</a></li>
+            <li><a href="#">Alphabetically</a></li>
+            <li><a href="#">Older First</a></li>
+            </ul>
         </div>
       </div>
     </div>
@@ -64,174 +64,182 @@
         <div class="main_category_left">
 
           <div class="panel-group" id="home-accordion" role="tablist" aria-multiselectable="true">
-
-            <!--BEER------------------------>
+           <!--------------------------------------------->
             <div class="panel panel-default">
-              <div class="panel-heading" role="tab" id="headingOne">
-                <h4 class="panel-title">
-                  <a data-toggle="collapse" data-parent="#home-accordion" href="#collapseOne" aria-expanded="true"
-                    aria-controls="collapseOne">
-                    BEER
-                    <span class="floatright"><i class="fa fa-minus"></i></span>
-                  </a>
-                </h4>
-              </div>
-              <div id="collapseOne" class="panel-collapse collapse in" role="tabpanel" aria-labelledby="headingOne">
-                <div class="panel-body">
-                  <ul id="c_tab1">
-                    <li (click)="search('Ale')"><a>Ale ({{getNum(0)}})</a></li>
-                    <li><a (click)="search('Lager')">Lager ({{getNum(1)}})</a></li>
-                    <li><a (click)="search('Lambic')">Lambic ({{getNum(2)}})</a></li>
-                  </ul>
-                </div>
+            <div class="panel-heading" role="tab" id="headingOne">
+              <h4 class="panel-title">
+              <a (click) = bigfilter(1) data-toggle="collapse" data-parent="#home-accordion" href="#collapseOne" aria-expanded="true" aria-controls="collapseOne" >
+                BEER
+                <span class="floatright"><i class="fa fa-minus"></i></span>
+              </a>
+              </h4>
+            </div>
+            <div id="collapseOne" class="panel-collapse collapse in" role="tabpanel" aria-labelledby="headingOne">
+              <div class="panel-body">
+                <ul id="c_tab1">
+                  <li><a  (click)="filter(1)">Ale ({{getNum(1)}})</a></li>
+                  <li><a (click)="filter(2)">Lager ({{getNum(2)}})</a></li>
+                  <li><a (click)="filter(3)">Lambic ({{getNum(3)}})</a></li>
+                </ul>
               </div>
             </div>
-            <!------------------------------>
-            <!--SPIRIT---------------------->
+            </div>
             <div class="panel panel-default">
-              <div class="panel-heading" role="tab" id="headingOne">
-                <h4 class="panel-title">
-                  <a data-toggle="collapse" data-parent="#home-accordion" href="#collapseOne" aria-expanded="true"
-                    aria-controls="collapseOne">
+                <div class="panel-heading" role="tab" id="headingFive">
+                  <h4 class="panel-title">
+                  <a (click) = bigfilter(2) class="collapsed" data-toggle="collapse" data-parent="#home-accordion" href="#collapseFive" aria-expanded="false" aria-controls="collapseFive">
                     SPIRIT
-                    <span class="floatright"><i class="fa fa-minus"></i></span>
-                  </a>
-                </h4>
-              </div>
-              <div id="collapseOne" class="panel-collapse collapse in" role="tabpanel" aria-labelledby="headingOne">
-                <div class="panel-body">
-                  <ul id="c_tab1">
-                    <li><a (click)="search('Brandy')">Brandy ({{getNum(3)}})</a></li>
-                    <li><a (click)="search('Whisky')">Whisky ({{getNum(4)}})</a></li>
-                    <li><a (click)="search('Rum')">Rum ({{getNum(5)}})</a></li>
-                    <li><a (click)="search('Mezcal')">Mezcal ({{getNum(6)}})</a></li>
-                    <li><a (click)="search('Gin')">Gin ({{getNum(7)}})</a></li>
-                    <li><a (click)="search('Vodka')">Vodka ({{getNum(8)}})</a></li>
-                  </ul>
-                </div>
-              </div>
-            </div>
-            <!------------------------------>
-            <!--WINE---------------------->
-            <div class="panel panel-default">
-              <div class="panel-heading" role="tab" id="headingOne">
-                <h4 class="panel-title">
-                  <a data-toggle="collapse" data-parent="#home-accordion" href="#collapseOne" aria-expanded="true"
-                    aria-controls="collapseOne">
-                    WINE
-                    <span class="floatright"><i class="fa fa-minus"></i></span>
-                  </a>
-                </h4>
-              </div>
-              <div id="collapseOne" class="panel-collapse collapse in" role="tabpanel" aria-labelledby="headingOne">
-                <div class="panel-body">
-                  <ul id="c_tab1">
-                    <li><a (click)="search('Sauvignon Blanc')">Sauvignon Blanc ({{getNum(9)}})</a></li>
-                    <li><a (click)="search('Riesling')">Riesling ({{getNum(10)}})</a></li>
-                    <li><a (click)="search('Cabernet Sauvignon')">Cabernet Sauvignon({{getNum(11)}})</a></li>
-                    <li><a (click)="search('Merlet')">Merlet({{getNum(12)}})</a></li>
-                    <li><a (click)="search('Pinot Noir')">Pinot Noir ({{getNum(13)}})</a></li>
-                  </ul>
-                </div>
-              </div>
-            </div>
-            <!------------------------------>
-
-            <!--PRICE-->
-            <div class="panel panel-default">
-              <div class="panel-heading" role="tab" id="headingTwo">
-                <h4 class="panel-title">
-                  <a class="collapsed" data-toggle="collapse" data-parent="#home-accordion" href="#collapseTwo"
-                    aria-expanded="false" aria-controls="collapseTwo">
-                    PRICE FILTER
                     <span class="floatright"><i class="fa fa-plus"></i></span>
                   </a>
-                </h4>
-              </div>
-              <div id="collapseTwo" class="panel-collapse collapse" role="tabpanel" aria-labelledby="headingTwo">
-                <div class="panel-body">
-                  <div id="slider-range"></div>
-                  <div class="cat_filter_box">
-                    <p>
-                      <label for="amount" (onclick)="filterPrice()">Filter</label>
-                      <input type="text" id="amount" readonly style="border:0; color:#000; font-weight:bold;">
-                    </p>
+                  </h4>
+                </div>
+                <div id="collapseFive" class="panel-collapse collapse" role="tabpanel" aria-labelledby="headingFive">
+                  <div class="panel-body">
+                      <ul id="c_tab1">
+                          <li><a (click)="filter(4)">Brandy ({{getNum(4)}})</a></li>
+                          <li><a (click)="filter(5)">Whisky ({{getNum(5)}})</a></li>
+                          <li><a (click)="filter(6)">Rum ({{getNum(6)}})</a></li>
+                          <li><a (click)="filter(7)">Mezcal ({{getNum(7)}})</a></li>
+                          <li><a (click)="filter(8)">Gin ({{getNum(8)}})</a></li>
+                          <li><a (click)="filter(9)">Vodka ({{getNum(9)}})</a></li>
+                        </ul>
+
+                  </div>
+                </div>
+            </div>
+            <div class="panel panel-default">
+                <div class="panel-heading" role="tab" id="headingSix">
+                  <h4 class="panel-title">
+                  <a (click) = bigfilter(3) class="collapsed" data-toggle="collapse" data-parent="#home-accordion" href="#collapseSix" aria-expanded="false" aria-controls="collapseSix">
+                      WINE
+                    <span class="floatright"><i class="fa fa-plus"></i></span>
+                  </a>
+                  </h4>
+                </div>
+                <div id="collapseSix" class="panel-collapse collapse" role="tabpanel" aria-labelledby="headingSix">
+                  <div class="panel-body">
+                    <div class="panel-body">
+                        <ul id="c_tab1">
+                            <li><a  (click)="filter(10)">Sauvignon Blanc ({{getNum(10)}})</a></li>
+                            <li><a (click)="filter(11)">Riesling ({{getNum(11)}})</a></li>
+                            <li><a (click)="filter(12)">Cabernet Sauvignon({{getNum(12)}})</a></li>
+                            <li><a (click)="filter(13)">Merlet({{getNum(13)}})</a></li>
+                            <li><a (click)="filter(14)">Pinot Noir ({{getNum(14)}})</a></li>
+                          </ul>
+
+                      </div>
                   </div>
                 </div>
               </div>
-            </div>
-            <!---->
-            <div class="panel panel-default">
-              <div class="panel-heading" role="tab" id="headingFive">
+            <!-- <div class="panel panel-default">
+              <div class="panel-heading" role="tab" id="headingSeven">
                 <h4 class="panel-title">
-                  <a class="collapsed" data-toggle="collapse" data-parent="#home-accordion" href="#collapseFive"
-                    aria-expanded="false" aria-controls="collapseFive">
-                    Brands
-                    <span class="floatright"><i class="fa fa-plus"></i></span>
-                  </a>
+                <a class="collapsed" data-toggle="collapse" data-parent="#home-accordion" href="#collapseSeven" aria-expanded="false" aria-controls="collapseSeven">
+                 Style
+                  <span class="floatright"><i class="fa fa-plus"></i></span>
+                </a>
                 </h4>
               </div>
-              <div id="collapseFive" class="panel-collapse collapse" role="tabpanel" aria-labelledby="headingFive">
+              <div id="collapseSeven" class="panel-collapse collapse" role="tabpanel" aria-labelledby="headingSeven">
                 <div class="panel-body">
-                  <ul id="c_tab2">
-                    <li><a href="">to be continue...</a></li>
-                  </ul>
+                  <div class="panel-body">
+                    <ul id="c_tab1">
+                      <li><a href="">Blazers  (12)</a></li>
+                      <li><a href="">Pants & Trousers  (54)</a></li>
+                      <li><a href="">Shirts  (105)</a></li>
+                      <li><a href="">Suits & Tailors  (48)</a></li>
+                      <li><a href="">T-shirts  (120)</a></li>
+                      <li><a href="">Underwear  (12)</a></li>
+                      <li><a href="">Jackets & Coats (12)</a></li>
+                    </ul>
+                    </div>
                 </div>
               </div>
             </div>
             <div class="panel panel-default">
               <div class="panel-heading" role="tab" id="headingEight">
                 <h4 class="panel-title">
-                  <a class="collapsed" data-toggle="collapse" data-parent="#home-accordion" href="#collapseEight"
-                    aria-expanded="false" aria-controls="collapseEight">
-                    Best Seller
-                    <span class="floatright"><i class="fa fa-plus"></i></span>
-                  </a>
+                <a class="collapsed" data-toggle="collapse" data-parent="#home-accordion" href="#collapseEight" aria-expanded="false" aria-controls="collapseEight">
+                 Best Seller
+                  <span class="floatright"><i class="fa fa-plus"></i></span>
+                </a>
                 </h4>
               </div>
               <div id="collapseEight" class="panel-collapse collapse" role="tabpanel" aria-labelledby="headingEight">
                 <div class="panel-body">
-
+                  <div class="panel-body">
+                    <ul id="c_tab1">
+                      <li><a href="">Blazers  (12)</a></li>
+                      <li><a href="">Pants & Trousers  (54)</a></li>
+                      <li><a href="">Shirts  (105)</a></li>
+                      <li><a href="">Suits & Tailors  (48)</a></li>
+                      <li><a href="">T-shirts  (120)</a></li>
+                      <li><a href="">Underwear  (12)</a></li>
+                      <li><a href="">Jackets & Coats (12)</a></li>
+                    </ul>
+                    </div>
+                </div>
+              </div>
+            </div> -->
+            <div class="panel panel-default">
+            <div class="panel-heading" role="tab" id="headingTwo">
+              <h4 class="panel-title">
+              <a class="collapsed" data-toggle="collapse" data-parent="#home-accordion" href="#collapseTwo" aria-expanded="false" aria-controls="collapseTwo">
+                PRICE FILTER
+                <span class="floatright"><i class="fa fa-plus"></i></span>
+              </a>
+              </h4>
+            </div>
+            <div id="collapseTwo" class="panel-collapse collapse" role="tabpanel" aria-labelledby="headingTwo">
+              <div class="panel-body">
+              <div id="slider-range"></div>
+                <div class="cat_filter_box">
+                  <p>
+                    <label for="amount">Filter</label>
+                    <input type="text" id="amount" readonly style="border:0; color:#000; font-weight:bold;">
+                  </p>
                 </div>
               </div>
             </div>
+            </div>
+
+
+
+
+            <!----------------------------------------->
           </div>
         </div>
       </div>
-      <!--商品列ㄅ-->
-
       <div class="col-md-9 col-sm-8 col-xs-12">
         <div class="main_category_right">
           <div class="row">
-            <!---------商品的------------->
             <ng-container *ngFor="let item of products | slice: showNumb :showNume;let index = index">
-                <div class="col-md-4 col-sm-6 col-xs-12">
-                  <div class="main_cat_item">
-                    <div class="item">
-                      <div class="item-img">
-                        <img [src]="item.Image" alt="" />
-                        <div class="tr-add-cart">
-                          <ul>
-                            <li><a  class="fa fa-shopping-cart tr_cart" [routerLink]="['/cart']"></a></li>
-                            <li><a href="javascript: void(0)"  class="tr_text">ADD TO CART</a></li>
-                            <li><a class="fa fa-heart tr_heart" href="#"></a></li>
-                            <li><a class="fa fa-search tr_search" href="product-detail.html"></a></li>
-                          </ul>
-                        </div>
+              <div class="col-md-4 col-sm-6 col-xs-12">
+                <div class="main_cat_item">
+                  <div class="item">
+                    <div class="item-img">
+                      <img [src]="item.Image" alt="" />
+                      <div class="tr-add-cart">
+                        <ul>
+                          <li><a  class="fa fa-shopping-cart tr_cart" [routerLink]="['/cart']"></a></li>
+                          <li><a href="javascript: void(0)"  class="tr_text">ADD TO CART</a></li>
+                          <li><a class="fa fa-heart tr_heart" href="#"></a></li>
+                          <li><a class="fa fa-filter tr_filter" href="product-detail.html"></a></li>
+                        </ul>
                       </div>
-                      <div class="item-new" *ngIf="item.isSeling">
-                        <p>New</p>
-                        <span>123132</span>
-                      </div>
-                      <div class="item-sub">
-                        <a href="product-detail.html"><h5>{{item.name}}</h5></a>
-                        <p>$ {{item.listprice }} <span><ng-container *ngIf="item.isSeling"><del>$ {{item.saleprice}}</del></ng-container></span></p>
-                      </div>
+                    </div>
+                    <div class="item-new" *ngIf="item.isSeling">
+                      <p>New</p>
+                      <span>123132</span>
+                    </div>
+                    <div class="item-sub">
+                      <a href="product-detail.html"><h5>{{item.name}}</h5></a>
+                      <p>$ {{item.listprice }} <span><ng-container *ngIf="item.isSeling"><del>$ {{item.saleprice}}</del></ng-container></span></p>
                     </div>
                   </div>
                 </div>
-            </ng-container>
-
+              </div>
+          </ng-container>
           </div>
           <div class="row">
             <div class="col-md-12 col-sm-12 col-xs-12">

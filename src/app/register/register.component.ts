@@ -8,13 +8,50 @@ import { Router } from '../../../node_modules/@angular/router';
   styleUrls: ['./register.component.css']
 })
 export class RegisterComponent implements OnInit {
-  RegisterID = '';
-  RegisterPw = '';
-  RepeatPw = '';
+  user = {
+    name: '',
+    email: '',
+    password: '',
+    password_confirmation: ''
+  };
+
   constructor(private memberService: MemberService, private router: Router) {}
 
   ngOnInit() {}
-  RegisterClick() {
+  register() {
+    if (this.user.password !== this.user.password_confirmation || this.user.password.length < 6 ) {
+        alert('format error!');
+    } else {
+      console.log(this.user);
+    this.memberService.register(this.user).subscribe(
+      (data: any) => {
+        console.log(data);
+        if (data.success) {
+          this.router.navigate(['/login']);
+        } else {
+          alert('fail');
+        }
+      },
+      response => {
+        console.log(response);
+        alert(response.error.message);
+      }
+    );
+    }
+  }
+
+
+
+
+
+
+
+
+
+
+
+
+  /*RegisterClick() {
     console.log('dsad');
     if (this.RegisterID === '') {
       alert('帳號不能為白');
@@ -42,5 +79,6 @@ export class RegisterComponent implements OnInit {
     });
     alert('註冊成功');
     this.router.navigate(['/login']);
-  }
+  }*/
+
 }

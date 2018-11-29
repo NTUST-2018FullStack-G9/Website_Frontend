@@ -9,12 +9,13 @@ import { Component, OnInit } from '@angular/core';
 })
 export class CartComponent implements OnInit {
   price = 0;
-  get carts () {
+  ngOnInit() {}
+  /* get carts () {
     return this.dataService.carts;
   }
   constructor(private dataService: ProductServiceService) {
   }
-  ngOnInit() {}
+
   clickminus(index) {
 
     if (this.dataService.carts[index].Amount > 0) {
@@ -23,13 +24,9 @@ export class CartComponent implements OnInit {
   }
   clickplus(index) {
     this.dataService.carts[index].Amount++;
-  }
+  }*/
 
   getCartprice() {
-    this.price = 0;
-    for (const i of this.carts) {
-      this.price += i.Amount * i.Price;
-    }
-    return this.price;
+
   }
 }
