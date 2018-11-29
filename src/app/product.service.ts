@@ -25,7 +25,7 @@ interface ProductsType {
 })
 
 
-export class ProductServiceService {
+export class ProductService {
   constructor(private httpClient: HttpClient) {}
   products: ProductsType[] = [
     {
