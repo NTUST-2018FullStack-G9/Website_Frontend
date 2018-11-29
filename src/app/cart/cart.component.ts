@@ -15,7 +15,9 @@ export class CartComponent implements OnInit {
     return this.cartService.carts;
   }
 
-  ngOnInit() {}
+  ngOnInit() {
+
+  }
   clickminus(index) {
     if (this.cartService.carts[index].quantity > 0) {
       this.cartService.carts[index].quantity--;
