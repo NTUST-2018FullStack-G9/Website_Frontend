@@ -6,22 +6,25 @@ import { environment } from 'src/environments/environment';
 @Injectable({
   providedIn: 'root'
 })
-
 export class CartService {
+  carts: Cart[];
 
-  carts: Cart[] = [  // 購物車
-  ];
-
-  constructor(private httpClient: HttpClient) { }
+  constructor(private httpClient: HttpClient) {}
 
   getCarts() {
-    return this.httpClient
-      .get('http://localhost:8000/api/carts');
+    return this.httpClient.get('http://localhost:8000/api/carts');
   }
 
-  getCart(id) {
-    return this.httpClient
-      .get(`${environment.api}/carts/${id}`);
+  getMemberCart(id) {
+    return this.httpClient.get(`${environment.api}/carts/${id}`);
+  }
+
+  createOrder(cartsIds) {
+    return this.httpClient.post(`${environment.api}/sales`, cartsIds, {
+      headers: {
+        Authorization: `Bearer ${localStorage.getItem('token')}`
+      }
+    });
   }
 
 }

@@ -17,7 +17,6 @@ export class LayoutComponent implements OnInit {
   loNum = 6;
 
   products: Product[];
-  Image_Needed;
 
   // get products() {
   //   return this.dataService.products;
