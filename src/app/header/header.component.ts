@@ -44,6 +44,7 @@ export class HeaderComponent implements OnInit {
     for (const i of this.carts) {
       if (i.id === index.id) {
         i.quantity = 0;
+        this.checkout();
         this.carts.splice(index, 1);
       }
     }
