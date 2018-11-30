@@ -3,14 +3,26 @@ import { HttpClient } from '@angular/common/http';
 import { environment } from '../environments/environment';
 // import { Product } from './product';
 interface ProductsType {
-  Name: string;
+
+  name: string;
   Image: string;
   Carts: string;
-  Price: number; // 價格
-  AfterPrice: number; // 折扣後的價格
+  listprice: number; // 價格
+  saleprice: number; // 折扣後的價格
   Discount: boolean; // 是否減價 1;0
   Dp: number; // 折扣百分比
   Type: string;
+
+  // id: number;
+  // listprice: number;
+  // saleprice: number;
+  // isSeling: number;
+  // name: string;
+  // unit: string;
+  // description: string;
+  // category_id: number;
+  // created_at: string;
+  // updated_at: string;
 }
 // interface CartsType {
 //   Name: string;
@@ -29,231 +41,231 @@ export class ProductService {
   constructor(private httpClient: HttpClient) {}
   products: ProductsType[] = [
     {
-      Name: 'ABERFELDY12年單ㄧ純麥威士忌',
+      name: 'ABERFELDY12年單ㄧ純麥威士忌',
       Image: '../../assets/images/t_item1.jpg',
       Carts: '../../assets/images/cart_img1.jpg',
-      Price: 100, // 價格
-      AfterPrice: 90, // 折扣後的價格
+      listprice: 100, // 價格
+      saleprice: 90, // 折扣後的價格
       Discount: true, // 是否減價 1,0
       Dp : 10, // 折扣百分比
       Type: 'Whisky'
     },
     {
-      Name: 'Merlet  William (Pear) Liqueur',
+      name: 'Merlet  William (Pear) Liqueur',
       Image: '../../assets/images/t_item2.jpg',
       Carts: '../../assets/images/cart_img2.jpg',
-      Price: 666, // 價格
-      AfterPrice: 666, // 折扣後的價格
+      listprice: 666, // 價格
+      saleprice: 666, // 折扣後的價格
       Discount: false, // 是否減價 1,0
       Dp : 0, // 折扣百分比
       Type: 'Merlet'
     },
     {
-      Name: 'Lindemans Framboise Lambic 750m',
+      name: 'Lindemans Framboise Lambic 750m',
       Image: '../../assets/images/t_item3.jpg',
       Carts: '../../assets/images/cart_img3.jpg',
-      Price: 81000, // 價格
-      AfterPrice: 810, // 折扣後的價格
+      listprice: 81000, // 價格
+      saleprice: 810, // 折扣後的價格
       Discount: true, // 是否減價 1,0
       Dp : 99,
       Type: 'Lambic'
     },
     {
-      Name: 'ABSOLUT VODKA',
+      name: 'ABSOLUT VODKA',
       Image: '../../assets/images/t_item4.jpg',
       Carts: '../../assets/images/cart_img4.jpg',
-      Price: 500, // 價格
-      AfterPrice: 250, // 折扣後的價格
+      listprice: 500, // 價格
+      saleprice: 250, // 折扣後的價格
       Discount: true, // 是否減價 1,0
       Dp : 50, // 折扣百分比
       Type: 'Vodka'
     },
     {
-      Name: 'French Brandy',
+      name: 'French Brandy',
       Image: '../../assets/images/t_item5.jpg',
       Carts: '../../assets/images/cart_img5.jpg',
-      Price: 9999, // 價格
-      AfterPrice: 999, // 折扣後的價格
+      listprice: 9999, // 價格
+      saleprice: 999, // 折扣後的價格
       Discount: true, // 是否減價 1,0
       Dp : 90, // 折扣百分比
       Type: 'Brandy'
     },
     {
-      Name: 'ABERFELDY12年單ㄧ純麥威士忌',
+      name: 'ABERFELDY12年單ㄧ純麥威士忌',
       Image: '../../assets/images/t_item1.jpg',
       Carts: '../../assets/images/cart_img1.jpg',
-      Price: 100, // 價格
-      AfterPrice: 90, // 折扣後的價格
+      listprice: 100, // 價格
+      saleprice: 90, // 折扣後的價格
       Discount: true, // 是否減價 1,0
       Dp : 10, // 折扣百分比
       Type: 'Whisky'
     },
     {
-      Name: 'ABERFELDY12年單ㄧ純麥威士忌',
+      name: 'ABERFELDY12年單ㄧ純麥威士忌',
       Image: '../../assets/images/t_item1.jpg',
       Carts: '../../assets/images/cart_img1.jpg',
-      Price: 100, // 價格
-      AfterPrice: 90, // 折扣後的價格
+      listprice: 100, // 價格
+      saleprice: 90, // 折扣後的價格
       Discount: true, // 是否減價 1,0
       Dp : 10, // 折扣百分比
       Type: 'Whisky'
     },
     {
-      Name: 'ABERFELDY12年單ㄧ純麥威士忌',
+      name: 'ABERFELDY12年單ㄧ純麥威士忌',
       Image: '../../assets/images/t_item1.jpg',
       Carts: '../../assets/images/cart_img1.jpg',
-      Price: 100, // 價格
-      AfterPrice: 90, // 折扣後的價格
+      listprice: 100, // 價格
+      saleprice: 90, // 折扣後的價格
       Discount: true, // 是否減價 1,0
       Dp : 10, // 折扣百分比
       Type: 'Whisky'
     },
     {
-      Name: 'ABERFELDY12年單ㄧ純麥威士忌',
+      name: 'ABERFELDY12年單ㄧ純麥威士忌',
       Image: '../../assets/images/t_item1.jpg',
       Carts: '../../assets/images/cart_img1.jpg',
-      Price: 100, // 價格
-      AfterPrice: 90, // 折扣後的價格
+      listprice: 100, // 價格
+      saleprice: 90, // 折扣後的價格
       Discount: true, // 是否減價 1,0
       Dp : 10, // 折扣百分比
       Type: 'Whisky'
     },
     {
-      Name: 'ABERFELDY12年單ㄧ純麥威士忌',
+      name: 'ABERFELDY12年單ㄧ純麥威士忌',
       Image: '../../assets/images/t_item1.jpg',
       Carts: '../../assets/images/cart_img1.jpg',
-      Price: 100, // 價格
-      AfterPrice: 90, // 折扣後的價格
+      listprice: 100, // 價格
+      saleprice: 90, // 折扣後的價格
       Discount: true, // 是否減價 1,0
       Dp : 10, // 折扣百分比
       Type: 'Whisky'
     },
     {
-      Name: 'ABERFELDY12年單ㄧ純麥威士忌',
+      name: 'ABERFELDY12年單ㄧ純麥威士忌',
       Image: '../../assets/images/t_item1.jpg',
       Carts: '../../assets/images/cart_img1.jpg',
-      Price: 100, // 價格
-      AfterPrice: 90, // 折扣後的價格
+      listprice: 100, // 價格
+      saleprice: 90, // 折扣後的價格
       Discount: true, // 是否減價 1,0
       Dp : 10, // 折扣百分比
       Type: 'Whisky'
     },
     {
-      Name: 'ABERFELDY12年單ㄧ純麥威士忌',
+      name: 'ABERFELDY12年單ㄧ純麥威士忌',
       Image: '../../assets/images/t_item1.jpg',
       Carts: '../../assets/images/cart_img1.jpg',
-      Price: 100, // 價格
-      AfterPrice: 90, // 折扣後的價格
+      listprice: 100, // 價格
+      saleprice: 90, // 折扣後的價格
       Discount: true, // 是否減價 1,0
       Dp : 10, // 折扣百分比
       Type: 'Whisky'
     },
     {
-      Name: 'ABERFELDY12年單ㄧ純麥威士忌',
+      name: 'ABERFELDY12年單ㄧ純麥威士忌',
       Image: '../../assets/images/t_item1.jpg',
       Carts: '../../assets/images/cart_img1.jpg',
-      Price: 100, // 價格
-      AfterPrice: 90, // 折扣後的價格
+      listprice: 100, // 價格
+      saleprice: 90, // 折扣後的價格
       Discount: true, // 是否減價 1,0
       Dp : 10, // 折扣百分比
       Type: 'Whisky'
     },
     {
-      Name: 'ABERFELDY12年單ㄧ純麥威士忌',
+      name: 'ABERFELDY12年單ㄧ純麥威士忌',
       Image: '../../assets/images/t_item1.jpg',
       Carts: '../../assets/images/cart_img1.jpg',
-      Price: 100, // 價格
-      AfterPrice: 90, // 折扣後的價格
+      listprice: 100, // 價格
+      saleprice: 90, // 折扣後的價格
       Discount: true, // 是否減價 1,0
       Dp : 10, // 折扣百分比
       Type: 'Whisky'
     },
     {
-      Name: 'ABERFELDY12年單ㄧ純麥威士忌',
+      name: 'ABERFELDY12年單ㄧ純麥威士忌',
       Image: '../../assets/images/t_item1.jpg',
       Carts: '../../assets/images/cart_img1.jpg',
-      Price: 100, // 價格
-      AfterPrice: 90, // 折扣後的價格
+      listprice: 100, // 價格
+      saleprice: 90, // 折扣後的價格
       Discount: true, // 是否減價 1,0
       Dp : 10, // 折扣百分比
       Type: 'Whisky'
     },
     {
-      Name: 'ABERFELDY12年單ㄧ純麥威士忌',
+      name: 'ABERFELDY12年單ㄧ純麥威士忌',
       Image: '../../assets/images/t_item1.jpg',
       Carts: '../../assets/images/cart_img1.jpg',
-      Price: 100, // 價格
-      AfterPrice: 90, // 折扣後的價格
+      listprice: 100, // 價格
+      saleprice: 90, // 折扣後的價格
       Discount: true, // 是否減價 1,0
       Dp : 10, // 折扣百分比
       Type: 'Whisky'
     },
     {
-      Name: 'ABERFELDY12年單ㄧ純麥威士忌',
+      name: 'ABERFELDY12年單ㄧ純麥威士忌',
       Image: '../../assets/images/t_item1.jpg',
       Carts: '../../assets/images/cart_img1.jpg',
-      Price: 100, // 價格
-      AfterPrice: 90, // 折扣後的價格
+      listprice: 100, // 價格
+      saleprice: 90, // 折扣後的價格
       Discount: true, // 是否減價 1,0
       Dp : 10, // 折扣百分比
       Type: 'Whisky'
     },
     {
-      Name: 'ABERFELDY12年單ㄧ純麥威士忌',
+      name: 'ABERFELDY12年單ㄧ純麥威士忌',
       Image: '../../assets/images/t_item1.jpg',
       Carts: '../../assets/images/cart_img1.jpg',
-      Price: 100, // 價格
-      AfterPrice: 90, // 折扣後的價格
+      listprice: 100, // 價格
+      saleprice: 90, // 折扣後的價格
       Discount: true, // 是否減價 1,0
       Dp : 10, // 折扣百分比
       Type: 'Whisky'
     },
     {
-      Name: 'ABERFELDY12年單ㄧ純麥威士忌',
+      name: 'ABERFELDY12年單ㄧ純麥威士忌',
       Image: '../../assets/images/t_item1.jpg',
       Carts: '../../assets/images/cart_img1.jpg',
-      Price: 100, // 價格
-      AfterPrice: 90, // 折扣後的價格
+      listprice: 100, // 價格
+      saleprice: 90, // 折扣後的價格
       Discount: true, // 是否減價 1,0
       Dp : 10, // 折扣百分比
       Type: 'Whisky'
     },
     {
-      Name: 'ABERFELDY12年單ㄧ純麥威士忌',
+      name: 'ABERFELDY12年單ㄧ純麥威士忌',
       Image: '../../assets/images/t_item1.jpg',
       Carts: '../../assets/images/cart_img1.jpg',
-      Price: 100, // 價格
-      AfterPrice: 90, // 折扣後的價格
+      listprice: 100, // 價格
+      saleprice: 90, // 折扣後的價格
       Discount: true, // 是否減價 1,0
       Dp : 10, // 折扣百分比
       Type: 'Whisky'
     },
     {
-      Name: 'ABERFELDY12年單ㄧ純麥威士忌',
+      name: 'ABERFELDY12年單ㄧ純麥威士忌',
       Image: '../../assets/images/t_item1.jpg',
       Carts: '../../assets/images/cart_img1.jpg',
-      Price: 100, // 價格
-      AfterPrice: 90, // 折扣後的價格
+      listprice: 100, // 價格
+      saleprice: 90, // 折扣後的價格
       Discount: true, // 是否減價 1,0
       Dp : 10, // 折扣百分比
       Type: 'Whisky'
     },
     {
-      Name: 'ABERFELDY12年單ㄧ純麥威士忌',
+      name: 'ABERFELDY12年單ㄧ純麥威士忌',
       Image: '../../assets/images/t_item1.jpg',
       Carts: '../../assets/images/cart_img1.jpg',
-      Price: 100, // 價格
-      AfterPrice: 90, // 折扣後的價格
+      listprice: 100, // 價格
+      saleprice: 90, // 折扣後的價格
       Discount: true, // 是否減價 1,0
       Dp : 10, // 折扣百分比
       Type: 'Whisky'
     },
     {
-      Name: 'ABERFELDY12年單ㄧ純麥威士忌',
+      name: 'ABERFELDY12年單ㄧ純麥威士忌',
       Image: '../../assets/images/t_item1.jpg',
       Carts: '../../assets/images/cart_img1.jpg',
-      Price: 100, // 價格
-      AfterPrice: 90, // 折扣後的價格
+      listprice: 100, // 價格
+      saleprice: 90, // 折扣後的價格
       Discount: true, // 是否減價 1,0
       Dp : 10, // 折扣百分比
       Type: 'Whisky'

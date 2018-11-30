@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { CartService } from '../cart.service';
+import { Cart } from '../carts';
 
 @Component({
   selector: 'app-cart',
@@ -8,15 +9,19 @@ import { CartService } from '../cart.service';
 })
 export class CartComponent implements OnInit {
   price = 0;
-  constructor(private cartService: CartService) {
-  }
+  constructor(private cartService: CartService) {}
 
-  get carts () {
-    return this.cartService.carts;
-  }
+  carts: Cart[];
+  // get carts () {
+  //   return this.cartService.carts;
+  // }
 
   ngOnInit() {
-
+    // console.log('ngOnInit');
+    this.cartService.getCarts().subscribe((data: Cart[]) => {
+      this.carts = data;
+      console.log(data);
+    });
   }
   clickminus(index) {
     if (this.cartService.carts[index].quantity > 0) {

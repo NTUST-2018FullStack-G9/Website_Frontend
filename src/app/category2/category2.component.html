@@ -78,13 +78,13 @@
                           </ul>
                         </div>
                       </div>
-                      <div class="item-new" *ngIf="item.Discount">
+                      <div class="item-new" *ngIf="item.isSeling">
                         <p>New</p>
-                        <span>-{{item.Dp}}%</span>
+                        <span>-item.Dp%</span>
                       </div>
                       <div class="item-sub">
-                        <a href="product-detail.html"><h5>{{item.Name}}</h5></a>
-                        <p>$ {{item.AfterPrice}} <span><ng-container *ngIf="item.Discount"><del>$ {{item.Price}}</del></ng-container></span></p>
+                        <a href="product-detail.html"><h5>{{item.name}}</h5></a>
+                        <p>$ {{item.listprice}} <span><ng-container *ngIf="item.isSeling"><del>$ {{item.saleprice}}</del></ng-container></span></p>
                       </div>
                     </div>
                   </div>

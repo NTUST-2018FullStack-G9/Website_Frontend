@@ -16,9 +16,12 @@ export class LayoutComponent implements OnInit {
   upNum = 0;
   loNum = 6;
 
-  get products() {
-    return this.dataService.products;
-  }
+  products: Product[];
+  Image_Needed;
+
+  // get products() {
+  //   return this.dataService.products;
+  // }
 
   get carts() {
     return this.cartService.carts;
@@ -44,7 +47,15 @@ export class LayoutComponent implements OnInit {
     //   Type: item.Type
     // });
   }
-  ngOnInit() {}
+
+  ngOnInit() {
+    // console.log('ngOnInit');
+    this.dataService.getProducts()
+    .subscribe((data: Product[]) => {
+      this.products = data;
+      console.log(data);
+    });
+  }
 
   // tslint:disable-next-line:use-life-cycle-interface
   ngAfterViewInit(): void {

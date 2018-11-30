@@ -1,5 +1,5 @@
 import { Injectable } from '@angular/core';
-import { Carts } from './carts';
+import { Cart } from './carts';
 import { HttpClient } from '@angular/common/http';
 import { environment } from 'src/environments/environment';
 
@@ -9,7 +9,7 @@ import { environment } from 'src/environments/environment';
 
 export class CartService {
 
-  carts: Carts[] = [  // 購物車
+  carts: Cart[] = [  // 購物車
   ];
 
   constructor(private httpClient: HttpClient) { }

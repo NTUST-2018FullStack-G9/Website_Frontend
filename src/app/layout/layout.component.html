@@ -176,29 +176,29 @@
               <div role="tabpanel" class="tab-pane active" id="home">
                 <div id="owl-example" class="owl-carousel">
                   <!-- all items -->
-                  <ng-container *ngFor="let item of products | slice : upperNum: lowerNum ;let index of index">
+                  <ng-container *ngFor="let items of products | slice : upperNum: lowerNum ;let index of index">
                     <div class="item">
                       <div class="item-img">
-                        <img [src]="item.Image" alt="" />
+                        <img [src]="items.Image" alt="" />
                         <div class="tr-add-cart">
                           <ul>
                             <li><a class="fa fa-shopping-cart tr_cart" [routerLink]="['/cart']"></a></li>
-                            <li><a (click)="addCart(item,index,$event)" class="tr_text">ADD TO CART</a></li>
+                            <li><a href="javascript: void(0)" (click)="addCart(items,$event)" class="tr_text">ADD TO CART</a></li>
                             <li><a class="fa fa-heart tr_heart" href="#"></a></li>
                             <li><a class="fa fa-search tr_search" href="product-detail.html"></a></li>
                           </ul>
                         </div>
                       </div>
-                      <div class="item-new" *ngIf="item.Discount">
+                      <div class="item-new" *ngIf= "items.isSeling">
                         <p>New</p>
-                        <span>-{{item.Dp}}%</span>
+                        <span>1231</span>      <!--Item.Dp-->
                       </div>
                       <div class="item-sub">
                         <a href="product-detail.html">
-                          <h5>{{item.Name}}</h5>
+                          <h5>{{items.name}}</h5>
                         </a>
-                        <p>$ {{item.AfterPrice}} <span>
-                            <ng-container *ngIf="item.Discount"><del>$ {{ item.Price}}</del></ng-container>
+                        <p>$ {{items.listprice}} <span>
+                            <ng-container *ngIf="items.isSeling"><del>$ {{ items.saleprice}}</del></ng-container>
                           </span></p>
                       </div>
                     </div>
@@ -223,16 +223,16 @@
                           </ul>
                         </div>
                       </div>
-                      <div class="item-new" *ngIf="items.Discount">
+                      <div class="item-new" *ngIf="items.isSeling">
                         <p>New</p>
-                        <span>-{{items.Dp}}%</span>
+                        <span>-items.Dp%</span>    <!---Item.Dp-->
                       </div>
                       <div class="item-sub">
                         <a href="product-detail.html">
-                          <h5>{{items.Name}}</h5>
+                          <h5>{{items.name}}</h5>
                         </a>
-                        <p>$ {{items.AfterPrice}} <span>
-                            <ng-container *ngIf="items.Discount"><del>$ {{items.Price}}</del></ng-container>
+                        <p>$ {{items.listprice}} <span>
+                            <ng-container *ngIf="items.isSeling"><del>$ {{items.saleprice}}</del></ng-container>
                           </span></p>
                       </div>
                     </div>
@@ -256,16 +256,16 @@
                           </ul>
                         </div>
                       </div>
-                      <div class="item-new" *ngIf="items.Discount">
+                      <div class="item-new" *ngIf="items.isSeling">
                         <p>New</p>
-                        <span>-{{items.Dp}}%</span>
+                        <span>-items.Dp%</span>       <!--Items.Dp-->
                       </div>
                       <div class="item-sub">
                         <a href="product-detail.html">
-                          <h5>{{items.Name}}</h5>
+                          <h5>{{items.name}}</h5>
                         </a>
-                        <p>$ {{items.AfterPrice}} <span>
-                            <ng-container *ngIf="items.Discount"><del>$ {{items.Price}}</del></ng-container>
+                        <p>$ {{items.listprice}} <span>
+                            <ng-container *ngIf="items.isSeling"><del>$ {{items.saleprice}}</del></ng-container>
                           </span></p>
                       </div>
                     </div>
@@ -289,16 +289,16 @@
                           </ul>
                         </div>
                       </div>
-                      <div class="item-new" *ngIf="items.Discount">
+                      <div class="item-new" *ngIf="items.isSeling">
                         <p>New</p>
-                        <span>-{{items.Dp}}%</span>
+                        <span>-items.Dp%</span>
                       </div>
                       <div class="item-sub">
                         <a href="product-detail.html">
-                          <h5>{{items.Name}}</h5>
+                          <h5>{{items.name}}</h5>
                         </a>
-                        <p>$ {{items.AfterPrice}} <span>
-                            <ng-container *ngIf="items.Discount"><del>$ {{items.Price}}</del></ng-container>
+                        <p>$ {{items.listprice}} <span>
+                            <ng-container *ngIf="items.isSeling"><del>$ {{items.saleprice}}</del></ng-container>
                           </span></p>
                       </div>
                     </div>
@@ -339,10 +339,10 @@
                           </div>
                           <div class="t_to_b_text">
                             <a href="product-detail.html">
-                              <p>{{items.Name}}</p>
+                              <p>{{items.name}}</p>
                             </a>
-                            <div class="t_to_b_dollr"><span>${{items.AfterPrice}}</span></div>
-                            <div class="t_to_b_del"><del>${{items.Price}}</del></div>
+                            <div class="t_to_b_dollr"><span>${{items.listprice}}</span></div>
+                            <div class="t_to_b_del"><del>${{items.saleprice}}</del></div>
                           </div>
                         </div>
                       </div>
@@ -371,10 +371,10 @@
                           </div>
                           <div class="t_to_b_text">
                             <a href="product-detail.html">
-                              <p>{{items.Name}}</p>
+                              <p>{{items.name}}</p>
                             </a>
-                            <div class="t_to_b_dollr"><span>${{items.AfterPrice}}}</span></div>
-                            <div class="t_to_b_del"><del>${{items.Price}}}</del></div>
+                            <div class="t_to_b_dollr"><span>${{items.listprice}}}</span></div>
+                            <div class="t_to_b_del"><del>${{items.saleprice}}}</del></div>
                           </div>
                         </div>
                       </div>
@@ -403,10 +403,10 @@
                           </div>
                           <div class="t_to_b_text">
                             <a href="product-detail.html">
-                              <p>{{items.Name}}</p>
+                              <p>{{items.name}}</p>
                             </a>
-                            <div class="t_to_b_dollr"><span>${{items.AfterPrice}}</span></div>
-                            <div class="t_to_b_del"><del>${{items.Price}}}</del></div>
+                            <div class="t_to_b_dollr"><span>${{items.listprice}}</span></div>
+                            <div class="t_to_b_del"><del>${{items.saleprice}}}</del></div>
                           </div>
                         </div>
                       </div>

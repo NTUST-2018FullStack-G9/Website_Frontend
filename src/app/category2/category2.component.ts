@@ -21,6 +21,8 @@ export class Category2Component implements OnInit {
   Type = 'ALL';
   showNumb = 0;
   showNume = 15;
+  // products: Product[];
+
   get products() {
     return this.dataService.original;
   }
@@ -43,5 +45,12 @@ export class Category2Component implements OnInit {
     // });
 
   }
-  ngOnInit() {}
+  ngOnInit() {
+    // // console.log('ngOnInit');
+    // this.dataService.getProducts()
+    // .subscribe((data: Product[]) => {
+    //   this.products = data;
+    //   console.log(data);
+    // });
+  }
 }
