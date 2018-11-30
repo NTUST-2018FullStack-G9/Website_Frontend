@@ -18,8 +18,9 @@ export class MemberService {
     localStorage.removeItem('token');
   }
   isLogin() {
-    const token = localStorage.getItem('token');
-    console.log(token);
+    if (localStorage.getItem('token')) {
+        console.log('token');
+    }
     return localStorage.getItem('token');
   }
 }

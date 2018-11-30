@@ -217,7 +217,7 @@
                 <div class="main_cat_item">
                   <div class="item">
                     <div class="item-img">
-                      <img [src]="imageToShow" alt="" />
+                      <img [src]='getImage(item.imagename)'  alt="" />
                       <div class="tr-add-cart">
                         <ul>
                           <li><a  class="fa fa-shopping-cart tr_cart" [routerLink]="['/cart']"></a></li>
@@ -233,7 +233,7 @@
                     </div>
                     <div class="item-sub">
                       <a href="product-detail.html"><h5>{{item.name}}</h5></a>
-                      <p>$ {{item.listprice }} <span><ng-container *ngIf="item.isSeling"><del>$ {{item.saleprice}}</del></ng-container></span></p>
+                      <p>$ {{item.listprice }} <span><ng-container *ngIf="item.isSelling"><del>$ {{item.saleprice}}</del></ng-container></span></p>
                     </div>
                   </div>
                 </div>

@@ -1,5 +1,8 @@
-import { ProductServiceService } from './../product-service.service';
 import { Component, OnInit } from '@angular/core';
+import { CartService } from '../cart.service';
+import { Cart } from '../carts';
+import { ActivatedRoute, Router } from '@angular/router';
+
 
 
 @Component({
@@ -7,26 +10,57 @@ import { Component, OnInit } from '@angular/core';
   templateUrl: './cart.component.html',
   styleUrls: ['./cart.component.css']
 })
+
 export class CartComponent implements OnInit {
   price = 0;
-  ngOnInit() {}
-  /* get carts () {
-    return this.dataService.carts;
-  }
-  constructor(private dataService: ProductServiceService) {
-  }
+  constructor(private route: ActivatedRoute, private cartService: CartService, private router: Router) {}
+
+  carts: Cart[] = [];
+  // get carts () {
+  //   return this.cartService.carts;
+  // }
 
   clickminus(index) {
-
-    if (this.dataService.carts[index].Amount > 0) {
-      this.dataService.carts[index].Amount--;
+    if (this.carts[index].quantity > 1) {    // Strange
+      this.carts[index].quantity--;
+    } else {
+      this.carts.splice(index, 1);
     }
+    this.checkout();
   }
+
   clickplus(index) {
-    this.dataService.carts[index].Amount++;
-  }*/
+    this.carts[index].quantity++;
+    this.checkout();
+  }
 
   getCartprice() {
+    this.price = 0;
+    for (const i of this.carts) {
+      this.price += i.quantity * i.price;
+    }
+    return this.price;
+  }
 
+  checkout() {
+    this.cartService.createOrder([2, 4]).subscribe(data => {
+      console.log(data);
+      alert('checkout success');
+    }, (response) => {
+      if (response.status === 401) {
+        alert('please login first');
+        this.router.navigate(['/login']);
+      }
+      console.log(response);
+    });
+  }
+
+  ngOnInit() {
+    this.route.params.subscribe(data => {
+      const id = data.slug;
+      this.cartService.getMemberCart(id).subscribe((cart: Cart[]) => {
+        this.carts = cart;
+      });
+    });
   }
 }

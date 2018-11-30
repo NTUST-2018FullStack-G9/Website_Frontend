@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { ProductServiceService } from './../product-service.service';
+import { ProductService } from '../product.service';
 import { Product } from '../product';
 
 @Component({
@@ -12,7 +12,7 @@ export class Category2Component implements OnInit {
   Oriproducts: Product[];
   showNumb = 0;
   showNume = 12;
-  constructor(private dataService: ProductServiceService) {}
+  constructor(private dataService: ProductService) {}
   filter(id) {
     console.log(id);
     this.products = this.Oriproducts.filter(products => products.category_id.valueOf() === id);

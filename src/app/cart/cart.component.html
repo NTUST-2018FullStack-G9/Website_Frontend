@@ -19,23 +19,23 @@
           </div>
           <div class="cart_item" *ngFor="let cart of carts;let index = index;">
             <div class="cart_item_img">
-              <img [src]="cart.Image" alt="" />
-              <p>{{cart.Name}} <br>{{cart.Type}}</p>
+              <img [src]="cart?.Image" alt="" />
+              <p>{{cart?.product_name}} <br>{{cart?.id}}</p>
             </div>
             <div class="cart_price">
-              <p>${{cart.Price}}</p>
+              <p>${{cart?.price}}</p>
             </div>
 
             <div class="cart_quantity">
               <ul>
                 <li><a (click)='clickminus(index)'><i class="fa fa-minus"></i></a></li>
-                <li><a>{{cart.Amount}}</a></li>
+                <li><a>{{cart?.quantity}}</a></li>
                 <li><a (click)='clickplus(index)'><i class="fa fa-plus"></i></a></li>
               </ul>
             </div>
 
             <div class="cart_total">
-              <p>${{cart.Price*cart.Amount}}</p>
+              <p>${{cart?.price*cart?.quantity}}</p>
               <span><i class="fa fa-close"></i></span>
             </div>
           </div>
@@ -95,8 +95,8 @@
                   <div class="panel-body cart_p_body">
                     <ng-container *ngFor="let item of carts">
                       <div class="c_single_item">
-                        <p>{{item.Name}}} x {{item.Amount}}</p>
-                        <span>${{item.Amount*item.Price}}</span>
+                        <p>{{item?.product_name}}} x {{item?.quantity}}</p>
+                        <span>${{item?.quantity*item?.price}}</span>
                       </div>
                     </ng-container>
 
@@ -108,8 +108,8 @@
                 </div>
               </div>
             </div>
-            <a href="" class="cart_update">Update Cart</a>
-            <input type="submit" value="Proceed to checkout">
+            <!-- <a href="" class="cart_update">Update Cart</a> -->
+            <input [routerLink] = "['/checkout']" (click)="checkout()" routerLinkActive="active" type="submit" value="Proceed to checkout">
           </div>
         </div>
       </div>

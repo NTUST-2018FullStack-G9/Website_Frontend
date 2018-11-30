@@ -58,7 +58,7 @@ const routes: Routes = [
     component: SingleBlogComponent,
   },
   {
-    path: 'cart',
+    path: 'cart/:slug',
     component: CartComponent,
   }
 ];
