@@ -23,4 +23,7 @@ export class MemberService {
     }
     return localStorage.getItem('token');
   }
+  reset(data) {
+    return this.httpClient.post('http://localhost:8000/api/password/create', data);
+  }
 }

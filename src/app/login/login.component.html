@@ -24,6 +24,7 @@
         </div>
         <input type="email" name="username" placeholder="Email" [(ngModel)]="user.email" required>
         <input type="password" name="password" placeholder="Password" [(ngModel)]="user.password" required>
+        <a  [routerLink]="['/forgetpw']" style="color:white" class="btn">Forgot password?</a>
         <input type="submit" value="Login" (click)="login()">
       </div>
 
