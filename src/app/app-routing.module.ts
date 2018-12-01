@@ -4,7 +4,7 @@ import { ContactComponent } from './contact/contact.component';
 import { Category2Component } from './category2/category2.component';
 import { Category1Component } from './category1/category1.component';
 import { ErrorComponent } from './error/error.component';
-import { NgModule } from '@angular/core';
+import { NgModule, Component } from '@angular/core';
 import { Routes, RouterModule } from '@angular/router';
 import { LayoutComponent } from './layout/layout.component';
 import { LoginComponent } from './login/login.component';
@@ -50,17 +50,17 @@ const routes: Routes = [
     component: ContactComponent,
   },
   {
-    path: 'productDetail',
-    component: ProductDetailComponent,
-  },
-  {
     path: 'singleBlog',
     component: SingleBlogComponent,
   },
   {
     path: 'cart/:slug',
     component: CartComponent,
-  }
+  },
+  {
+    path: 'post/:slug',
+    component: ProductDetailComponent
+  },
 ];
 
 @NgModule({

@@ -12,12 +12,16 @@ export class Category2Component implements OnInit {
   Oriproducts: Product[];
   showNumb = 0;
   showNume = 12;
+  icon_img;
   constructor(private dataService: ProductService) {}
   filter(id) {
     console.log(id);
     this.products = this.Oriproducts.filter(products => products.category_id.valueOf() === id);
   }
   bigfilter(id) {
+  }
+  getImage(Imgname) {
+    return  this.dataService.getImage(Imgname);
   }
   ngOnInit() {
     // console.log('ngOnInit');
@@ -27,5 +31,6 @@ export class Category2Component implements OnInit {
       this.Oriproducts = data;
       console.log(data);
     });
+    this.icon_img = 'filter_ico_off.png';
   }
 }

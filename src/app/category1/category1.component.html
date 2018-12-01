@@ -16,8 +16,9 @@
         <div class="bread_box">
           <ul class="breadcumb">
             <li><a [routerLink]="['']">home <span>|</span></a></li>
-            <li><a [routerLink]="['./category1']">Shop <span>|</span></a></li>
-            <li><a [routerLink]="['./category2']">Category <span>|</span></a></li>
+            <li><a [routerLink]="['/category2']">Shop <span>|</span></a></li>
+            <li><a [routerLink]="['/category1']">Category <span>|</span></a></li>
+            <li><a (click)='all()'>ALL <span>|</span></a></li>
           </ul>
         </div>
       </div>
@@ -32,13 +33,13 @@
           <p>FILTERING:</p>
           <div class="filter_cont">
             <ul>
-              <li><a [routerLink]="['./category1']">on</a></li>
-              <li><img src="images/filter_ico.png" alt="" /></li>
-              <li><a [routerLink]="['./category2']">off</a></li>
+              <li><a [routerLink]="['/category1']">on</a></li>
+              <li><img src="../../assets/images/{{icon_img}}" alt="" /></li>
+              <li><a [routerLink]="['/category2']">off</a></li>
             </ul>
           </div>
           <div class="s_results">
-            <p><span>|</span> showing 1-12 of 30 results</p>
+            <p><span>|</span> showing {{showNumb+1}}-{{showNume}} of {{products.length}} results</p>
           </div>
         </div>
       </div>
@@ -232,7 +233,7 @@
                       <span>123132</span>
                     </div>
                     <div class="item-sub">
-                      <a href="product-detail.html"><h5>{{item.name}}</h5></a>
+                      <a [routerLink]="['/post', item.id]" ><h5>{{item.name}}</h5></a>
                       <p>$ {{item.listprice }} <span><ng-container *ngIf="item.isSelling"><del>$ {{item.saleprice}}</del></ng-container></span></p>
                     </div>
                   </div>

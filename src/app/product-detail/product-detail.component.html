@@ -1,3 +1,125 @@
-<p>
-  product-detail works!
-</p>
+<div class="breadcumb_area">
+  <div class="container">
+    <div class="row">
+      <div class="col-md-12 col-sm-12 col-xs-12">
+        <div class="bread_box">
+          <ul class="breadcumb">
+            <li>
+              <a [routerLink]="['/']">home <span>|</span></a>
+            </li>
+            <li>
+
+              <a [routerLink]="['/category1']"   >shop <span>|</span></a>
+            </li>
+            <li>
+              <a [routerLink]="['/carts']">carts <span>|</span></a>
+            </li>
+          </ul>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+  <section class="gray_tshirt_area">
+  <div class="container">
+    <div class="row">
+      <div class="col-md-12 col-sm-12 col-xs-12">
+        <div class="gray_tshirt">
+          <div class="row">
+            <div class="col-md-6 col-sm-6 col-xs-12">
+              <div class="single_product_image_tab">
+                <div role="tabpanel">
+                  <!-- Nav tabs -->
+                  <ul class="nav nav-tabs product_detail_zoom_tab" role="tablist">
+                  </ul>
+
+                  <!-- Tab panes -->
+                  <div class="tab-content">
+                    <div role="tabpanel" class="tab-pane active" id="home">
+                      <div class="single_p_image">
+                        <a href="images/single-large.jpg" data-lightbox="image-1" data-title="My caption"><img src="images/product-plus.png" alt=""/></a>
+                        <img id="zoom_02" [src]=getImage(product.imagename) data-zoom-image="images/single-large.jpg" alt="" />
+                      </div>
+                    </div>
+                    <!-- <div role="tabpanel" class="tab-pane" id="profile">
+                      <div class="single_p_image">
+                        <a href="images/single-large1.png" data-lightbox="image-1" data-title="My caption"><img src="images/product-plus.png" alt=""/></a>
+                        <img id="zoom_03" src="images/product_detail_05.png" data-zoom-image="images/single-large1.png" alt="" />
+                      </div>
+                    </div>
+                    <div role="tabpanel" class="tab-pane" id="messages">
+                      <div class="single_p_image">
+                        <a href="images/single-large2.png" data-lightbox="image-1" data-title="My caption"><img src="images/product-plus.png" alt=""/></a>
+                        <img id="zoom_04" src="images/product_detail_06.png" data-zoom-image="images/single-large2.png" alt="" />
+                      </div>
+                    </div> -->
+                  </div>
+                </div>
+              </div>
+            </div>
+
+            <div class="col-md-6 col-sm-6 col-xs-12">
+              <div class="product_detail_heading">
+                <div class="detail_heading_left">
+                  <h3>{{product.name}}</h3>
+                  <div class="old_price_gray"><p>${{product.saleprice}}</p></div>
+                  <div class="new_price_gray"><del>${{product.listprice}}</del></div>
+                </div>
+              </div>
+
+              <div class="panel-group product_accordion" id="home-accordion-single" role="tablist" aria-multiselectable="true">
+                <div class="panel panel-default product_default">
+                  <div class="panel-heading product_accordion_heading" role="tab" id="headingOneP">
+                    <h4 class="panel-title product_accordion_head">
+                      <a data-toggle="collapse" data-parent="#home-accordion-single" href="#collapseOneP" aria-expanded="true" aria-controls="collapseOneP">
+                        Description <span class="floatright"><i class="fa fa-minus"></i></span>
+                      </a>
+                    </h4>
+                  </div>
+                  <div id="collapseOneP" class="panel-collapse collapse in" role="tabpanel" aria-labelledby="headingOneP">
+                    <div class="panel-body product_ac_body">
+                      <p>
+                       {{product.description}}
+                      </p>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+  </section>
+
+  <section class="product_page_tab_area" >
+  <div class="container">
+    <div class="row">
+      <div class="col-md-12">
+        <div class="product_page_tab">
+          <div role="tabpanel">
+            <ul class="nav nav-tabs tab-product" role="tablist">
+              <li role="presentation" class="active"><a href="#home2" aria-controls="home2" role="tab" data-toggle="tab">Description</a></li>
+            </ul>
+
+            <div class="tab-content tab-p-details">
+              <div role="tabpanel" class="tab-pane active" id="home2">
+                <h2>Description</h2>
+                <div class="multi_line"></div>
+                <p>
+                  {{product.description}}
+                </p>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+  </section>
+
+
+

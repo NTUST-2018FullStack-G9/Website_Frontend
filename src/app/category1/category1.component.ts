@@ -11,8 +11,8 @@ export class Category1Component implements OnInit {
   Type = 'ALL';
   showNumb = 0;
   showNume = 12;
+  icon_img;
   num;
-  local = 'http://localhost:8000/storage/';
   imageToShow: any;
   products: Product[] = [];
   Oriproducts: Product[] = [];
@@ -27,6 +27,9 @@ export class Category1Component implements OnInit {
     }
     return this.num;
   }
+  all() {
+    this.products = this.Oriproducts;
+  }
   filter(id) {
     console.log(id);
     this.products = this.Oriproducts.filter(products => products.category_id.valueOf() === id);
@@ -35,7 +38,7 @@ export class Category1Component implements OnInit {
   }
 
   getImage(Imgname) {
-    return this.local + Imgname;
+    return  this.dataService.getImage(Imgname);
   }
   // createImageFromBlob(image: Blob) {
   //   const reader = new FileReader();
@@ -78,5 +81,6 @@ export class Category1Component implements OnInit {
       this.Oriproducts = data;
       console.log(data);
     });
+    this.icon_img = 'filter_ico.png';
   }
 }

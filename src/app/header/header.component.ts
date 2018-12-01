@@ -35,7 +35,6 @@ export class HeaderComponent implements OnInit {
     console.log('logout');
     this.memberService.logout();
     this.router.navigate(['/login']);
-    location.reload();
   }
 
   getCartprice() {

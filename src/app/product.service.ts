@@ -19,6 +19,8 @@ getProduct(id) {
   return this.httpClient
   .get(`${environment.api}/products/${id}`);
 }
-
+getImage(Imgname) {
+  return'http://localhost:8000/storage/' + Imgname;
+}
 // =============================
 }

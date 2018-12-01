@@ -10,20 +10,20 @@
   </div>
 </section>
 <div class="breadcumb_area">
-  <div class="container">
-    <div class="row">
-      <div class="col-md-12 col-sm-12 col-xs-12">
-        <div class="bread_box">
-          <ul class="breadcumb">
-            <li><a [routerLink]="['']">home <span>|</span></a></li>
-            <li><a href="">Shop <span>|</span></a></li>
-            <li><a href="">Category <span>|</span></a></li>
-          </ul>
+    <div class="container">
+      <div class="row">
+        <div class="col-md-12 col-sm-12 col-xs-12">
+          <div class="bread_box">
+            <ul class="breadcumb">
+              <li><a [routerLink]="['']">home <span>|</span></a></li>
+              <li><a [routerLink]="['/category2']">Shop <span>|</span></a></li>
+              <li><a [routerLink]="['/category1']">Category <span>|</span></a></li>
+            </ul>
+          </div>
         </div>
       </div>
     </div>
   </div>
-</div>
 <div class="filter_area">
   <div class="container">
     <div class="row">
@@ -38,7 +38,7 @@
             </ul>
           </div>
           <div class="s_results">
-            <p><span>|</span> showing 1-12 of 30 results</p>
+            <p><span>|</span> showing {{showNumb+1}}-{{showNume}} of {{products.length}} results</p>
           </div>
         </div>
       </div>
@@ -67,13 +67,13 @@
                 <div class="main_cat_item">
                   <div class="item">
                     <div class="item-img">
-                      <img [src]="item.Image" alt="" />
+                      <img [src]='getImage(item.imagename)' alt="" />
                       <div class="tr-add-cart">
                         <ul>
                           <li><a  class="fa fa-shopping-cart tr_cart" [routerLink]="['/cart']"></a></li>
                           <li><a href="javascript: void(0)"  class="tr_text">ADD TO CART</a></li>
                           <li><a class="fa fa-heart tr_heart" href="#"></a></li>
-                          <li><a class="fa fa-filter tr_filter" href="product-detail.html"></a></li>
+                          <li><a class="fa fa-filter tr_filter"  [routerLink]="['/post', item.id]"></a></li>
                         </ul>
                       </div>
                     </div>
@@ -82,7 +82,7 @@
                       <span>123132</span>
                     </div>
                     <div class="item-sub">
-                      <a href="product-detail.html"><h5>{{item.name}}</h5></a>
+                      <a  [routerLink]="['/post', item.id]"><h5>{{item.name}}</h5></a>
                       <p>$ {{item.listprice }} <span><ng-container *ngIf="item.isSelling"><del>$ {{item.saleprice}}</del></ng-container></span></p>
                     </div>
                   </div>
