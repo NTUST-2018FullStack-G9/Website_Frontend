@@ -39,7 +39,7 @@
   <div class="container">
     <div class="row">
       <div class="col-md-3 col-sm-3 col-xs-12">
-        <div class="header_left floatleft"><a class="fa fa-search" href=""></a> <input type="text" placeholder="search" /></div>
+        <div class="header_left floatleft"><a class="fa fa-search" [routerLink]="['/category2']" (click)= search() ></a> <input type="text" placeholder="search product" [(ngModel)]="keyword"/></div>
       </div>
       <div class="col-md-6 col-sm-5 col-xs-12">
         <div class="header_center">
@@ -117,9 +117,9 @@
       <nav class="mainmenu">
         <ul id="nav">
           <li routerLinkActive="current-page-item" [routerLinkActiveOptions]="{ exact: true }"><a [routerLink]="['']">Home</a></li>
-          <li routerLinkActive="current-page-item"><a [routerLink]="['/category2']">shop</a></li>
+          <li routerLinkActive="current-page-item"><a [routerLink]="['/category2']" (click)=reload() >shop</a></li>
           <li routerLinkActive="current-page-item">
-            <a [routerLink]="['/category1']">Trending</a>
+            <a [routerLink]="['/category1']" (click)=reload()>Trending</a>
             <ul id="sub-menu">
               <li><a href="">Top 10 Beer</a></li>
               <li><a href="">Top 10 Spirit</a></li>

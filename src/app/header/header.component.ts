@@ -13,6 +13,7 @@ export class HeaderComponent implements OnInit {
   price = 0;
   TEST_Member = 3;
   Image_Need;
+  keyword;
   carts: Cart[] = [];
   get isLogin() {
     return this.memberService.isLogin();
@@ -20,7 +21,9 @@ export class HeaderComponent implements OnInit {
   get name() {
     return 0;
   }
-
+  search() {
+    this.dataService.products = this.dataService.Oriproducts.filter(products => products.name.valueOf().search(this.keyword) !== -1);
+  }
   constructor(
     private dataService: ProductService,
     private memberService: MemberService,
@@ -36,7 +39,9 @@ export class HeaderComponent implements OnInit {
     this.memberService.logout();
     this.router.navigate(['/login']);
   }
-
+  reload() {
+    this.dataService.reload();
+  }
   getCartprice() {
     this.price = 0;
     for (const i of this.carts) {

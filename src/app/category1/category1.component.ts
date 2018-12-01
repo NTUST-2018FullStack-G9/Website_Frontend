@@ -14,12 +14,13 @@ export class Category1Component implements OnInit {
   icon_img;
   num;
   imageToShow: any;
-  products: Product[] = [];
-  Oriproducts: Product[] = [];
+  get products() {
+      return this.dataService.products;
+  }
   constructor(private dataService: ProductService) {}
   getNum(id) { // 讀取商品數量
     this.num = 0;
-    for (const i of this.Oriproducts) {
+    for (const i of this.dataService.Oriproducts) {
       if (i.category_id === id) {
         this.num++;
       }
@@ -28,11 +29,11 @@ export class Category1Component implements OnInit {
     return this.num;
   }
   all() {
-    this.products = this.Oriproducts;
+    this.dataService.products = this.dataService.Oriproducts;
   }
   filter(id) {
     console.log(id);
-    this.products = this.Oriproducts.filter(products => products.category_id.valueOf() === id);
+    this.dataService.products = this.dataService.Oriproducts.filter(products => products.category_id.valueOf() === id);
   }
   bigfilter(id) {
   }
@@ -75,12 +76,6 @@ export class Category1Component implements OnInit {
       $( '#amount' ).val( '$' + $( '#slider-range' ).slider( 'values', 0 ) +
         ' - $' + $( '#slider-range' ).slider( 'values', 1 ) );
       });
-    this.dataService.getProducts()
-    .subscribe((data: Product[]) => {
-      this.products = data;
-      this.Oriproducts = data;
-      console.log(data);
-    });
     this.icon_img = 'filter_ico.png';
   }
 }

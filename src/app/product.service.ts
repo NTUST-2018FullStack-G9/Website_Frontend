@@ -9,7 +9,16 @@ import { Observable } from 'rxjs';
 
 
 export class ProductService {
-  constructor(private httpClient: HttpClient) {}
+  products: Product[] = [];
+  Oriproducts: Product[] = [];
+  constructor(private httpClient: HttpClient) {
+    this.getProducts()
+    .subscribe((data: Product[]) => {
+      this.products = data;
+      this.Oriproducts = data;
+      console.log(this.Oriproducts);
+    });
+  }
 // ===========================
 getProducts() {
   return this.httpClient
@@ -21,6 +30,14 @@ getProduct(id) {
 }
 getImage(Imgname) {
   return'http://localhost:8000/storage/' + Imgname;
+}
+reload() {
+  this.getProducts()
+  .subscribe((data: Product[]) => {
+    this.products = data;
+    this.Oriproducts = data;
+    console.log(this.Oriproducts);
+  });
 }
 // =============================
 }
