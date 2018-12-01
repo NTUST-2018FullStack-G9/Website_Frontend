@@ -19,6 +19,8 @@ import { ProductDetailComponent } from './product-detail/product-detail.componen
 import { SingleBlogComponent } from './single-blog/single-blog.component';
 import { CartComponent } from './cart/cart.component';
 import { HttpClientModule } from '@angular/common/http';
+import { ForgetPasswordComponent } from './forget-password/forget-password.component';
+import { ForgetPasswordComponentComponent } from './forget-password-component/forget-password-component.component';
 @NgModule({
   declarations: [
     AppComponent,
@@ -35,7 +37,9 @@ import { HttpClientModule } from '@angular/common/http';
     ContactComponent,
     ProductDetailComponent,
     SingleBlogComponent,
-    CartComponent
+    CartComponent,
+    ForgetPasswordComponent,
+    ForgetPasswordComponentComponent
   ],
   imports: [
     BrowserModule,

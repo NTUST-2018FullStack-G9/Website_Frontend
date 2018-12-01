@@ -12,6 +12,7 @@ import { RegisterComponent } from './register/register.component';
 import { CheckoutComponent } from './checkout/checkout.component';
 import { AboutComponent } from './about/about.component';
 import { CartComponent } from './cart/cart.component';
+import { ForgetPasswordComponent } from './forget-password/forget-password.component';
 const routes: Routes = [
   {
     path: '',
@@ -61,6 +62,10 @@ const routes: Routes = [
     path: 'post/:slug',
     component: ProductDetailComponent
   },
+  {
+    path: 'forgetpw',
+    component: ForgetPasswordComponent,
+  }
 ];
 
 @NgModule({
