@@ -18,7 +18,7 @@
             <li><a [routerLink]="['']">home <span>|</span></a></li>
             <li><a [routerLink]="['/category2']">Shop <span>|</span></a></li>
             <li><a [routerLink]="['/category1']">Category <span>|</span></a></li>
-            <li><a (click)='all()'>ALL <span>|</span></a></li>
+            <li><a [routerLink]="['.']" (click)='all()'>ALL <span>|</span></a></li>
           </ul>
         </div>
       </div>
@@ -77,9 +77,9 @@
             <div id="collapseOne" class="panel-collapse collapse in" role="tabpanel" aria-labelledby="headingOne">
               <div class="panel-body">
                 <ul id="c_tab1">
-                  <li><a  (click)="filter(1)">Ale ({{getNum(1)}})</a></li>
-                  <li><a (click)="filter(2)">Lager ({{getNum(2)}})</a></li>
-                  <li><a (click)="filter(3)">Lambic ({{getNum(3)}})</a></li>
+                  <li><a [routerLink]="['.']" (click)="filter(1)">Ale ({{getNum(1)}})</a></li>
+                  <li><a [routerLink]="['.']" (click)="filter(2)">Lager ({{getNum(2)}})</a></li>
+                  <li><a [routerLink]="['.']" (click)="filter(3)">Lambic ({{getNum(3)}})</a></li>
                 </ul>
               </div>
             </div>
@@ -96,12 +96,12 @@
                 <div id="collapseFive" class="panel-collapse collapse" role="tabpanel" aria-labelledby="headingFive">
                   <div class="panel-body">
                       <ul id="c_tab1">
-                          <li><a (click)="filter(4)">Brandy ({{getNum(4)}})</a></li>
-                          <li><a (click)="filter(5)">Whisky ({{getNum(5)}})</a></li>
-                          <li><a (click)="filter(6)">Rum ({{getNum(6)}})</a></li>
-                          <li><a (click)="filter(7)">Mezcal ({{getNum(7)}})</a></li>
-                          <li><a (click)="filter(8)">Gin ({{getNum(8)}})</a></li>
-                          <li><a (click)="filter(9)">Vodka ({{getNum(9)}})</a></li>
+                          <li><a [routerLink]="['.']" (click)="filter(4)">Brandy ({{getNum(4)}})</a></li>
+                          <li><a [routerLink]="['.']" (click)="filter(5)">Whisky ({{getNum(5)}})</a></li>
+                          <li><a [routerLink]="['.']" (click)="filter(6)">Rum ({{getNum(6)}})</a></li>
+                          <li><a [routerLink]="['.']" (click)="filter(7)">Mezcal ({{getNum(7)}})</a></li>
+                          <li><a [routerLink]="['.']" (click)="filter(8)">Gin ({{getNum(8)}})</a></li>
+                          <li><a [routerLink]="['.']" (click)="filter(9)">Vodka ({{getNum(9)}})</a></li>
                         </ul>
 
                   </div>
@@ -120,11 +120,11 @@
                   <div class="panel-body">
                     <div class="panel-body">
                         <ul id="c_tab1">
-                            <li><a  (click)="filter(10)">Sauvignon Blanc ({{getNum(10)}})</a></li>
-                            <li><a (click)="filter(11)">Riesling ({{getNum(11)}})</a></li>
-                            <li><a (click)="filter(12)">Cabernet Sauvignon({{getNum(12)}})</a></li>
-                            <li><a (click)="filter(13)">Merlet({{getNum(13)}})</a></li>
-                            <li><a (click)="filter(14)">Pinot Noir ({{getNum(14)}})</a></li>
+                            <li><a [routerLink]="['.']" (click)="filter(10)">Sauvignon Blanc ({{getNum(10)}})</a></li>
+                            <li><a [routerLink]="['.']" (click)="filter(11)">Riesling ({{getNum(11)}})</a></li>
+                            <li><a [routerLink]="['.']" (click)="filter(12)">Cabernet Sauvignon({{getNum(12)}})</a></li>
+                            <li><a [routerLink]="['.']" (click)="filter(13)">Merlet({{getNum(13)}})</a></li>
+                            <li><a [routerLink]="['.']" (click)="filter(14)">Pinot Noir ({{getNum(14)}})</a></li>
                           </ul>
 
                       </div>
@@ -195,7 +195,7 @@
               <div id="slider-range"></div>
                 <div class="cat_filter_box">
                   <p>
-                    <label for="amount">Filter</label>
+                    <label for="amount" (click)="priceFilter()">Filter</label>
                     <input type="text" id="amount" readonly style="border:0; color:#000; font-weight:bold;">
                   </p>
                 </div>
@@ -234,7 +234,7 @@
                     </div>
                     <div class="item-sub">
                       <a [routerLink]="['/post', item.id]" ><h5>{{item.name}}</h5></a>
-                      <p>$ {{item.listprice }} <span><ng-container *ngIf="item.isSelling"><del>$ {{item.saleprice}}</del></ng-container></span></p>
+                      <p>$ {{item.saleprice }} <span><ng-container *ngIf="item.isSelling"><del>$ {{item.listprice}}</del></ng-container></span></p>
                     </div>
                   </div>
                 </div>
@@ -246,13 +246,13 @@
               <div class="pagi_line"></div>
               <div class="pagi_ul">
                 <ul id="pagination">
-                  <li><a href="">Previous</a></li>
-                  <li><a href="">1</a></li>
-                  <li><a href="">2</a></li>
-                  <li><a href="">3</a></li>
-                  <li><a href="">4</a></li>
-                  <li><a href="">5 ...</a></li>
-                  <li><a href="">Next</a></li>
+                  <li><a (click)="Previous()" >Previous</a></li>
+                  <li><a (click)="page(1*showNumb,1*showNume)">1</a></li>
+                  <li><a (click)="page(2*showNumb,2*showNume)">2</a></li>
+                  <li><a (click)="page(3*showNumb,3*showNume)">3</a></li>
+                  <li><a (click)="page(4*showNumb,4*showNume)">4</a></li>
+                  <li><a (click)="page(5*showNumb,5*showNume)">5 ...</a></li>
+                  <li><a (click)="Next()" >Next</a></li>
                 </ul>
               </div>
             </div>

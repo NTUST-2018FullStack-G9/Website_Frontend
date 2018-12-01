@@ -9,9 +9,15 @@ declare let $: any;
 })
 export class Category1Component implements OnInit {
   Type = 'ALL';
-  showNumb = 0;
-  showNume = 12;
+  showNumb;
+  showNume;
   icon_img;
+  get topPrice() {
+    return Number($( '#slider-range' ).slider( 'values', 1 )) ;
+  }
+  get downPrice() {
+    return Number($( '#slider-range' ).slider( 'values', 0 )) ;
+  }
   num;
   imageToShow: any;
   get products() {
@@ -37,7 +43,10 @@ export class Category1Component implements OnInit {
   }
   bigfilter(id) {
   }
-
+  priceFilter() {
+    this.dataService.products = this.dataService.Oriproducts.filter(
+      products => (products.saleprice >= this.downPrice) && (products.saleprice <= this.topPrice));
+  }
   getImage(Imgname) {
     return  this.dataService.getImage(Imgname);
   }
@@ -77,5 +86,7 @@ export class Category1Component implements OnInit {
         ' - $' + $( '#slider-range' ).slider( 'values', 1 ) );
       });
     this.icon_img = 'filter_ico.png';
+    this.showNumb = 0;
+    this.showNume = 12;
   }
 }
