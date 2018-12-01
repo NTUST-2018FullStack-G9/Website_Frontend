@@ -37,9 +37,10 @@ export class Category1Component implements OnInit {
   all() {
     this.dataService.products = this.dataService.Oriproducts;
   }
+
+
   filter(id) {
-    console.log(id);
-    this.dataService.products = this.dataService.Oriproducts.filter(products => products.category_id.valueOf() === id);
+    this.dataService.filter(id);
   }
   bigfilter(id) {
   }
@@ -50,6 +51,23 @@ export class Category1Component implements OnInit {
   getImage(Imgname) {
     return  this.dataService.getImage(Imgname);
   }
+  page( left , right) {
+    this.showNumb = left;
+    this.showNume = right;
+  }
+  Previous() {
+    if (this.showNumb !== 1) {
+      this.showNumb -= 12;
+      this.showNume -= 12;
+    }
+  }
+  Next() {
+    if (this.showNumb !== 49) {
+      this.showNumb += 12;
+      this.showNume += 12;
+    }
+  }
+
   // createImageFromBlob(image: Blob) {
   //   const reader = new FileReader();
   //   reader.addEventListener('load', () => {
@@ -75,9 +93,9 @@ export class Category1Component implements OnInit {
     $(function() {
       $( '#slider-range' ).slider({
         range: true,
-        min: 150,
-        max: 1500,
-        values: [ 520, 1100 ],
+        min: 0,
+        max: 100000,
+        values: [ 30000, 70000 ],
         slide: function( event, ui ) {
         $( '#amount' ).val( '$' + ui.values[ 0 ] + ' - $' + ui.values[ 1 ] );
         }
@@ -86,7 +104,7 @@ export class Category1Component implements OnInit {
         ' - $' + $( '#slider-range' ).slider( 'values', 1 ) );
       });
     this.icon_img = 'filter_ico.png';
-    this.showNumb = 0;
+    this.showNumb = 1;
     this.showNume = 12;
   }
 }

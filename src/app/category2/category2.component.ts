@@ -9,13 +9,12 @@ import { Product } from '../product';
 })
 export class Category2Component implements OnInit {
 
-  showNumb = 0;
-  showNume = 12;
+  showNumb ;
+  showNume;
   icon_img;
   constructor(private dataService: ProductService) {}
   filter(id) {
-    console.log(id);
-    this.dataService.products = this.dataService.Oriproducts.filter(products => products.category_id.valueOf() === id);
+    this.dataService.filter(id);
   }
   bigfilter(id) {
   }
@@ -25,7 +24,25 @@ export class Category2Component implements OnInit {
   getImage(Imgname) {
     return  this.dataService.getImage(Imgname);
   }
+  page( left , right) {
+    this.showNumb = left;
+    this.showNume = right;
+  }
+  Previous() {
+    if (this.showNumb !== 1) {
+      this.showNumb -= 12;
+      this.showNume -= 12;
+    }
+  }
+  Next() {
+    if (this.showNumb !== 49) {
+      this.showNumb += 12;
+      this.showNume += 12;
+    }
+  }
   ngOnInit() {
     this.icon_img = 'filter_ico_off.png';
+    this.showNumb = 1;
+    this.showNume = 12;
   }
 }

@@ -39,7 +39,7 @@
             </ul>
           </div>
           <div class="s_results">
-              <p><span>|</span> showing {{ products.length === 0?(0):(showNumb+1) }}-{{showNume>products.length?(products.length):(showNume)}} of {{products.length}} results</p>
+              <p><span>|</span> showing {{ products.length === 0?(0):(showNumb) }}-{{showNume>products.length?(products.length):(showNume)}} of {{products.length}} results</p>
           </div>
         </div>
       </div>
@@ -131,11 +131,11 @@
                   </div>
                 </div>
               </div>
-            <!-- <div class="panel panel-default">
+            <div class="panel panel-default">
               <div class="panel-heading" role="tab" id="headingSeven">
                 <h4 class="panel-title">
                 <a class="collapsed" data-toggle="collapse" data-parent="#home-accordion" href="#collapseSeven" aria-expanded="false" aria-controls="collapseSeven">
-                 Style
+                 DRINKWARE
                   <span class="floatright"><i class="fa fa-plus"></i></span>
                 </a>
                 </h4>
@@ -144,18 +144,15 @@
                 <div class="panel-body">
                   <div class="panel-body">
                     <ul id="c_tab1">
-                      <li><a href="">Blazers  (12)</a></li>
-                      <li><a href="">Pants & Trousers  (54)</a></li>
-                      <li><a href="">Shirts  (105)</a></li>
-                      <li><a href="">Suits & Tailors  (48)</a></li>
-                      <li><a href="">T-shirts  (120)</a></li>
-                      <li><a href="">Underwear  (12)</a></li>
-                      <li><a href="">Jackets & Coats (12)</a></li>
+                      <li><a href="">1</a></li>
+                      <li><a href="">2</a></li>
+                      <li><a href="">3</a></li>
                     </ul>
                     </div>
                 </div>
               </div>
             </div>
+            <!--
             <div class="panel panel-default">
               <div class="panel-heading" role="tab" id="headingEight">
                 <h4 class="panel-title">
@@ -213,7 +210,7 @@
       <div class="col-md-9 col-sm-8 col-xs-12">
         <div class="main_category_right">
           <div class="row">
-            <ng-container *ngFor="let item of products | slice: showNumb :showNume;let index = index">
+            <ng-container *ngFor="let item of products | slice: showNumb-1 :showNume;let index = index">
               <div class="col-md-4 col-sm-6 col-xs-12">
                 <div class="main_cat_item">
                   <div class="item">
@@ -243,16 +240,15 @@
           </div>
           <div class="row">
             <div class="col-md-12 col-sm-12 col-xs-12">
-              <div class="pagi_line"></div>
               <div class="pagi_ul">
                 <ul id="pagination">
-                  <li><a (click)="Previous()" >Previous</a></li>
-                  <li><a (click)="page(1*showNumb,1*showNume)">1</a></li>
-                  <li><a (click)="page(2*showNumb,2*showNume)">2</a></li>
-                  <li><a (click)="page(3*showNumb,3*showNume)">3</a></li>
-                  <li><a (click)="page(4*showNumb,4*showNume)">4</a></li>
-                  <li><a (click)="page(5*showNumb,5*showNume)">5 ...</a></li>
-                  <li><a (click)="Next()" >Next</a></li>
+                  <li><a [routerLink]="['.']" (click)="Previous()" >Previous</a></li>
+                  <li><a [routerLink]="['.']"  (click)="page(1,12)">1</a></li>
+                  <li><a [routerLink]="['.']"  (click)="page(13,24)">2</a></li>
+                  <li><a [routerLink]="['.']"  (click)="page(25,36)">3</a></li>
+                  <li><a [routerLink]="['.']"  (click)="page(37,48)">4</a></li>
+                  <li><a [routerLink]="['.']"  (click)="page(49,60)">5</a></li>
+                  <li><a [routerLink]="['.']"  (click)="Next()" >Next</a></li>
                 </ul>
               </div>
             </div>

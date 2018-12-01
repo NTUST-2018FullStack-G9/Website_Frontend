@@ -20,6 +20,10 @@ export class ProductService {
     });
   }
 // ===========================
+filter(id) {
+  this.products = this.Oriproducts.filter(products => products.category_id.valueOf() === id);
+}
+
 getProducts() {
   return this.httpClient
     .get(`${environment.api}/products`);

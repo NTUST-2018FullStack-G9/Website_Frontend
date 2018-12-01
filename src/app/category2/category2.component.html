@@ -38,7 +38,7 @@
             </ul>
           </div>
           <div class="s_results">
-              <p><span>|</span> showing {{ products.length === 0?(0):(showNumb+1) }}-{{showNume>products.length?(products.length):(showNume)}} of {{products.length}} results</p>
+            <p><span>|</span> showing {{ products.length === 0?(0):(showNumb) }}-{{showNume>products.length?(products.length):(showNume)}} of {{products.length}} results</p>
           </div>
         </div>
       </div>
@@ -62,7 +62,7 @@
         <div class="main_category_right cat-2">
           <div class="row">
             <!--商品描述-->
-            <ng-container *ngFor="let item of products | slice: showNumb :showNume;let index = index">
+            <ng-container *ngFor="let item of products | slice: showNumb-1 :showNume;let index = index">
               <div class="col-md-4 col-sm-6 col-xs-12">
                 <div class="main_cat_item">
                   <div class="item">
@@ -93,16 +93,15 @@
           </div>
           <div class="row">
             <div class="col-md-12 col-sm-12 col-xs-12">
-              <div class="pagi_line"></div>
               <div class="pagi_ul">
                 <ul id="pagination">
-                  <li><a [routerLink]="['/category1']">Previous</a></li>
-                  <li><a>1</a></li>
-                  <li><a>2</a></li>
-                  <li><a>3</a></li>
-                  <li><a>4</a></li>
-                  <li><a>5</a></li>
-                  <li><a>Next</a></li>
+                  <li><a [routerLink]="['.']" (click)="Previous()" >Previous</a></li>
+                  <li><a [routerLink]="['.']"  (click)="page(1,12)">1</a></li>
+                  <li><a [routerLink]="['.']"  (click)="page(13,24)">2</a></li>
+                  <li><a [routerLink]="['.']"  (click)="page(25,36)">3</a></li>
+                  <li><a [routerLink]="['.']"  (click)="page(37,48)">4</a></li>
+                  <li><a [routerLink]="['.']"  (click)="page(49,60)">5</a></li>
+                  <li><a [routerLink]="['.']"  (click)="Next()" >Next</a></li>
                 </ul>
               </div>
             </div>
