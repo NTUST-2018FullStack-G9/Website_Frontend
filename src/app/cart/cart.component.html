@@ -19,7 +19,7 @@
           </div>
           <div class="cart_item" *ngFor="let cart of carts;let index = index;">
             <div class="cart_item_img">
-              <img [src]="cart?.Image" alt="" />
+              <img [src]="" alt="" />
               <p>{{cart?.product_name}} <br>{{cart?.id}}</p>
             </div>
             <div class="cart_price">
@@ -56,7 +56,7 @@
                   <h4 class="panel-title">
                     <a data-toggle="collapse" data-parent="#home-accordion" href="#collapseOne" aria-expanded="true"
                       aria-controls="collapseOne">
-                      CALCULATE SHIPPING
+                      Is The Website Developer Handsome?
                       <span class="floatright"><i class="fa fa-minus"></i></span>
                     </a>
                   </h4>
@@ -64,19 +64,19 @@
                 <div id="collapseOne" class="panel-collapse collapse in" role="tabpanel" aria-labelledby="headingOne">
                   <div class="panel-body">
                     <select class="selectpicker">
-                      <option>Melbourne</option>
-                      <option>Dhaka</option>
-                      <option>New York</option>
+                      <option>God Damn yes!</option>
+                      <option>Fucking yes!</option>
+                      <option>Of Course!</option>
                     </select>
-                    <select class="selectpicker sel_state">
+                    <!-- <select class="selectpicker sel_state">
                       <option>Sate/Country</option>
                       <option>Bangladesh</option>
                       <option>USA</option>
                       <option>UK</option>
                       <option>Canda</option>
                       <option>Australia</option>
-                    </select>
-                    <input type="text" placeholder="Postcode/zip" />
+                    </select> -->
+                    <!-- <input type="text" placeholder="Postcode/zip" /> -->
                     <input type="submit" value="Update Totals">
                   </div>
                 </div>
@@ -109,7 +109,7 @@
               </div>
             </div>
             <!-- <a href="" class="cart_update">Update Cart</a> -->
-            <input [routerLink] = "['/checkout']" (click)="checkout()" routerLinkActive="active" type="submit" value="Proceed to checkout">
+            <input [routerLink] = "['/checkout']" routerLinkActive="active" type="submit" value="Proceed to checkout">
           </div>
         </div>
       </div>

@@ -3,7 +3,7 @@
     <div class="row">
       <div class="col-md-9 col-sm-8 col-xs-12">
         <div class="checkout_left">
-          <h2>Billing Address</h2>
+          <!-- <h2>Billing Address</h2>
           <div class="dotted_line"></div>
 
           <div class="checkout_form">
@@ -66,7 +66,7 @@
             </div>
 
 
-          </div>
+          </div> -->
 
           <h2>Shiiping Address</h2>
           <div class="dotted_line"></div>
@@ -75,39 +75,36 @@
             <div class="country_select country_select2">
               <p>Country</p>
               <select class="selectpicker sel_state">
-                <option>Sate/Country</option>
-                <option>Bangladesh</option>
-                <option>USA</option>
-                <option>UK</option>
-                <option>Canda</option>
-                <option>Australia</option>
+                <option>Earth/Taiwan</option>
+                <option>Mars/Taiwan</option>
               </select>
             </div>
+
             <div class="c_name_box">
               <div class="c_name_box_left">
-                <p>First Name <span>*</span></p>
-                <input type="text">
+                <p>Name <span>*</span></p>
+                <input type="text" [(ngModel)]="member.order_name">
               </div>
-              <div class="c_name_box_right">
+              <!-- <div class="c_name_box_right">
                 <p>Last Name <span>*</span></p>
                 <input type="text">
-              </div>
+              </div> -->
             </div>
-            <div class="company_name">
+            <!-- <div class="company_name">
               <p>Company Name <span>*</span></p>
               <input type="text">
-            </div>
+            </div> -->
             <div class="c_address">
               <p>Address <span>*</span></p>
-              <input type="text" placeholder="Street Address">
+              <input type="text" placeholder="Street Address" [(ngModel)]="member.order_address">
             </div>
             <div class="s_town">
-              <p>Town/City <span>*</span></p>
-              <input type="text" placeholder="Town/City">
+              <p>Phone <span>*</span></p>
+              <input type="text" placeholder="Phone" [(ngModel)]="member.order_phone">
             </div>
             <div class="s_order">
               <p>Order Notes <span>*</span></p>
-              <textarea name="" cols="30" rows="10"></textarea>
+              <textarea name="" cols="30" rows="10" [(ngModel)]="member.order_note"></textarea>
             </div>
 
           </div>
@@ -124,31 +121,32 @@
             </div>
           <ng-container *ngFor="let item of carts">
             <div class="c_single_item">
-              <p>{{item.Name}}} x {{item.Amount}}</p>
-              <span>${{item.Amount*item.Price}}}</span>
+              <p>{{item.product_name}}</p><span>${{item.quantity*item.price}}</span>
+               <p>x {{item.quantity}}</p>
+
             </div>
           </ng-container>
 
             <div class="c_total_item sp_single_item">
-              <p>Order Total</p>
+              <p>Total Price</p>
               <span>${{getCartprice()}}</span>
             </div>
 
 
-            <div class="c_payment">
+            <!-- <div class="c_payment">
               <p>Select Payment Method</p>
               <select class="selectpicker sel_state">
                 <option>Direct Bank Transfer</option>
                 <option>Wire Transfer</option>
                 <option>VISA</option>
               </select>
-            </div>
+            </div> -->
             <div class="checkbox">
               <label>
                 <input type="checkbox"> I have Read & Accept <span>Terms & Conditions</span>
               </label>
             </div>
-            <input type="submit" value="Place order now"/>
+            <input type="submit" (click)="checkout()" value="Place order now"/>
           </div>
         </div>
       </div>

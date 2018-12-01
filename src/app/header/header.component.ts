@@ -4,6 +4,7 @@ import { MemberService } from '../member.service';
 import { Router } from '../../../node_modules/@angular/router';
 import { CartService } from '../cart.service';
 import { Cart } from '../carts';
+import { WhosNow } from '../whos-now';
 @Component({
   selector: 'app-header',
   templateUrl: './header.component.html',
@@ -11,16 +12,20 @@ import { Cart } from '../carts';
 })
 export class HeaderComponent implements OnInit {
   price = 0;
-  TEST_Member = 3;
+  memberID = 0;
   Image_Need;
   keyword;
-  carts: Cart[] = [];
+
   get isLogin() {
     return this.memberService.isLogin();
   }
   get name() {
     return 0;
   }
+  get carts() {
+    return this.cartService.cartsInService;
+  }
+
   onEnter() {
     this.router.navigate(['/category2']);
     this.search();
@@ -49,40 +54,54 @@ export class HeaderComponent implements OnInit {
   }
   getCartprice() {
     this.price = 0;
-    for (const i of this.carts) {
+    for (const i of this.cartService.cartsInService) {
       this.price += i.quantity * i.price;
     }
     return this.price;
   }
 
   deleteCarts(index) {
-    for (const i of this.carts) {
+    for (const i of this.cartService.cartsInService) {
       if (i.id === index.id) {
-        i.quantity = 0;
-        this.carts.splice(index, 1);
+        // i.quantity = 0;
+        console.log(i);
+        this.delete(i);
+        this.cartService.cartsInService.splice(index, 1);
       }
     }
-    this.checkout();
+    this.ngOnInit();
   }
-
-  checkout() {
-    this.cartService.createOrder([2, 4]).subscribe(data => {
-      console.log(data);
-      alert('checkout success');
-    }, (response) => {
-      if (response.status === 401) {
-        alert('please login first');
-        this.router.navigate(['/login']);
+  delete(item) {
+    this.cartService.deleteCarts(item).subscribe(
+      data => {
+        console.log(data);
+        alert('delete success');
+      },
+      response => {
+        if (response.status === 401) {
+          alert('please login first');
+          this.router.navigate(['/login']);
+        }
+        console.log(response);
       }
-      console.log(response);
-    });
+    );
   }
 
   ngOnInit() {
-    const id = this.TEST_Member;
-    this.cartService.getMemberCart(id).subscribe((cart: Cart[]) => {
-      this.carts = cart;
-    });
+    console.log('ngOnInit');
+    this.memberService.whoami().subscribe(
+      (data: WhosNow) => {
+        // this.whoisnow = data;
+        this.memberID = data.id;
+        // console.log(this.whoisnow);
+        const id = this.memberID;
+        this.cartService.getMemberCart(id).subscribe((cart: Cart[]) => {
+          this.cartService.cartsInService = cart;
+          console.log(id);
+          console.log(this.cartService.cartsInService);
+        });
+      });
+
     // 改動後儲存，網頁css跑掉，必須重新整理
   }
 }

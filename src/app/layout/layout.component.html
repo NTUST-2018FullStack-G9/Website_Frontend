@@ -9,11 +9,11 @@
 
           <div class="tp-caption large_black sfr" data-x="120" data-y="140" data-speed="1100" data-start="1100"
             data-easing="easeInOutBack" style="font-size: 95px; font-weight: normal; text-transform: inherit; color: #ff6766;font-family: manustrialmanustrial;font-style:italic;text-shadow:0px 0px 3px #000;">
-            Summer
+            Eat my shit
           </div>
           <div class="tp-caption large_black sfr" data-x="120" data-y="230" data-speed="1100" data-start="1400"
             data-easing="easeInOutBack" style="font-family: 'Montserrat', sans-serif; font-size: 68px; font-weight: 700; line-height:80px;text-transform: uppercase; color: #232323; text-shadow: 0 0 3px #fff">
-            2015 collection
+            2015 Fuck
           </div>
           <div class="tp-caption large_black sfr carousel-caption-inner" data-x="120" data-y="300" data-speed="1100"
             data-start="1400" data-easing="easeInOutBack" style="">
@@ -30,11 +30,11 @@
 
           <div class="tp-caption large_black sfr" data-x="120" data-y="140" data-speed="1100" data-start="1100"
             data-easing="easeInOutBack" style="font-size: 95px; font-weight: normal; text-transform: inherit; color: #ff6766;font-family: manustrialmanustrial;font-style:italic;text-shadow:0px 0px 3px #000;">
-            Summer
+            GG
           </div>
           <div class="tp-caption large_black sfr" data-x="120" data-y="230" data-speed="1100" data-start="1400"
             data-easing="easeInOutBack" style="font-family: 'Montserrat', sans-serif; font-size: 68px; font-weight: 700; line-height:80px;text-transform: uppercase; color: #232323; text-shadow: 0 0 3px #fff">
-            20015 collection
+             collection
           </div>
           <div class="tp-caption large_black sfr carousel-caption-inner" data-x="120" data-y="300" data-speed="1100"
             data-start="1400" data-easing="easeInOutBack" style="">
@@ -51,7 +51,7 @@
 
           <div class="tp-caption large_black sfr" data-x="120" data-y="140" data-speed="1100" data-start="1100"
             data-easing="easeInOutBack" style="font-size: 95px; font-weight: normal; text-transform: inherit; color: #ff6766;font-family: manustrialmanustrial;font-style:italic;text-shadow:0px 0px 3px #000;">
-            Summer
+            AA
           </div>
           <div class="tp-caption large_black sfr" data-x="120" data-y="230" data-speed="1100" data-start="1400"
             data-easing="easeInOutBack" style="font-family: 'Montserrat', sans-serif; font-size: 68px; font-weight: 700; line-height:80px;text-transform: uppercase; color: #232323; text-shadow: 0 0 3px #fff">
@@ -179,7 +179,7 @@
                   <ng-container *ngFor="let item of products | slice : upperNum: lowerNum ;let index of index">
                     <div class="item">
                       <div class="item-img">
-                        <img [src]="item.Image" alt="" />
+                        <img [src]="getImage(item.imagename)" alt="" />
                         <div class="tr-add-cart">
                           <ul>
                             <li><a class="fa fa-shopping-cart tr_cart" [routerLink]="['/cart']"></a></li>
@@ -213,7 +213,7 @@
                   <ng-container *ngFor="let items of products | slice : upperNum: lowerNum ;">
                     <div class="item">
                       <div class="item-img">
-                        <img [src]="items.Image" alt="" />
+                        <img [src]="getImage(items.imagename)" alt="" />
                         <div class="tr-add-cart">
                           <ul>
                             <li><a class="fa fa-shopping-cart tr_cart" href="#"></a></li>
@@ -246,7 +246,7 @@
                   <ng-container *ngFor="let items of products | slice:upperNum:lowerNum;">
                     <div class="item">
                       <div class="item-img">
-                        <img [src]="items.Image" alt="" />
+                        <img [src]="getImage(items.imagename)" alt="" />
                         <div class="tr-add-cart">
                           <ul>
                             <li><a class="fa fa-shopping-cart tr_cart" href="#"></a></li>
@@ -279,7 +279,7 @@
                   <ng-container *ngFor="let items of products | slice:upperNum:lowerNum;">
                     <div class="item">
                       <div class="item-img">
-                        <img [src]="items.Image" alt="" />
+                        <img [src]="getImage(items.imagename)" alt="" />
                         <div class="tr-add-cart">
                           <ul>
                             <li><a class="fa fa-shopping-cart tr_cart" href="#"></a></li>
@@ -339,10 +339,10 @@
                           </div>
                           <div class="t_to_b_text">
                             <a href="product-detail.html">
-                              <p>{{items.Name}}</p>
+                              <p>{{items.name}}</p>
                             </a>
-                            <div class="t_to_b_dollr"><span>${{items.AfterPrice}}</span></div>
-                            <div class="t_to_b_del"><del>${{items.Price}}</del></div>
+                            <div class="t_to_b_dollr"><span>${{items.listprice}}</span></div>
+                            <div class="t_to_b_del"><del>${{items.saleprice}}</del></div>
                           </div>
                         </div>
                       </div>
@@ -371,10 +371,10 @@
                           </div>
                           <div class="t_to_b_text">
                             <a href="product-detail.html">
-                              <p>{{items.Name}}</p>
+                              <p>{{items.name}}</p>
                             </a>
-                            <div class="t_to_b_dollr"><span>${{items.AfterPrice}}}</span></div>
-                            <div class="t_to_b_del"><del>${{items.Price}}}</del></div>
+                            <div class="t_to_b_dollr"><span>${{items.listprice}}}</span></div>
+                            <div class="t_to_b_del"><del>${{items.saleprice}}}</del></div>
                           </div>
                         </div>
                       </div>
@@ -390,6 +390,10 @@
             <div class="col-md-4 col-sm-4 col-xs-12">
               <div class="single_t_to_b_slider">
                 <h3>top seller</h3>
+                <!-- <ng-container *ngFor="let items of products | slice :upNum:loNum;">
+                  <h3>{{items.name}}</h3>
+                </ng-container> -->
+
                 <div class="multi_line"></div>
                 <div class="single_t_to_b">
 
@@ -403,10 +407,10 @@
                           </div>
                           <div class="t_to_b_text">
                             <a href="product-detail.html">
-                              <p>{{items.Name}}</p>
+                              <p>{{items.name}}</p>
                             </a>
-                            <div class="t_to_b_dollr"><span>${{items.AfterPrice}}</span></div>
-                            <div class="t_to_b_del"><del>${{items.Price}}}</del></div>
+                            <div class="t_to_b_dollr"><span>${{items.listprice}}</span></div>
+                            <div class="t_to_b_del"><del>${{items.saleprice}}}</del></div>
                           </div>
                         </div>
                       </div>

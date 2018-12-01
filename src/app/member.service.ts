@@ -16,6 +16,7 @@ export class MemberService {
   }
   logout() {
     localStorage.removeItem('token');
+    location.reload();
   }
   isLogin() {
     if (localStorage.getItem('token')) {
@@ -25,5 +26,12 @@ export class MemberService {
   }
   reset(data) {
     return this.httpClient.post('http://localhost:8000/api/password/create', data);
+  }
+  whoami() {
+    return this.httpClient.get(`${environment.api}/me`, {
+      headers: {
+        Authorization: `Bearer ${localStorage.getItem('token')}`
+      }
+    });
   }
 }

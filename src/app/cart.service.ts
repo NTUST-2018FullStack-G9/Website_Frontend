@@ -7,7 +7,7 @@ import { environment } from 'src/environments/environment';
   providedIn: 'root'
 })
 export class CartService {
-  carts: Cart[];
+  cartsInService: Cart[] = [];
 
   constructor(private httpClient: HttpClient) {}
 
@@ -21,6 +21,39 @@ export class CartService {
 
   createOrder(cartsIds) {
     return this.httpClient.post(`${environment.api}/sales`, cartsIds, {
+      headers: {
+        Authorization: `Bearer ${localStorage.getItem('token')}`
+      }
+    });
+
+  }
+
+  deleteCarts(cartsIds) {
+    return this.httpClient.post(`${environment.api}/carts/delete`, cartsIds, {
+      headers: {
+        Authorization: `Bearer ${localStorage.getItem('token')}`
+      }
+    });
+  }
+
+  addCarts(cartsIds) {
+    return this.httpClient.post(`${environment.api}/carts/add`, cartsIds, {
+      headers: {
+        Authorization: `Bearer ${localStorage.getItem('token')}`
+      }
+    });
+  }
+
+  subCarts(cartsIds) {
+    return this.httpClient.post(`${environment.api}/carts/sub`, cartsIds, {
+      headers: {
+        Authorization: `Bearer ${localStorage.getItem('token')}`
+      }
+    });
+  }
+
+  addToCarts(cartsIds) {
+    return this.httpClient.post(`${environment.api}/carts/addincart`, cartsIds, {
       headers: {
         Authorization: `Bearer ${localStorage.getItem('token')}`
       }

@@ -71,7 +71,7 @@
                       <div class="tr-add-cart">
                         <ul>
                           <li><a  class="fa fa-shopping-cart tr_cart" [routerLink]="['/cart']"></a></li>
-                          <li><a href="javascript: void(0)"  class="tr_text">ADD TO CART</a></li>
+                          <li><a href="javascript: void(0)"  (click)="addCarts(item)" class="tr_text">ADD TO CART</a></li>
                           <li><a class="fa fa-heart tr_heart" href="#"></a></li>
                           <li><a class="fa fa-filter tr_filter"  [routerLink]="['/post', item.id]"></a></li>
                         </ul>

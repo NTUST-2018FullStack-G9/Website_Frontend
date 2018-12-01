@@ -1,6 +1,7 @@
 import { ProductService } from './../product.service';
 import { Component, OnInit } from '@angular/core';
 import { Product } from '../product';
+import { CartService } from '../cart.service';
 declare let $: any;
 @Component({
   selector: 'app-category1',
@@ -12,6 +13,7 @@ export class Category1Component implements OnInit {
   showNumb;
   showNume;
   icon_img;
+  isIn = false;
   get topPrice() {
     return Number($( '#slider-range' ).slider( 'values', 1 )) ;
   }
@@ -23,7 +25,7 @@ export class Category1Component implements OnInit {
   get products() {
       return this.dataService.products;
   }
-  constructor(private dataService: ProductService) {}
+  constructor(private dataService: ProductService, private cartService: CartService) {}
   getNum(id) { // 讀取商品數量
     this.num = 0;
     for (const i of this.dataService.Oriproducts) {
@@ -38,7 +40,28 @@ export class Category1Component implements OnInit {
     this.dataService.products = this.dataService.Oriproducts;
   }
 
-
+  addCarts(item: Product) {
+    this.isIn = false;
+    this.cartService.addToCarts(item).subscribe( data => {
+      for (const i of this.cartService.cartsInService) {
+        if (i.product_id === item.id) {
+          i.quantity++;
+          this.isIn = true;
+        }
+      }
+      if (!this.isIn) {
+        this.cartService.cartsInService.push({
+          id: 0, member_id: 0, product_id: item.id,
+          quantity: 1, price: item.saleprice, product_name: item.name,
+          created_at: '', updated_at: ''});
+      }
+      console.log(item);
+      console.log(data);
+      alert('addCarts');
+    }, (response) => {
+      console.log(response);
+    });
+  }
   filter(id) {
     this.dataService.filter(id);
   }

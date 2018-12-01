@@ -15,15 +15,18 @@ export class LayoutComponent implements OnInit {
   lowerNum = 9;
   upNum = 0;
   loNum = 6;
+  local = 'http://localhost:8000/storage/';
 
-  products: Product[];
+  products: Product[] = [];
 
   // get products() {
   //   return this.dataService.products;
   // }
-
+  getImage(Imgname) {
+    return this.local + Imgname;
+  }
   get carts() {
-    return this.cartService.carts;
+    return this.cartService.cartsInService;
   }
 
   constructor(public elementRef: ElementRef, private dataService: ProductService, private cartService: CartService) {}

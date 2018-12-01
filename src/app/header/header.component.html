@@ -135,13 +135,12 @@
 
     <!-- CART IN HEADER -->
     <div class="nav_right floatright">
-
       <!-- <ng-container *ngFor="let items of carts; let index; of: index"> -->
-          <a [routerLink]="['/cart',TEST_Member]" routerLinkActive="router-link-active" ><img src="../../assets/images/bag.png" alt="Bag" />cart: {{carts.length}} items</a>
-        <!---->
-        <div class="cart_menu">
-          <!-- Origin ng -->
-          <ng-container *ngFor="let items of carts;let index of index">
+      <a [routerLink]="['/cart']" routerLinkActive="router-link-active"><img src="../../assets/images/bag.png" alt="Bag" />cart: {{ carts.length }} items</a>
+      <!---->
+      <div class="cart_menu">
+        <!-- Origin ng -->
+        <ng-container *ngFor="let items of carts; let index; of: index">
           <div class="cart_items">
             <div class="c_item_img floatleft">
               <a [routerLink]="['/productDetail']"><img [src]="Image_Need" alt=""/></a>
@@ -157,21 +156,21 @@
               <div (click)="deleteCarts(index)" class="close_icon_cart floatleft"><img src="../../assets/images/close.png" alt="" /></div>
             </div>
           </div>
-          </ng-container>
+        </ng-container>
 
-          <div class="cart_totals">
-            <div class="c_totals_left floatleft"><p>Free shipping</p></div>
-            <div class="c_totals_right floatleft">
-              <p>total ${{ getCartprice() }}</p>
-            </div>
-          </div>
-          <div class="cart_view_bottom">
-            <div class="c_totals_left floatleft"><a [routerLink]="['/cart',TEST_Member]">View Cart</a></div>
-            <div class="c_totals_right floatleft"><a [routerLink]="['/checkout']">Check Out</a></div>
+        <div class="cart_totals">
+          <div class="c_totals_left floatleft"><p>Free shipping</p></div>
+          <div class="c_totals_right floatleft">
+            <p>total ${{ getCartprice() }}</p>
           </div>
         </div>
+        <div class="cart_view_bottom">
+          <div class="c_totals_left floatleft"><a [routerLink]="['/cart']" >View Cart</a></div>
+          <div class="c_totals_right floatleft"><a [routerLink]="['/checkout']">Check Out</a></div>
+        </div>
+      </div>
 
-        <!---->
+      <!---->
       <!-- </ng-container> -->
     </div>
 
