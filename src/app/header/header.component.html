@@ -39,7 +39,7 @@
   <div class="container">
     <div class="row">
       <div class="col-md-3 col-sm-3 col-xs-12">
-        <div class="header_left floatleft"><a class="fa fa-search" [routerLink]="['/category2']" (click)= search() ></a> <input type="text" placeholder="search product" [(ngModel)]="keyword"/></div>
+        <div class="header_left floatleft"><a class="fa fa-search" [routerLink]="['/category2']" (click)= search() ></a> <input type="text" placeholder="search product" [(ngModel)]="keyword" (keyup.enter)="onEnter()"/></div>
       </div>
       <div class="col-md-6 col-sm-5 col-xs-12">
         <div class="header_center">

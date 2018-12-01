@@ -21,6 +21,11 @@ export class HeaderComponent implements OnInit {
   get name() {
     return 0;
   }
+  onEnter() {
+    this.router.navigate(['/category2']);
+    this.search();
+  }
+
   search() {
     this.dataService.products = this.dataService.Oriproducts.filter(products => products.name.valueOf().search(this.keyword) !== -1);
   }
