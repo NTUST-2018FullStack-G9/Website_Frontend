@@ -10,7 +10,7 @@ import { WhosNow } from '../whos-now';
   styleUrls: ['./checkout.component.css']
 })
 export class CheckoutComponent implements OnInit {
-
+  check;
   member = {
     member_id : 0,
     order_name : '',
@@ -54,6 +54,7 @@ export class CheckoutComponent implements OnInit {
   }
 
   ngOnInit() {
+    this.check = false;
     this.memberService.whoami().subscribe((data: WhosNow) => {
       this.member.member_id = data.id;
       console.log('checkOut');

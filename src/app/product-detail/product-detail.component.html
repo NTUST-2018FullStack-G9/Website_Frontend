@@ -85,7 +85,35 @@
                     </div>
                   </div>
                 </div>
+                <div class="panel panel-default product_default">
+                    <div class="panel-heading product_accordion_heading" role="tab" id="headingThreeP">
+                      <h4 class="panel-title product_accordion_head">
+                     <a class="collapsed" data-toggle="collapse" data-parent="#home-accordion-single" href="#collapseThreeP" aria-expanded="false" aria-controls="collapseThreeP">
+                       delivery & returns
+                       <span class="floatright"><i class="fa fa-plus"></i></span>
+                     </a>
+                      </h4>
+                    </div>
+                    <div id="collapseThreeP" class="panel-collapse collapse" role="tabpanel" aria-labelledby="headingThreeP">
+                      <div class="panel-body product_accordion_head">
+
+                      <div class="single_color">
+                      <div class="color_heading"><h5>Quantity</h5></div>
+                      <div class="color_detail">
+                        <div class="size_down">
+                          <input type="number" size="4" class="input-text qty text" title="Qty" [(ngModel)]="quantity" name="quantity[113]" max="119" min="0" step="1">
+                        </div>
+                        <div class="size_cart">
+                          <a [routerLink]="['./']" (click) = "addCarts(product)"  >Add to cart</a>
+                        </div>
+                      </div>
+                      </div>
+
+                      </div>
+                    </div>
+                   </div>
               </div>
+
             </div>
 
           </div>

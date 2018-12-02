@@ -1,5 +1,5 @@
 <div class="container">
-  <form name="LoginForm">
+  <form name="LoginForm"  ngNativeValidate>
     <div class="row">
       <h2 style="text-align:center">Login with Social Media or Manually</h2>
       <div class="vl">
@@ -22,10 +22,16 @@
         <div class="hide-md-lg">
           <p>Or sign in manually:</p>
         </div>
-        <input type="email" name="username" placeholder="Email" [(ngModel)]="user.email" required>
-        <input type="password" name="password" placeholder="Password" [(ngModel)]="user.password" required>
-        <a  [routerLink]="['/forgetpw']" style="color:blue" class="btn">Forgot password?</a>
-        <input type="submit" value="Login" (click)="login()">
+
+          <input #email="ngModel" type="email" name="username" placeholder="Email"  required [(ngModel)]="user.email" >
+          <input #password="ngModel" type="password" name="password" placeholder="Password" required [(ngModel)]="user.password" minlength="6" >
+          <a  [routerLink]="['/forgetpw']" style="color:blue" class="btn">Forgot password?</a>
+        <ng-container *ngIf="email.valid && password.valid ; else noValid">
+          <input type="submit" value="Login" (click)="login()">
+        </ng-container>
+        <ng-template #noValid>
+            <input type="submit" value="Login" >
+        </ng-template>
       </div>
 
     </div>
@@ -42,3 +48,6 @@
     </div>
   </div>
 </div>
+
+
+
