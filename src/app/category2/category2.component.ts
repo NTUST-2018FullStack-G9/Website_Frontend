@@ -40,10 +40,10 @@ export class Category2Component implements OnInit {
           id: 0, member_id: 0, product_id: item.id,
           quantity: 1, price: item.saleprice, product_name: item.name,
           created_at: '', updated_at: ''});
+          alert('addCarts');
       }
       console.log(item);
       console.log(data);
-      // alert('addCarts');
     }, (response) => {
       console.log(response);
     });

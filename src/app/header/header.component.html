@@ -51,13 +51,13 @@
         <div class="header_right floatright">
           <ul class="checkout">
             <li>
-              <a [routerLink]="['/checkout']" routerLinkActive="active"><i class="fa fa-heart-o"></i>wishlist</a>
+              <a [routerLink]="['/cart']" routerLinkActive="active"><i class="fa fa-shopping-cart"></i>checklist</a>
             </li>
             <li class="mobi_right_li">
-              <a [routerLink]="['/checkout']" routerLinkActive="active"><i class="fa fa-shopping-cart"></i>checklist</a>
+              <a [routerLink]="['/checkout']" routerLinkActive="active"><i class="fa fa-heart-o"></i>wishlist</a>
             </li>
           </ul>
-          <div class="w_likes"><span>3</span></div>
+          <p></p><div class="w_likes"><span>{{carts.length}}</span></div>
         </div>
       </div>
     </div>
