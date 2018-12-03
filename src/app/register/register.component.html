@@ -13,7 +13,8 @@
     <input  #password="ngModel" [(ngModel)]="user.password" type="password" placeholder="Enter Password" name="Password" required minlength="6">
 
     <label for="psw-repeat"><b>Repeat Password</b></label>
-    <input #c_password="ngModel" [(ngModel)]="user.password_confirmation" type="password" placeholder="Repeat Password" name="Confirm" required minlength="6">
+    <input #c_password="ngModel" [(ngModel)]="user.password_confirmation" type="password" placeholder="Repeat Password" name="Confirm" required minlength="6" validateEqual="Password">
+    
 
     <p>By creating an account you agree to our <a href="#">Terms & Privacy</a>.</p>
     <ng-container *ngIf="(email.valid && name.valid && password.valid && c_password.valid && (password.value==c_password.value)) ; else noValid ">

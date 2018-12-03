@@ -92,7 +92,7 @@ export class LayoutComponent implements OnInit {
       this.ads = data;
       console.log(data);
     });
-    // setTimeout(() => {
+    setTimeout(() => {
     // <script src="assets/js/rs-plugin/js/jquery.themepunch.plugins.min.js"></script>
     const sliderTop = document.createElement('script');
     sliderTop.type = 'text/javascript';
@@ -124,7 +124,7 @@ export class LayoutComponent implements OnInit {
       minSlides: 3,
       slideMargin: 10
     });
-  // }, 500);
+  }, 500);
 }
 }
 // tslint:disable-next-line:use-life-cycle-interface
