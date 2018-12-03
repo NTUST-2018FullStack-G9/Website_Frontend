@@ -5,7 +5,7 @@ import { HttpClient } from '@angular/common/http';
   providedIn: 'root'
 })
 export class MemberService {
-  constructor(private httpClient: HttpClient) { }
+  constructor(private httpClient: HttpClient) {}
 
   register(user) {
     return this.httpClient.post(`${environment.api}/register`, user);
@@ -20,12 +20,15 @@ export class MemberService {
   }
   isLogin() {
     if (localStorage.getItem('token')) {
-        console.log('token');
+      console.log('token');
     }
     return localStorage.getItem('token');
   }
   reset(data) {
-    return this.httpClient.post('http://localhost:8000/api/password/create', data);
+    return this.httpClient.post(
+      'http://localhost:8000/api/password/create',
+      data
+    );
   }
   whoami() {
     return this.httpClient.get(`${environment.api}/me`, {
