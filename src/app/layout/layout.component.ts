@@ -126,7 +126,7 @@ export class LayoutComponent implements OnInit {
     });
   }, 500);
 }
-
+}
 // tslint:disable-next-line:use-life-cycle-interface
 // ngAfterViewInit(): void {
 //   // <script src="assets/js/rs-plugin/js/jquery.themepunch.plugins.min.js"></script>
@@ -161,4 +161,4 @@ export class LayoutComponent implements OnInit {
 //     slideMargin: 10
 //   });
 
-// }
+//
