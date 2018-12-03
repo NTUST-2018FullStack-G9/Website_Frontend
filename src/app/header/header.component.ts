@@ -13,6 +13,7 @@ import { WhosNow } from '../whos-now';
 export class HeaderComponent implements OnInit {
   price = 0;
   memberID = 0;
+  userName = '';
   Image_Need;
   keyword;
 
@@ -93,7 +94,7 @@ export class HeaderComponent implements OnInit {
       (data: WhosNow) => {
         // this.whoisnow = data;
         this.memberID = data.id;
-        // console.log(this.whoisnow);
+        this.userName = data.name;
         const id = this.memberID;
         this.cartService.getMemberCart(id).subscribe((cart: Cart[]) => {
           this.cartService.cartsInService = cart;
