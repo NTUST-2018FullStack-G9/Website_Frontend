@@ -9,6 +9,10 @@ export class FooterComponent implements OnInit {
 
   constructor() { }
 
+  refresh () {
+    location.reload();
+  }
+
   ngOnInit() {
   }
 

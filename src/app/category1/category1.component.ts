@@ -3,6 +3,7 @@ import { Component, OnInit } from '@angular/core';
 import { Product } from '../product';
 import { CartService } from '../cart.service';
 declare let $: any;
+
 @Component({
   selector: 'app-category1',
   templateUrl: './category1.component.html',
