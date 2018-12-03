@@ -2,6 +2,8 @@ import { Component, OnInit, ElementRef } from '@angular/core';
 import { ProductService } from '../product.service';
 import { CartService } from '../cart.service';
 import { Product } from '../product';
+import { Ad } from '../ad';
+import { AdService } from '../ad.service';
 
 declare let $: any;
 @Component({
@@ -16,20 +18,37 @@ export class LayoutComponent implements OnInit {
   upNum = 0;
   loNum = 6;
   isIn = false;
-
+  local = 'http://localhost:8000/storage/';
   products: Product[] = [];
-
+  ads: Ad[] = [];
   // get products() {
   //   return this.dataService.products;
   // }
   getImage(Imgname) {
     return  this.dataService.getImage(Imgname);
   }
+  getAd0Image(Imgname) {
+    console.log(this.local + this.ads[0].imagename);
+    return this.local + this.ads[0].imagename;
+  }
+  getAd1Image(Imgname) {
+    return this.local + this.ads[1].imagename;
+  }
+  getAd2Image(Imgname) {
+    return this.local + this.ads[2].imagename;
+  }
   get carts() {
     return this.cartService.cartsInService;
   }
-
-  constructor(public elementRef: ElementRef, private dataService: ProductService, private cartService: CartService) {}
+  // get ads() {
+  //   return this.adService.ads;
+  // }
+  constructor(
+    public elementRef: ElementRef,
+    private dataService: ProductService,
+    private cartService: CartService,
+    private adService: AdService
+  ) {}
 
   addCarts(item: Product) {
     this.isIn = false;
@@ -69,6 +88,11 @@ export class LayoutComponent implements OnInit {
       this.products = data;
       console.log(data);
     });
+    this.adService.getAds().subscribe((data: Ad[]) => {
+      this.ads = data;
+      console.log(data);
+    });
+    setTimeout(() => {
     // <script src="assets/js/rs-plugin/js/jquery.themepunch.plugins.min.js"></script>
     const sliderTop = document.createElement('script');
     sliderTop.type = 'text/javascript';
@@ -100,7 +124,7 @@ export class LayoutComponent implements OnInit {
       minSlides: 3,
       slideMargin: 10
     });
-  }
+  }, 500);
 }
 
 // tslint:disable-next-line:use-life-cycle-interface

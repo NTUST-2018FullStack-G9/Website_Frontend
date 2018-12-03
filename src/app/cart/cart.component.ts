@@ -101,6 +101,7 @@ export class CartComponent implements OnInit {
       },
       response => {
         console.log(response);
+
       }
     );
   }
