@@ -37,7 +37,7 @@ export class CheckoutComponent implements OnInit {
   }
 
   checkout() {
-    alert('checkOut');
+    // alert('checkOut');
     this.cartService.createOrder(this.member).subscribe(data => {
       console.log(data);
       alert('checkout success');
@@ -45,7 +45,7 @@ export class CheckoutComponent implements OnInit {
       location.reload();
     }, (response) => {
       if (response.status === 401) {
-        alert('please login first');
+        // alert('please login first');
         this.router.navigate(['/login']);
       }
       console.log(response);

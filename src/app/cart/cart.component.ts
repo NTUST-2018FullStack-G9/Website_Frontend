@@ -45,10 +45,10 @@ export class CartComponent implements OnInit {
   delete(item) {
     this.cartService.deleteCarts(item).subscribe(data => {
       console.log(data);
-      alert('delete success');
+      // alert('delete success');
     }, (response) => {
       if (response.status === 401) {
-        alert('please login first');
+        // alert('please login first');
         this.router.navigate(['/login']);
       }
       console.log(response);
@@ -66,10 +66,10 @@ export class CartComponent implements OnInit {
   sub(item) {
     this.cartService.subCarts(item).subscribe(data => {
       console.log(data);
-      alert('sub success');
+      // alert('sub success');
     }, (response) => {
       if (response.status === 401) {
-        alert('please login first');
+        // alert('please login first');
         this.router.navigate(['/login']);
       }
       console.log(response);
@@ -79,10 +79,10 @@ export class CartComponent implements OnInit {
   add(item) {
     this.cartService.addCarts(item).subscribe(data => {
       console.log(data);
-      alert('add success');
+      // alert('add success');
     }, (response) => {
       if (response.status === 401) {
-        alert('please login first');
+        // alert('please login first');
         this.router.navigate(['/login']);
       }
       console.log(response);

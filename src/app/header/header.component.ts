@@ -75,11 +75,11 @@ export class HeaderComponent implements OnInit {
     this.cartService.deleteCarts(item).subscribe(
       data => {
         console.log(data);
-        alert('delete success');
+        // alert('delete success');
       },
       response => {
         if (response.status === 401) {
-          alert('please login first');
+          // alert('please login first');
           this.router.navigate(['/login']);
         }
         console.log(response);

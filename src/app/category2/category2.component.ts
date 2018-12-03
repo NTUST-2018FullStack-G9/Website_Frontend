@@ -43,7 +43,7 @@ export class Category2Component implements OnInit {
       }
       console.log(item);
       console.log(data);
-      alert('addCarts');
+      // alert('addCarts');
     }, (response) => {
       console.log(response);
     });
