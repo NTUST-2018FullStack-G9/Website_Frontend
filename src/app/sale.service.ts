@@ -11,13 +11,22 @@ export class SaleService {
 
   constructor(private httpClient: HttpClient) { }
   sales: Sale[] = [];
-  saleItem: SaleItem;
-  
+  saleItem: SaleItem[] = [];
+
   getSale () {
-    return this.httpClient.get(`${environment.api}/index`);
+    return this.httpClient.get(`${environment.api}/sales/index`, {
+      headers: {
+        Authorization: `Bearer ${localStorage.getItem('token')}`
+      }
+    });
   }
+
   getSaleItem (sale) {
-    return this.httpClient.get(`${environment.api}/${sale}`);
+    return this.httpClient.get(`${environment.api}/sales/${sale}`, {
+      headers: {
+        Authorization: `Bearer ${localStorage.getItem('token')}`
+      }
+    });
   }
 
 }
