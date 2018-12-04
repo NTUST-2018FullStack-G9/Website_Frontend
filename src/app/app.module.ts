@@ -21,6 +21,7 @@ import { CartComponent } from './cart/cart.component';
 import { HttpClientModule } from '@angular/common/http';
 import { ForgetPasswordComponent } from './forget-password/forget-password.component';
 import { ForgetPasswordComponentComponent } from './forget-password-component/forget-password-component.component';
+import { TraceComponent } from './trace/trace.component';
 @NgModule({
   declarations: [
     AppComponent,
@@ -39,7 +40,8 @@ import { ForgetPasswordComponentComponent } from './forget-password-component/fo
     SingleBlogComponent,
     CartComponent,
     ForgetPasswordComponent,
-    ForgetPasswordComponentComponent
+    ForgetPasswordComponentComponent,
+    TraceComponent
   ],
   imports: [
     BrowserModule,

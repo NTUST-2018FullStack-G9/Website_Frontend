@@ -13,6 +13,7 @@ import { CheckoutComponent } from './checkout/checkout.component';
 import { AboutComponent } from './about/about.component';
 import { CartComponent } from './cart/cart.component';
 import { ForgetPasswordComponent } from './forget-password/forget-password.component';
+import { TraceComponent } from './trace/trace.component';
 const routes: Routes = [
   {
     path: '',
@@ -65,6 +66,10 @@ const routes: Routes = [
   {
     path: 'forgetpw',
     component: ForgetPasswordComponent,
+  },
+  {
+    path: 'trace',
+    component: TraceComponent,
   }
 ];
 
