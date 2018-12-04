@@ -154,3 +154,46 @@
     </div>
   </div>
 </section>
+<section class="contact_p_area">
+  <div class="container">
+    <div class="row">
+      <div class="col-md-8 col-sm-8 col-xs-12">
+        <div class="contact_box_left">
+          <h4>Leave A message</h4>
+          <div class="multi_line"></div>
+        </div>
+        <form >
+          <div class="input_form">
+            <div class="input_left">
+              <input [(ngModel)]="suggestion.name" type="text" placeholder="Name *" required name="name"/>
+              <input [(ngModel)]="suggestion.email" type="text" placeholder="Your Email *" required name="email"/>
+            </div>
+            <div class="input_right">
+              <textarea [(ngModel)]="suggestion.text" name="text" placeholder="Message" required></textarea>
+            </div>
+          </div>
+          <div class="submit_btn form-group submitRow">
+            <input type="button" name="submit" value="Submit form" (click)="sendSuggestion()"/>
+          </div>
+          <!-- <button type="button" name="submit" value="Submit form" (click)="sendSuggestion()">Submit form</button> -->
+
+        </form>
+      </div>
+      <!-- <div class="col-md-4 col-sm-4 col-xs-12">
+        <div class="contact_box_right">
+          <h5>Address</h5>
+          <p>44 new Design Street, Melbourne 005 <br>Australia 300</p>
+          <div class="dotted_line"></div>
+
+          <h5>Contact info</h5>
+          <p>Info@Example.com</p>
+          <a href="tel:01(800)433633">01 (800) 433 633</a>
+          <div class="dotted_line"></div>
+
+          <h5>Working hours</h5>
+          <p>Daily 10.00 to 22.00    ( Sunday Avilable ) </p>
+        </div>
+      </div> -->
+    </div>
+  </div>
+</section>
