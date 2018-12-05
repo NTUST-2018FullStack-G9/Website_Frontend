@@ -49,11 +49,12 @@
               type="text"
               placeholder="coupon code"
               [(ngModel)]="couponCode"
+              [disabled]="IsDP"
             />
             <input type="submit" value="apply coupon" (click)="applyCoupon()" />
           </div>
           <ng-container *ngIf="IsDP">
-            <span style="color: red;font-size: 10pt">FOR FREE !!</span>
+            <span style="color: red;font-size: 10pt">20% OFF !!</span>
           </ng-container>
           <ng-container *ngIf="!IsDP && IsClick">
             <span style="color: red;font-size: 10pt">Coupon Not Exist !!</span>
@@ -99,18 +100,7 @@
                       <option>Fucking yes!</option>
                       <option>Of Course!</option>
                     </select>
-                    <!--
-                      <select class="selectpicker sel_state">
-                        <option>Sate/Country</option>
-                        <option>Bangladesh</option>
-                        <option>USA</option>
-                        <option>UK</option>
-                        <option>Canda</option>
-                        <option>Australia</option>
-                      </select>
-                    -->
-                    <!-- <input type="text" placeholder="Postcode/zip" /> -->
-                    <input type="submit" value="Update Totals" />
+                    
                   </div>
                 </div>
               </div>
