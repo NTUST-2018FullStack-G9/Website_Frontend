@@ -7,27 +7,28 @@
       <div class="col-md-6 col-sm-6 col-xs-12">
         <div class="header_top_right floatright">
           <span *ngIf="!isLogin">
-              <p><a [routerLink]="['/login']">login </a> | <a [routerLink]="['/register']"> register</a></p>
+            <p><a [routerLink]="['/login']">login </a> | <a [routerLink]="['/register']"> register</a></p>
           </span>
           <span *ngIf="isLogin">
-          <p><a (click) ="logout()">logout</a></p>
-          <span style="color: white">Hello!  {{userName}}</span><p></p>
+            <p><a (click)="logout()">logout</a></p>
+            <span style="color: white">Hello! {{ userName }}</span>
+            <p></p>
           </span>
           <nav class="currency alignleft">
-             <!-- <ul>   轉換幣值 別鳥她
-                <li><a href="">USD</a>
-                  <ul class="currency-dropdown">
-                    <li><a href="">EUR</a></li>
-                    <li><a href="">GBP</a></li>
-                    <li><a href="">CAD</a></li>
-                    <li><a href="">AUD</a></li>
-                  </ul>
-                </li>
-            </ul> -->
+            <!--
+              <ul>   轉換幣值 別鳥她
+                  <li><a href="">USD</a>
+                    <ul class="currency-dropdown">
+                      <li><a href="">EUR</a></li>
+                      <li><a href="">GBP</a></li>
+                      <li><a href="">CAD</a></li>
+                      <li><a href="">AUD</a></li>
+                    </ul>
+                  </li>
+              </ul>
+            -->
           </nav>
-          <div class="top-flag alignleft">
-            <img src="../../assets/images/flag.png" alt="Flags" />
-          </div>
+          <div class="top-flag alignleft"><img src="../../assets/images/flag.png" alt="Flags" /></div>
         </div>
       </div>
     </div>
@@ -40,7 +41,9 @@
   <div class="container">
     <div class="row">
       <div class="col-md-3 col-sm-3 col-xs-12">
-        <div class="header_left floatleft"><a class="fa fa-search" [routerLink]="['/category2']" (click)= search() ></a> <input type="text" placeholder="search product" [(ngModel)]="keyword" (keyup.enter)="onEnter()"/></div>
+        <div class="header_left floatleft">
+          <a class="fa fa-search" [routerLink]="['/category2']" (click)="search()"></a> <input type="text" placeholder="search product" [(ngModel)]="keyword" (keyup.enter)="onEnter()" />
+        </div>
       </div>
       <div class="col-md-6 col-sm-5 col-xs-12">
         <div class="header_center">
@@ -53,11 +56,16 @@
             <li>
               <a [routerLink]="['/cart']" routerLinkActive="active"><i class="fa fa-shopping-cart"></i>checklist</a>
             </li>
-            <li class="mobi_right_li">
-              <a [routerLink]="['/trace']" routerLinkActive="active"><i class="fa fa-heart-o"></i>wishlist</a>
-            </li>
+            <ng-container *ngIf="Islogin">
+              <li class="mobi_right_li">
+                <a [routerLink]="['/trace']" routerLinkActive="active"><i class="fa fa-heart-o"></i>trace list</a>
+              </li>
+            </ng-container>
           </ul>
-          <p></p><div class="w_likes"><span>{{carts.length}}</span></div>
+          <p></p>
+          <div class="w_likes">
+            <span>{{ carts.length }}</span>
+          </div>
         </div>
       </div>
     </div>
@@ -118,9 +126,9 @@
       <nav class="mainmenu">
         <ul id="nav">
           <li routerLinkActive="current-page-item" [routerLinkActiveOptions]="{ exact: true }"><a [routerLink]="['']">Home</a></li>
-          <li routerLinkActive="current-page-item"><a [routerLink]="['/category2']" (click)=reload() >shop</a></li>
+          <li routerLinkActive="current-page-item"><a [routerLink]="['/category2']" (click)="reload()">shop</a></li>
           <li routerLinkActive="current-page-item">
-            <a [routerLink]="['/category1']" (click)=reload()>Trending</a>
+            <a [routerLink]="['/category1']" (click)="reload()">Trending</a>
             <ul id="sub-menu">
               <li><a href="">Top 10 Beer</a></li>
               <li><a href="">Top 10 Spirit</a></li>
@@ -166,7 +174,7 @@
           </div>
         </div>
         <div class="cart_view_bottom">
-          <div class="c_totals_left floatleft"><a [routerLink]="['/cart']" >View Cart</a></div>
+          <div class="c_totals_left floatleft"><a [routerLink]="['/cart']">View Cart</a></div>
           <div class="c_totals_right floatleft"><a [routerLink]="['/checkout']">Check Out</a></div>
         </div>
       </div>

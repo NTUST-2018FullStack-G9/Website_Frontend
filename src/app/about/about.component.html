@@ -1,4 +1,19 @@
-<section class="contact_p_area">
+<!-- <div class="col-md-4 col-sm-4 col-xs-12">
+        <div class="contact_box_right">
+          <h5>Address</h5>
+          <p>44 new Design Street, Melbourne 005 <br>Australia 300</p>
+          <div class="dotted_line"></div>
+
+          <h5>Contact info</h5>
+          <p>Info@Example.com</p>
+          <a href="tel:01(800)433633">01 (800) 433 633</a>
+          <div class="dotted_line"></div>
+
+          <h5>Working hours</h5>
+          <p>Daily 10.00 to 22.00    ( Sunday Avilable ) </p>
+        </div>
+      </div> -->
+<!-- <section class="contact_p_area">
   <div class="container">
     <div class="row">
       <div class="col-md-8 col-sm-8 col-xs-12">
@@ -23,24 +38,10 @@
 
         </form>
       </div>
-      <!-- <div class="col-md-4 col-sm-4 col-xs-12">
-        <div class="contact_box_right">
-          <h5>Address</h5>
-          <p>44 new Design Street, Melbourne 005 <br>Australia 300</p>
-          <div class="dotted_line"></div>
-
-          <h5>Contact info</h5>
-          <p>Info@Example.com</p>
-          <a href="tel:01(800)433633">01 (800) 433 633</a>
-          <div class="dotted_line"></div>
-
-          <h5>Working hours</h5>
-          <p>Daily 10.00 to 22.00    ( Sunday Avilable ) </p>
-        </div>
-      </div> -->
+      
     </div>
   </div>
-</section>
+</section> -->
 
 
 <section class="blog_page_area">
@@ -113,19 +114,33 @@
           </div>
         </div>
       </div>
-      <!-- <div class="col-md-4 col-sm-4 col-xs-12">
+      <div class="col-md-4 col-sm-4 col-xs-12">
         <div class="blog_page_sidebar">
-          <div class="blog_search">
-            <input type="text" placeholder="search post HERE..." />
-            <i class="fa fa-search"></i>
-          </div>
+            <div class="contact_box_left">
+                <h4>Leave A message</h4>
+                <div class="multi_line"></div>
+              </div>
+              <form >
           <div class="blog_widget">
-            <h2>TEXT WIDGET</h2>
-            <div class="multi_line"></div>
-            <p>Nemo enim ipsam volupitatem quia voluptas sia aspernatur aut odit aut fugit, sed quia cosequun tur magni dolores eos qui ratione volup tatemas sequi nesciuntsa Neque porro.</p>
+              
+                  <div class="input_form">
+                    <div class="input_left">
+                      <input [(ngModel)]="suggestion.name" type="text" placeholder="Name *" required name="name"/>
+                      <input [(ngModel)]="suggestion.email" type="text" placeholder="Your Email *" required name="email"/>
+                    </div>
+                    <div class="input_right">
+                      <textarea [(ngModel)]="suggestion.text" name="text" placeholder="Message" required></textarea>
+                    </div>
+                  </div>
+                  <div class="submit_btn form-group submitRow">
+                    <input type="button" name="submit" value="Submit form" (click)="sendSuggestion()"/>
+                  </div>
+                  
+        
+                
           </div>
           <div class="blog_categories">
-            <h2>POST CATEGORIES</h2>
+            <!-- <h2>POST CATEGORIES</h2> -->
             <div class="multi_line"></div>
             <ul id="blog_categories">
               <li><a href="#">Stylish Looks</a></li>
@@ -136,7 +151,8 @@
               <li><a href="#">Best reviews</a></li>
             </ul>
           </div>
-          <div class="blog_recent_post">
+        </form>
+          <!-- <div class="blog_recent_post">
             <h2>RECENT POST</h2>
             <div class="multi_line"></div>
             <div class="single_recent_post">
@@ -193,9 +209,9 @@
               <li><a href="single-blog.html"><img src="../../assets/images/blog-side5.jpg" alt="" /></a></li>
               <li><a href="single-blog.html"><img src="../../assets/images/blog-side6.jpg" alt="" /></a></li>
             </ul>
-          </div>
+          </div> -->
         </div>
-      </div> -->
+      </div>
     </div>
   </div>
 </section>
