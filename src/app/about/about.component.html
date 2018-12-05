@@ -47,7 +47,7 @@
               <form name="fForm" ngNativeValidate>
                 <!-- <div class="input_left"> -->
                 <input [(ngModel)]="suggestion.name" type="text" placeholder="Name *" required name="name" #name="ngModel" />
-                <input [(ngModel)]="suggestion.email" type="email" placeholder="Your Email *" required name="email" #email="ngModel" />
+                <input [(ngModel)]="suggestion.email" type="email" placeholder="Your Email *" required name="email" #email="ngModel" email/>
 
                 <!-- <input #ea="ngModel" [(ngModel)]="test" required type="email" placeholder="Enter Email" name="Email" /> -->
                 <!-- </div> -->
@@ -56,11 +56,11 @@
                 <!-- </div> -->
                 <ng-container *ngIf="(!name.valid || !email.valid || !text.valid)">
                   <div class="submit_btn form-group submitRow">
-                    <button [disabled]="(!name.valid || !email.valid || !text.valid)" type="button" name="submit" value="Submit form" class="button button1 disabled">Submit form</button>
+                    <button type="submit" value="Submit form" class="button button1 disabled">Submit form</button>
                   </div>
                 </ng-container>
                 <ng-container *ngIf="(name.valid && email.valid && text.valid)">
-                  <button type="button" name="submit" value="Submit form" (click)="sendSuggestion()" class="button button1">Submit form</button>
+                  <button type="submit" name="submit" value="Submit form" (click)="sendSuggestion()" class="button button1">Submit form</button>
                 </ng-container>
               </form>
             </div>

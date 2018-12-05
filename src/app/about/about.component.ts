@@ -23,9 +23,9 @@ export class AboutComponent implements OnInit {
         if (data.success) {
           alert('已收到你的來信');
           location.reload();
-        } else {
-          alert('plz try angain');
         }
+      }, (response) => {
+        alert('plz try angain');
       });
   }
 }
