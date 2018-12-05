@@ -13,14 +13,15 @@
     <input  #password="ngModel" [(ngModel)]="user.password" type="password" placeholder="Enter Password" name="Password" required minlength="6">
 
     <label for="psw-repeat"><b>Repeat Password</b></label>
+    <p [hidden]="passwordH" style="color:red "><b>*Repeat Password Error</b></p>
     <input #c_password="ngModel" [(ngModel)]="user.password_confirmation" type="password" placeholder="Repeat Password" name="Confirm" required minlength="6" validateEqual="Password">
 
     <p>By creating an account you agree to our <a href="#">Terms & Privacy</a>.</p>
-    <ng-container *ngIf="(email.valid && name.valid && password.valid && c_password.valid && (password.value==c_password.value)) ; else noValid ">
-        <button  type="submit" class="registerbtn" (click)="register()">Register</button>
+    <ng-container *ngIf="(email.valid && name.valid && password.valid && c_password.valid ) ; else noValid ">
+        <button  type="submit" class="registerbtn" (click)="register(1)">Register</button>
     </ng-container>
     <ng-template #noValid>
-        <button  type="submit" class="registerbtn" >Register</button>
+        <button  type="submit" class="registerbtn" (click)="register(0)" >Register</button>
     </ng-template>
   </div>
   <div class="container signin">
