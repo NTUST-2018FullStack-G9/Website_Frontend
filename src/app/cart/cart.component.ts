@@ -27,14 +27,23 @@ export class CartComponent implements OnInit {
 
   applyCoupon () {
     this.IsClick = true;
-    if (this.couponCode === '6666' || this.couponCode === '5269') {
-      alert('for Free');
-      this.IsCoupon = true;
-    } else if (this.couponCode === '') {
-      this.IsClick = false;
-    } else {
-      this.IsCoupon = false;
+    if (this.IsDP) {
+      alert('Dont try to get Dp again you stupid');
+    }  else {
+      if (this.couponCode === '6666' || this.couponCode === '5487') {
+        alert('20% off');
+        this.IsCoupon = true;
+        for (const i of this.carts) {
+          i.price = i.price * 0.8;
+        }
+      } else if (this.couponCode === '') {
+        this.IsClick = false;
+      } else {
+        this.IsCoupon = false;
+      }
     }
+
+// coupon/check/{}
   }
 
   get IsDP () {
@@ -106,7 +115,6 @@ export class CartComponent implements OnInit {
       console.log(response);
     });
   }
-
 
   ngOnInit() {
     this.memberService.whoami().subscribe(

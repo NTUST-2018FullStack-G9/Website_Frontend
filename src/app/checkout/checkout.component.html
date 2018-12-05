@@ -1,162 +1,97 @@
 <section class="checkout_area">
   <form ngNativeValidate>
-  <div class="container">
-    <div class="row">
-      <div class="col-md-9 col-sm-8 col-xs-12">
-        <div class="checkout_left">
-          <!-- <h2>Billing Address</h2>
-          <div class="dotted_line"></div>
+    <div class="container">
+      <div class="row">
+        <div class="col-md-9 col-sm-8 col-xs-12">
+          <div class="checkout_left">
+            <h2>Shiiping Address</h2>
+            <div class="dotted_line"></div>
 
-          <div class="checkout_form">
-            <div class="country_select">
-              <p>Country</p>
-              <select class="selectpicker sel_state">
-                <option>Sate/Country</option>
-                <option>Bangladesh</option>
-                <option>USA</option>
-                <option>UK</option>
-                <option>Canda</option>
-                <option>Australia</option>
-              </select>
-            </div>
-            <div class="c_name_box">
-              <div class="c_name_box_left">
-                <p>First Name <span>*</span></p>
-                <input type="text">
+            <div class="shipping_form">
+              <div class="country_select country_select2">
+                <p>Country</p>
+                <select class="selectpicker sel_state">
+                  <option>Earth/Taiwan</option>
+                  <option>Mars/Taiwan</option>
+                </select>
               </div>
-              <div class="c_name_box_right">
-                <p>Last Name <span>*</span></p>
-                <input type="text">
+
+              <div class="c_name_box">
+                <div class="c_name_box_left">
+                  <p>Name <span>*</span></p>
+                  <input #name="ngModel" type="text" [(ngModel)]="member.order_name" name="name" required />
+                </div>
+                <!--
+                  <div class="c_name_box_right">
+                    <p>Last Name <span>*</span></p>
+                    <input type="text">
+                  </div>
+                -->
               </div>
-            </div>
-            <div class="company_name">
-              <p>Company Name <span>*</span></p>
-              <input type="text">
-            </div>
-            <div class="c_address">
-              <p>Address <span>*</span></p>
-              <input type="text" placeholder="Street Address">
-            </div>
-            <div class="c_state_box">
-              <div class="c_state_box_left">
-                <p>Town/City <span>*</span></p>
-                <input type="text">
+              <!--
+                <div class="company_name">
+                  <p>Company Name <span>*</span></p>
+                  <input type="text">
+                </div>
+              -->
+              <div class="c_address">
+                <p>Address <span>*</span></p>
+                <input #address="ngModel" type="text" placeholder="Street Address" [(ngModel)]="member.order_address" name="address" required />
               </div>
-              <div class="c_state_box_right">
-                <p>Postcode/Zip <span>*</span></p>
-                <input type="text">
-              </div>
-            </div>
-            <div class="c_mail_box">
-              <div class="c_mail_box_left">
-                <p>Email <span>*</span></p>
-                <input type="text">
-              </div>
-              <div class="c_mail_box_right">
+              <div class="s_town">
                 <p>Phone <span>*</span></p>
-                <input type="text">
+                <input #phone="ngModel" type="text" placeholder="Phone" [(ngModel)]="member.order_phone" name="phone" required />
+              </div>
+              <div class="s_order">
+                <p>Order Notes <span>*</span></p>
+                <textarea #note="ngModel" cols="30" rows="10" [(ngModel)]="member.order_note" name="note" required></textarea>
               </div>
             </div>
-            <div class="checkbox">
-              <label>
-                <input type="checkbox"> Create An Account
-              </label><br>
-              <label>
-                <input type="checkbox"> Shipping to a Different Address
-              </label>
-            </div>
-
-
-          </div> -->
-
-          <h2>Shiiping Address</h2>
-          <div class="dotted_line"></div>
-
-          <div class="shipping_form">
-            <div class="country_select country_select2">
-              <p>Country</p>
-              <select class="selectpicker sel_state">
-                <option>Earth/Taiwan</option>
-                <option>Mars/Taiwan</option>
-              </select>
-            </div>
-
-            <div class="c_name_box">
-              <div class="c_name_box_left">
-                <p>Name <span>*</span></p>
-                <input #name="ngModel" type="text" [(ngModel)]="member.order_name" name="name" required>
-              </div>
-              <!-- <div class="c_name_box_right">
-                <p>Last Name <span>*</span></p>
-                <input type="text">
-              </div> -->
-            </div>
-            <!-- <div class="company_name">
-              <p>Company Name <span>*</span></p>
-              <input type="text">
-            </div> -->
-            <div class="c_address">
-              <p>Address <span>*</span></p>
-              <input #address = "ngModel" type="text" placeholder="Street Address" [(ngModel)]="member.order_address" name="address" required>
-            </div>
-            <div class="s_town">
-              <p>Phone <span>*</span></p>
-              <input #phone="ngModel" type="text" placeholder="Phone" [(ngModel)]="member.order_phone"  name="phone" required>
-            </div>
-            <div class="s_order">
-              <p>Order Notes <span>*</span></p>
-              <textarea #note="ngModel"  cols="30" rows="10" [(ngModel)]="member.order_note" name="note" required></textarea>
-            </div>
-
           </div>
         </div>
-      </div>
-      <div class="col-md-3 col-sm-4 col-xs-12">
-        <div class="checkout_right">
-          <h4>Review of Your Order</h4>
+        <div class="col-md-3 col-sm-4 col-xs-12">
+          <div class="checkout_right">
+            <h4>Review of Your Order</h4>
 
-          <div class="product_form_total">
-            <div class="c_main_item">
-              <p>Product</p>
-              <span>Total</span>
+            <div class="product_form_total">
+              <div class="c_main_item">
+                <p>Product</p>
+                <span>Total</span>
+              </div>
+              <ng-container *ngFor="let item of carts">
+                <div class="c_single_item">
+                  <p>{{ item.product_name }}</p>
+                  <span>${{ item.quantity * item.price }}</span>
+                  <p>x {{ item.quantity }}</p>
+                </div>
+              </ng-container>
+
+              <div class="c_total_item sp_single_item">
+                <p>Total Price</p>
+                <span>${{ getCartprice() }}</span>
+              </div>
+
+              <!--
+                <div class="c_payment">
+                  <p>Select Payment Method</p>
+                  <select class="selectpicker sel_state">
+                    <option>Direct Bank Transfer</option>
+                    <option>Wire Transfer</option>
+                    <option>VISA</option>
+                  </select>
+                </div>
+              -->
+              <div class="checkbox">
+                <label> <input #checked="ngModel" [(ngModel)]="check" type="checkbox" name="check" required /> I have Read & Accept <span>Terms & Conditions</span> </label>
+              </div>
+              <ng-container *ngIf="name.valid && address.valid && phone.valid && note.valid && checked.value; else: noValid">
+                <input type="submit" (click)="checkout()" value="Place order now" />
+              </ng-container>
+              <ng-template #noValid> <input type="submit" value="Place order now" /> </ng-template>
             </div>
-          <ng-container *ngFor="let item of carts">
-            <div class="c_single_item">
-              <p>{{item.product_name}}</p><span>${{item.quantity*item.price}}</span>
-               <p>x {{item.quantity}}</p>
-
-            </div>
-          </ng-container>
-
-            <div class="c_total_item sp_single_item">
-              <p>Total Price</p>
-              <span>${{getCartprice()}}</span>
-            </div>
-
-
-            <!-- <div class="c_payment">
-              <p>Select Payment Method</p>
-              <select class="selectpicker sel_state">
-                <option>Direct Bank Transfer</option>
-                <option>Wire Transfer</option>
-                <option>VISA</option>
-              </select>
-            </div> -->
-            <div class="checkbox">
-              <label>
-                <input #checked="ngModel"  [(ngModel)]="check" type="checkbox" name="check" required> I have Read & Accept <span>Terms & Conditions</span>
-              </label>
-            </div>
-          <ng-container *ngIf="name.valid && address.valid && phone.valid && note.valid && checked.value;else noValid ">
-            <input type="submit" (click)="checkout()" value="Place order now"/>
-          </ng-container>
-          <ng-template #noValid>
-            <input type="submit" value="Place order now"/>
-          </ng-template>
           </div>
         </div>
       </div>
     </div>
-  </div>
-</form>
+  </form>
 </section>
