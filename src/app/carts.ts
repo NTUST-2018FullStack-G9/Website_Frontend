@@ -7,4 +7,5 @@ export interface Cart {
   product_name: string;
   created_at: string;
   updated_at: string;
+  product_imagename: string;
 }

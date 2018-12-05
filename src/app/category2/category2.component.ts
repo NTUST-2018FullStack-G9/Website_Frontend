@@ -9,46 +9,57 @@ import { Product } from '../product';
   styleUrls: ['./category2.component.css']
 })
 export class Category2Component implements OnInit {
-
-  showNumb ;
+  showNumb;
   showNume;
   icon_img;
   isIn = false;
-  constructor(private dataService: ProductService, private cartService: CartService) {}
+  constructor(
+    private dataService: ProductService,
+    private cartService: CartService
+  ) {}
   filter(id) {
     this.dataService.filter(id);
   }
-  bigfilter(id) {
-  }
+  bigfilter(id) {}
   get products() {
     return this.dataService.products;
   }
   getImage(Imgname) {
-    return  this.dataService.getImage(Imgname);
+    return this.dataService.getImage(Imgname);
   }
   addCarts(item: Product) {
     this.isIn = false;
-    this.cartService.addToCarts(item).subscribe( data => {
-      for (const i of this.cartService.cartsInService) {
-        if (i.product_id === item.id) {
-          i.quantity++;
-          this.isIn = true;
+    this.cartService.addToCarts(item).subscribe(
+      data => {
+        for (const i of this.cartService.cartsInService) {
+          if (i.product_id === item.id) {
+            i.quantity++;
+            this.isIn = true;
+          }
         }
-      }
-      if (!this.isIn) {
-        this.cartService.cartsInService.push({
-          id: 0, member_id: 0, product_id: item.id,
-          quantity: 1, price: item.saleprice, product_name: item.name,
-          created_at: '', updated_at: ''});
+        if (!this.isIn) {
+          this.cartService.cartsInService.push({
+            id: 0,
+            member_id: 0,
+            product_id: item.id,
+            quantity: 1,
+            price: item.saleprice,
+            product_name: item.name,
+            created_at: '',
+            updated_at: '',
+            product_imagename: item.imagename,
+          });
           alert('addCarts');
+        }
+        console.log(item);
+        console.log(data);
+      },
+      response => {
+        console.log(response);
       }
-      console.log(item);
-      console.log(data);
-    }, (response) => {
-      console.log(response);
-    });
+    );
   }
-  page( left , right) {
+  page(left, right) {
     this.showNumb = left;
     this.showNume = right;
   }

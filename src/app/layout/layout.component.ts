@@ -26,7 +26,7 @@ export class LayoutComponent implements OnInit {
   //   return this.dataService.products;
   // }
   getImage(Imgname) {
-    return  this.dataService.getImage(Imgname);
+    return this.dataService.getImage(Imgname);
   }
   getAd0Image(Imgname) {
     console.log(this.local + this.ads[0].imagename);
@@ -49,7 +49,7 @@ export class LayoutComponent implements OnInit {
     private dataService: ProductService,
     private cartService: CartService,
     private adService: AdService,
-    private router: Router,
+    private router: Router
   ) {}
 
   addCarts(item: Product) {
@@ -73,9 +73,10 @@ export class LayoutComponent implements OnInit {
             price: item.saleprice,
             product_name: item.name,
             created_at: '',
-            updated_at: ''
+            updated_at: '',
+            product_imagename: item.imagename,
           });
-        alert('addCarts');
+          alert('addCarts');
         }
         console.log(item);
         console.log(data);
@@ -97,39 +98,39 @@ export class LayoutComponent implements OnInit {
       console.log(data);
     });
     setTimeout(() => {
-    // <script src="assets/js/rs-plugin/js/jquery.themepunch.plugins.min.js"></script>
-    const sliderTop = document.createElement('script');
-    sliderTop.type = 'text/javascript';
-    sliderTop.src = 'assets/js/rs-plugin/rs.home.js';
-    this.elementRef.nativeElement.appendChild(sliderTop);
+      // <script src="assets/js/rs-plugin/js/jquery.themepunch.plugins.min.js"></script>
+      const sliderTop = document.createElement('script');
+      sliderTop.type = 'text/javascript';
+      sliderTop.src = 'assets/js/rs-plugin/rs.home.js';
+      this.elementRef.nativeElement.appendChild(sliderTop);
 
-    // <script src="assets/js/bootstrap.min.js"></script>
-    const tItem = document.createElement('script');
-    tItem.type = 'text/javascript';
-    tItem.src = 'assets/js/main.js';
-    this.elementRef.nativeElement.appendChild(tItem);
+      // <script src="assets/js/bootstrap.min.js"></script>
+      const tItem = document.createElement('script');
+      tItem.type = 'text/javascript';
+      tItem.src = 'assets/js/main.js';
+      this.elementRef.nativeElement.appendChild(tItem);
 
-    // ttobslider
-    $('.slider8').bxSlider({
-      mode: 'vertical',
-      slideWidth: 300,
-      minSlides: 3,
-      slideMargin: 10
-    });
-    $('.slider9').bxSlider({
-      mode: 'vertical',
-      slideWidth: 300,
-      minSlides: 3,
-      slideMargin: 10
-    });
-    $('.slider10').bxSlider({
-      mode: 'vertical',
-      slideWidth: 300,
-      minSlides: 3,
-      slideMargin: 10
-    });
-  }, 500);
-}
+      // ttobslider
+      $('.slider8').bxSlider({
+        mode: 'vertical',
+        slideWidth: 300,
+        minSlides: 3,
+        slideMargin: 10
+      });
+      $('.slider9').bxSlider({
+        mode: 'vertical',
+        slideWidth: 300,
+        minSlides: 3,
+        slideMargin: 10
+      });
+      $('.slider10').bxSlider({
+        mode: 'vertical',
+        slideWidth: 300,
+        minSlides: 3,
+        slideMargin: 10
+      });
+    }, 500);
+  }
 }
 // tslint:disable-next-line:use-life-cycle-interface
 // ngAfterViewInit(): void {
