@@ -11,7 +11,7 @@ export class SaleService {
 
   constructor(private httpClient: HttpClient) { }
   sales: Sale[] = [];
-  saleItem: SaleItem[] = [];
+  saleItem: any[] = [];
 
   getSale () {
     return this.httpClient.get(`${environment.api}/sales/index`, {

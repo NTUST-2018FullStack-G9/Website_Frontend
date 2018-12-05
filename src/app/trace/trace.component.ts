@@ -1,10 +1,8 @@
 import { Component, OnInit } from '@angular/core';
 import { SaleService } from '../sale.service';
-import { Sale } from '../sale';
 import { Router } from '@angular/router';
 import { SaleItem } from '../sale-item';
-
-
+import { Sale } from '../sale';
 
 @Component({
   selector: 'app-trace',
@@ -12,13 +10,13 @@ import { SaleItem } from '../sale-item';
   styleUrls: ['./trace.component.css']
 })
 export class TraceComponent implements OnInit {
+  saleID = 0;
+  IsClick = true;
 
-  memberID = 0;
+  constructor(public saleServie: SaleService, private router: Router) {}
 
-  constructor(private saleServie: SaleService,
-              private router: Router) { }
-
-  get sales () {
+  get sales() {
+    console.log(this.saleServie.sales);
     return this.saleServie.sales;
   }
 
@@ -26,25 +24,30 @@ export class TraceComponent implements OnInit {
     return this.saleServie.saleItem;
   }
 
-  ngOnInit() {
-    this.saleServie.getSale().subscribe((data: Sale[]) => {
-      console.log(data);
-      this.saleServie.sales = data;
-      this.memberID = data[0].memberid;
-      //
-      this.saleServie.getSaleItem(this.memberID).subscribe((item: SaleItem[]) => {
-        console.log(this.memberID);
-        console.log(item);
-        this.saleServie.saleItem = item;
-      });
-    }, (response) => {
-      if (response === 401) {
-        this.router.navigate(['/login']);
-      }
-    });
-
+  click() {
+    this.IsClick = !this.IsClick;
+    return this.IsClick;
   }
 
-
-
+  ngOnInit() {
+    this.saleServie.getSale().subscribe(
+      (data: Sale[]) => {
+        // console.log(data);
+        this.saleServie.sales = data;
+        for (let i = 0; i < data.length; i++) {
+          this.saleID = data[i].id;
+          //
+          this.saleServie.getSaleItem(this.saleID).subscribe((item: SaleItem[]) => {
+            this.saleServie.saleItem[i] = item;
+            console.log('salteItemmmmmmmmmmm', this.saleServie.saleItem[i]);
+          });
+        }
+      },
+      response => {
+        if (response === 401) {
+          this.router.navigate(['/login']);
+        }
+      }
+    );
+  }
 }
