@@ -3,16 +3,6 @@
 <link href="/src/assets/css/stylef.css" rel="stylesheet" type="text/css" media="all" />
 <!-- //theme-style -->
 
-<!-- banner -->
-<div class="banner-top">
-  <div class="container">
-    <h1>Trace List</h1>
-    <em></em>
-    <h2><a [routerLink]="['/']" routerLinkActive="router-link-active">Home</a><label>/</label>Trace List</h2>
-  </div>
-</div>
-<!-- login -->
-
 <div class="check-out">
   <div class="container">
     <div class="bs-example4" data-example-id="simple-responsive-table">
@@ -26,32 +16,60 @@
             <th>Date</th>
           </tr>
 
-          <tr class="cart-header">
-            <ng-container *ngFor="let sale of sales">
-              <td class="ring-in">
-                <a class="at-in"><img src="/src/assets/images/ch.jpg" class="img-responsive" alt=""/></a>
+          <ng-container *ngFor="let sale of sales; let index = index">
+            <br />
+            <tr>
+              <td>
+                <!-- class="ring-in" -->
                 <div class="sed">
                   <h5>
-                    <a>{{ sale.orderName }}</a>
+                    <a>{{ sale.order_name }}</a>
                   </h5>
-                  <p>{{ sale.orderAddress }}</p>
+                  <p>{{ sale.order_address }}</p>
                 </div>
-                <div class="clearfix"></div>
-                <!-- <div class="close1"> </div></td> -->
               </td>
+              <td>{{ sale.order_phone }}</td>
+              <ng-container *ngIf="sale.shipment"> <td>Shipping</td> </ng-container>
+              <ng-container *ngIf="!sale.shipment"> <td>Still Dealling with</td> </ng-container>
 
-              <td>{{ sale.orderPhone }}</td>
-              <td>{{ sale.isSaling }}</td>
-              <td class="item_price">{{ sale.orderdate }}</td>
-              <td class="add-check"><a class="item_add hvr-skew-backward">More Detail</a></td>
-            </ng-container>
-          </tr>
+              <td class="item_price">{{ sale.order_date }}</td>
+              <!-- <td class="add-check"><a (click)="click()">More Detail</a></td> -->
+            </tr>
+
+            <small [hidden]="IsClick">
+              <tr>
+                <td>Product Id</td>
+                <td>Quantity</td>
+                <td>Sale Price</td>
+                <td>Sale Id</td>
+              </tr>
+              <!-- <ng-container *ngFor="let sale of saleItems"> -->
+              <ng-container *ngFor="let item of this.saleServie.saleItem[index]">
+                <tr>
+                  <td>
+                    <p>{{ item.product_id }}</p>
+                  </td>
+                  <td>
+                    <p>{{ item.quantity }}</p>
+                  </td>
+                  <td>
+                    <p>{{ item.sale_price }}</p>
+                  </td>
+                  <td>
+                    <p>{{ item.sale_id }}</p>
+                  </td>
+                  <td><p></p></td>
+                </tr>
+              </ng-container>
+              <br />
+            </small>
+          </ng-container>
         </table>
       </div>
     </div>
 
     <br /><br /><br /><br />
-    <div class="produced"><a href="" class="hvr-skew-backward">Produced To Buy</a></div>
+    <div class="produced"><a (click)="click()" class="hvr-skew-backward">Show Detail</a></div>
     <br /><br /><br /><br />
     <br /><br /><br /><br />
   </div>

@@ -41,7 +41,7 @@ import { TraceComponent } from './trace/trace.component';
     CartComponent,
     ForgetPasswordComponent,
     ForgetPasswordComponentComponent,
-    TraceComponent
+    TraceComponent,
   ],
   imports: [
     BrowserModule,

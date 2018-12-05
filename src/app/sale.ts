@@ -1,9 +1,10 @@
 export interface Sale {
-  memberid: number;
-  orderName: string;
-  orderPhone: string;
-  orderAddress: string;
-  orderNote: string;
-  orderdate: string;
-  isSaling: number;
+  id: number;
+  member_id: number;
+  order_name: string;
+  order_phone: string;
+  order_address: string;
+  order_note: string;
+  order_date: string;
+  shipment: number;
 }
