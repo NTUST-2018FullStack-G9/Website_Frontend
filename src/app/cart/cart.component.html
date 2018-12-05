@@ -4,109 +4,143 @@
       <div class="col-md-9 col-sm-8 col-xs-12">
         <div class="main_cart_left">
           <div class="cart_heading">
-            <div class="h_item1">
-              <p>product</p>
-            </div>
-            <div class="h_item2">
-              <p>Price</p>
-            </div>
-            <div class="h_item3">
-              <p>Quantity</p>
-            </div>
-            <div class="h_item4">
-              <p>total</p>
-            </div>
+            <div class="h_item1"><p>product</p></div>
+            <div class="h_item2"><p>Price</p></div>
+            <div class="h_item3"><p>Quantity</p></div>
+            <div class="h_item4"><p>total</p></div>
           </div>
-          <div class="cart_item" *ngFor="let cart of carts;let index = index;">
+          <div class="cart_item" *ngFor="let cart of carts; let index = index">
             <div class="cart_item_img">
-              <img [src]="" alt="" />
-              <p>{{cart?.product_name}} <br>{{cart?.id}}</p>
+              <img style="width: 150px;height:150px"
+                [src]="
+                  'http://localhost:8000/storage/' + cart.product_imagename
+                "
+                alt=""
+              />
+              <p>{{ cart?.product_name }} </p>
             </div>
             <div class="cart_price">
-              <p>${{cart?.price}}</p>
+              <p>${{ cart?.price }}</p>
             </div>
 
             <div class="cart_quantity">
               <ul>
-                <li><a (click)='clickminus(index)'><i class="fa fa-minus"></i></a></li>
-                <li><a>{{cart?.quantity}}</a></li>
-                <li><a (click)='clickplus(index)'><i class="fa fa-plus"></i></a></li>
+                <li>
+                  <a (click)="clickminus(index)"><i class="fa fa-minus"></i></a>
+                </li>
+                <li>
+                  <a>{{ cart?.quantity }}</a>
+                </li>
+                <li>
+                  <a (click)="clickplus(index)"><i class="fa fa-plus"></i></a>
+                </li>
               </ul>
             </div>
 
             <div class="cart_total">
-              <p>${{cart?.price*cart?.quantity}}</p>
+              <p>${{ cart?.price * cart?.quantity }}</p>
               <span><i class="fa fa-close"></i></span>
             </div>
           </div>
-          
-<!-- coupon -->
+
+          <!-- coupon -->
           <div class="coupon_box">
-            <input type="text" placeholder="coupon code" [(ngModel)]="couponCode">
-            <input type="submit" value="apply coupon" (click)="applyCoupon()">
+            <input
+              type="text"
+              placeholder="coupon code"
+              [(ngModel)]="couponCode"
+            />
+            <input type="submit" value="apply coupon" (click)="applyCoupon()" />
           </div>
           <ng-container *ngIf="IsDP">
             <span style="color: red;font-size: 10pt">FOR FREE !!</span>
           </ng-container>
           <ng-container *ngIf="!IsDP && IsClick">
-              <span style="color: red;font-size: 10pt">Coupon Not Exist !!</span>
+            <span style="color: red;font-size: 10pt">Coupon Not Exist !!</span>
           </ng-container>
-<!-- coupon end -->
-
+          <!-- coupon end -->
         </div>
       </div>
       <div class="col-md-3 col-sm-4 col-xs-12">
         <div class="main_cart_right">
           <div class="product_form_total">
-
-
-            <div class="panel-group" id="home-accordion" role="tablist" aria-multiselectable="true">
+            <div
+              class="panel-group"
+              id="home-accordion"
+              role="tablist"
+              aria-multiselectable="true"
+            >
               <div class="panel panel-default">
                 <div class="panel-heading" role="tab" id="headingOne">
                   <h4 class="panel-title">
-                    <a data-toggle="collapse" data-parent="#home-accordion" href="#collapseOne" aria-expanded="true"
-                      aria-controls="collapseOne">
+                    <a
+                      data-toggle="collapse"
+                      data-parent="#home-accordion"
+                      href="#collapseOne"
+                      aria-expanded="true"
+                      aria-controls="collapseOne"
+                    >
                       Is The Website Developer Handsome?
-                      <span class="floatright"><i class="fa fa-minus"></i></span>
+                      <span class="floatright"
+                        ><i class="fa fa-minus"></i
+                      ></span>
                     </a>
                   </h4>
                 </div>
-                <div id="collapseOne" class="panel-collapse collapse in" role="tabpanel" aria-labelledby="headingOne">
+                <div
+                  id="collapseOne"
+                  class="panel-collapse collapse in"
+                  role="tabpanel"
+                  aria-labelledby="headingOne"
+                >
                   <div class="panel-body">
                     <select class="selectpicker">
                       <option>God Damn yes!</option>
                       <option>Fucking yes!</option>
                       <option>Of Course!</option>
                     </select>
-                    <!-- <select class="selectpicker sel_state">
-                      <option>Sate/Country</option>
-                      <option>Bangladesh</option>
-                      <option>USA</option>
-                      <option>UK</option>
-                      <option>Canda</option>
-                      <option>Australia</option>
-                    </select> -->
+                    <!--
+                      <select class="selectpicker sel_state">
+                        <option>Sate/Country</option>
+                        <option>Bangladesh</option>
+                        <option>USA</option>
+                        <option>UK</option>
+                        <option>Canda</option>
+                        <option>Australia</option>
+                      </select>
+                    -->
                     <!-- <input type="text" placeholder="Postcode/zip" /> -->
-                    <input type="submit" value="Update Totals">
+                    <input type="submit" value="Update Totals" />
                   </div>
                 </div>
               </div>
               <div class="panel panel-default">
                 <div class="panel-heading" role="tab" id="headingTwo">
                   <h4 class="panel-title">
-                    <a class="collapsed" data-toggle="collapse" data-parent="#home-accordion" href="#collapseTwo"
-                      aria-expanded="false" aria-controls="collapseTwo">
+                    <a
+                      class="collapsed"
+                      data-toggle="collapse"
+                      data-parent="#home-accordion"
+                      href="#collapseTwo"
+                      aria-expanded="false"
+                      aria-controls="collapseTwo"
+                    >
                       Cart totals
                       <span class="floatright"><i class="fa fa-plus"></i></span>
                     </a>
                   </h4>
                 </div>
-                <div id="collapseTwo" class="panel-collapse collapse" role="tabpanel" aria-labelledby="headingTwo">
+                <div
+                  id="collapseTwo"
+                  class="panel-collapse collapse"
+                  role="tabpanel"
+                  aria-labelledby="headingTwo"
+                >
                   <div class="panel-body cart_p_body">
                     <ng-container *ngFor="let item of carts">
                       <div class="c_single_item">
-                        <p>{{item?.product_name}} x {{item?.quantity}}</p>
-                        <span>${{item?.quantity*item?.price}}</span>
+                        <p>{{ item?.product_name }} x {{ item?.quantity }}</p>
+                        <span>${{ item?.quantity * item?.price }}</span>
                       </div>
                     </ng-container>
 
@@ -119,7 +153,12 @@
               </div>
             </div>
             <!-- <a href="" class="cart_update">Update Cart</a> -->
-            <input [routerLink] = "['/checkout']" routerLinkActive="active" type="submit" value="Proceed to checkout">
+            <input
+              [routerLink]="['/checkout']"
+              routerLinkActive="active"
+              type="submit"
+              value="Proceed to checkout"
+            />
           </div>
         </div>
       </div>
