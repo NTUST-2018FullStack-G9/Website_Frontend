@@ -14,11 +14,20 @@ export class Category2Component implements OnInit {
   showNume;
   icon_img;
   isIn = false;
+  index: number[];
+  num;
   constructor(private dataService: ProductService, private cartService: CartService) {}
   filter(id) {
     this.dataService.filter(id);
   }
   bigfilter(id) {
+  }
+  get indexArray() {
+    this.index = [];
+    for ( this.num = 0 ; this.num <= this.products.length / 13; this.num++) {
+        this.index.push(this.num );
+    }
+    return this.index;
   }
   get products() {
     return this.dataService.products;
@@ -53,13 +62,13 @@ export class Category2Component implements OnInit {
     this.showNume = right;
   }
   Previous() {
-    if (this.showNumb !== 1) {
+    if (this.showNumb > 12) {
       this.showNumb -= 12;
       this.showNume -= 12;
     }
   }
   Next() {
-    if (this.showNumb !== 49) {
+    if ((this.showNumb + 12 ) <= this.products.length) {
       this.showNumb += 12;
       this.showNume += 12;
     }

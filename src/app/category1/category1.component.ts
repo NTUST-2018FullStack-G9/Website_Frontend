@@ -27,6 +27,13 @@ export class Category1Component implements OnInit {
   get products() {
       return this.dataService.products;
   }
+  get indexArray() {
+    this.index = [];
+    for ( this.num = 0 ; this.num <= this.products.length / 13; this.num++) {
+        this.index.push(this.num );
+    }
+    return this.index;
+  }
   constructor(private dataService: ProductService, private cartService: CartService) {}
   getNum(id) { // 讀取商品數量
     this.num = 0;
@@ -82,13 +89,13 @@ export class Category1Component implements OnInit {
     this.showNume = right;
   }
   Previous() {
-    if (this.showNumb !== 1) {
+    if (this.showNumb > 12) {
       this.showNumb -= 12;
       this.showNume -= 12;
     }
   }
   Next() {
-    if (this.showNumb !== 49) {
+    if ((this.showNumb + 12 ) <= this.products.length) {
       this.showNumb += 12;
       this.showNume += 12;
     }

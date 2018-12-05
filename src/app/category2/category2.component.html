@@ -94,15 +94,13 @@
           <div class="row">
             <div class="col-md-12 col-sm-12 col-xs-12">
               <div class="pagi_ul">
-                <ul id="pagination">
-                  <li><a [routerLink]="['.']" (click)="Previous()" >Previous</a></li>
-                  <li><a [routerLink]="['.']"  (click)="page(1,12)">1</a></li>
-                  <li><a [routerLink]="['.']"  (click)="page(13,24)">2</a></li>
-                  <li><a [routerLink]="['.']"  (click)="page(25,36)">3</a></li>
-                  <li><a [routerLink]="['.']"  (click)="page(37,48)">4</a></li>
-                  <li><a [routerLink]="['.']"  (click)="page(49,60)">5</a></li>
-                  <li><a [routerLink]="['.']"  (click)="Next()" >Next</a></li>
-                </ul>
+                  <ul id="pagination">
+                      <li><a [routerLink]="['.']"  (click)="Previous()" >Previous</a></li>
+                    <ng-container *ngFor="let item of indexArray;let i = index" >
+                        <li><a [routerLink]="['.']" (click)="page((i+1)*12-11,(i+1)*12)" >{{i+1}}</a></li>
+                    </ng-container>
+                    <li><a [routerLink]="['.']"  (click)="Next()" >Next</a></li>
+                  </ul>
               </div>
             </div>
           </div>
