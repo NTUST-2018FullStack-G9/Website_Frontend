@@ -185,7 +185,7 @@
                     <div class="item-new"><p>New</p></div>
 
                     <div class="item-sub">
-                      <a href="product-detail.html"
+                      <a [routerLink]="['/post',items.id]" routerLinkActive="router-link-active" 
                         ><h5>{{ items.name }}</h5></a
                       >
                       <p>{{ items.saleprice }}</p>

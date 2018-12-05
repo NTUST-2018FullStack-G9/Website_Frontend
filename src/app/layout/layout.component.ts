@@ -4,6 +4,7 @@ import { CartService } from '../cart.service';
 import { Product } from '../product';
 import { Ad } from '../ad';
 import { AdService } from '../ad.service';
+import { Router } from '@angular/router';
 
 declare let $: any;
 @Component({
@@ -47,7 +48,8 @@ export class LayoutComponent implements OnInit {
     public elementRef: ElementRef,
     private dataService: ProductService,
     private cartService: CartService,
-    private adService: AdService
+    private adService: AdService,
+    private router: Router,
   ) {}
 
   addCarts(item: Product) {
@@ -56,8 +58,10 @@ export class LayoutComponent implements OnInit {
       data => {
         for (const i of this.cartService.cartsInService) {
           if (i.product_id === item.id) {
-            i.quantity++;
+            // i.quantity++;
+            this.router.navigate(['/cart']);
             this.isIn = true;
+            break;
           }
         }
         if (!this.isIn) {
