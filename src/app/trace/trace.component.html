@@ -9,8 +9,8 @@
       <div class="table-responsive">
         <table class="table-heading simpleCart_shelfItem">
           <tr>
+            <th>Index</th>
             <th class="table-grid">Order</th>
-
             <th>Phone</th>
             <th>Status</th>
             <th>Date</th>
@@ -19,6 +19,7 @@
           <ng-container *ngFor="let sale of sales; let index = index">
             <br />
             <tr>
+              <td>{{index+1}}. </td>
               <td>
                 <!-- class="ring-in" -->
                 <div class="sed">
@@ -35,8 +36,10 @@
               <td class="item_price">{{ sale.order_date }}</td>
               <!-- <td class="add-check"><a (click)="click()">More Detail</a></td> -->
             </tr>
-
+            <tr>
+              <td></td>
             <small [hidden]="IsClick">
+                <div class="dotted_line"></div>
               <tr>
                 <td style="color:darkslategrey">Product Id</td>
                 <td style="color:darkslategrey">Quantity</td>
@@ -63,6 +66,7 @@
               </ng-container>
               <br />
             </small>
+          </tr>
           </ng-container>
         </table>
       </div>
