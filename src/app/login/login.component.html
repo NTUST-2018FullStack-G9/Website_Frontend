@@ -23,7 +23,7 @@
           <p>Or sign in manually:</p>
         </div>
 
-          <input #email="ngModel" type="email" name="username" placeholder="Email"  required [(ngModel)]="user.email" >
+          <input #email="ngModel" type="email" name="username" placeholder="Email"  required [(ngModel)]="user.email" email >
           <input #password="ngModel" type="password" name="password" placeholder="Password" required [(ngModel)]="user.password" minlength="6" >
           <a  [routerLink]="['/forgetpw']" style="color:blue" class="btn">Forgot password?</a>
         <ng-container *ngIf="email.valid && password.valid ; else noValid">

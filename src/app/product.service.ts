@@ -23,6 +23,23 @@ export class ProductService {
 filter(id) {
   this.products = this.Oriproducts.filter(products => products.category_id.valueOf() === id);
 }
+bigfilter(id) {
+  switch (id) {
+    case 1: // Beer
+      this.products = this.Oriproducts.filter(products => products.category_id.valueOf() < 4);
+    break;
+    case 2: // Spirit
+      this.products = this.Oriproducts.filter(products => (products.category_id.valueOf() > 3 && products.category_id.valueOf() < 10));
+    break;
+    case 3: // Wine
+      this.products = this.Oriproducts.filter(products => (products.category_id.valueOf() > 9 && products.category_id.valueOf() < 15));
+    break;
+    default:
+      this.products = this.Oriproducts.filter(products => (products.category_id.valueOf() > 14));
+    break;
+  }
+
+}
 
 getProducts() {
   return this.httpClient

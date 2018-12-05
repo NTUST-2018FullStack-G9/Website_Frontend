@@ -23,12 +23,13 @@ export class LoginComponent implements OnInit {
     this.memberServise.login(this.user).subscribe((data: any) => {
       if (data.token) {
         localStorage.setItem('token', data.token);
-
         this.router.navigate(['/']);
         location.reload();
       } else {
         console.log('fail');
       }
+    }, (response) => {
+      alert('登入失敗');
     });
   }
 

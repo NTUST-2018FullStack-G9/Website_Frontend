@@ -15,6 +15,7 @@ export class Category1Component implements OnInit {
   showNume;
   icon_img;
   isIn = false;
+  index: number[];
   get topPrice() {
     return Number($( '#slider-range' ).slider( 'values', 1 )) ;
   }
@@ -67,6 +68,7 @@ export class Category1Component implements OnInit {
     this.dataService.filter(id);
   }
   bigfilter(id) {
+    this.dataService.bigfilter(id);
   }
   priceFilter() {
     this.dataService.products = this.dataService.Oriproducts.filter(
@@ -118,8 +120,8 @@ export class Category1Component implements OnInit {
       $( '#slider-range' ).slider({
         range: true,
         min: 0,
-        max: 100000,
-        values: [ 30000, 70000 ],
+        max: 20000,
+        values: [ 7000, 14000 ],
         slide: function( event, ui ) {
         $( '#amount' ).val( '$' + ui.values[ 0 ] + ' - $' + ui.values[ 1 ] );
         }

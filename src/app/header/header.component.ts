@@ -60,7 +60,13 @@ export class HeaderComponent implements OnInit {
     }
     return this.price;
   }
-
+  filter(id) {
+    this.dataService.filter(id);
+  }
+  bigfilter(id) {
+    console.log(id);
+    this.dataService.bigfilter(id);
+  }
   deleteCarts(index) {
     for (const i of this.cartService.cartsInService) {
       if (i.id === index.id) {

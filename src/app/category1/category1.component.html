@@ -68,7 +68,7 @@
             <div class="panel panel-default">
             <div class="panel-heading" role="tab" id="headingOne">
               <h4 class="panel-title">
-              <a (click) = bigfilter(1) data-toggle="collapse" data-parent="#home-accordion" href="#collapseOne" aria-expanded="true" aria-controls="collapseOne" >
+              <a (click) = bigfilter(1)  data-toggle="collapse" data-parent="#home-accordion" href="#collapseOne" aria-expanded="true" aria-controls="collapseOne" >
                 BEER
                 <span class="floatright"><i class="fa fa-minus"></i></span>
               </a>
@@ -87,7 +87,7 @@
             <div class="panel panel-default">
                 <div class="panel-heading" role="tab" id="headingFive">
                   <h4 class="panel-title">
-                  <a (click) = bigfilter(2) class="collapsed" data-toggle="collapse" data-parent="#home-accordion" href="#collapseFive" aria-expanded="false" aria-controls="collapseFive">
+                  <a (click) = bigfilter(2)  class="collapsed" data-toggle="collapse" data-parent="#home-accordion" href="#collapseFive" aria-expanded="false" aria-controls="collapseFive">
                     SPIRIT
                     <span class="floatright"><i class="fa fa-plus"></i></span>
                   </a>
@@ -110,7 +110,7 @@
             <div class="panel panel-default">
                 <div class="panel-heading" role="tab" id="headingSix">
                   <h4 class="panel-title">
-                  <a (click) = bigfilter(3) class="collapsed" data-toggle="collapse" data-parent="#home-accordion" href="#collapseSix" aria-expanded="false" aria-controls="collapseSix">
+                  <a (click) = bigfilter(3)  class="collapsed" data-toggle="collapse" data-parent="#home-accordion" href="#collapseSix" aria-expanded="false" aria-controls="collapseSix">
                       WINE
                     <span class="floatright"><i class="fa fa-plus"></i></span>
                   </a>
@@ -134,7 +134,7 @@
             <div class="panel panel-default">
               <div class="panel-heading" role="tab" id="headingSeven">
                 <h4 class="panel-title">
-                <a class="collapsed" data-toggle="collapse" data-parent="#home-accordion" href="#collapseSeven" aria-expanded="false" aria-controls="collapseSeven">
+                <a (click) = bigfilter(4)  class="collapsed" data-toggle="collapse" data-parent="#home-accordion" href="#collapseSeven" aria-expanded="false" aria-controls="collapseSeven">
                  DRINKWARE
                   <span class="floatright"><i class="fa fa-plus"></i></span>
                 </a>
@@ -144,9 +144,9 @@
                 <div class="panel-body">
                   <div class="panel-body">
                     <ul id="c_tab1">
-                      <li><a href="">1</a></li>
-                      <li><a href="">2</a></li>
-                      <li><a href="">3</a></li>
+                      <li><a  (click)="filter(15)" [routerLink]="['.']" >Glassware ({{getNum(15)}})</a></li>
+                      <li><a  (click)="filter(16)" [routerLink]="['.']" >Wine Bucket ({{getNum(16)}})</a></li>
+                      <li><a  (click)="filter(17)" [routerLink]="['.']" >Wine Opener ({{getNum(17)}})</a></li>
                     </ul>
                     </div>
                 </div>
@@ -242,7 +242,7 @@
             <div class="col-md-12 col-sm-12 col-xs-12">
               <div class="pagi_ul">
                 <ul id="pagination">
-                  <li><a [routerLink]="['.']" (click)="Previous()" >Previous</a></li>
+                  <li><a [routerLink]="['.']"  (click)="Previous()" >Previous</a></li>
                   <li><a [routerLink]="['.']"  (click)="page(1,12)">1</a></li>
                   <li><a [routerLink]="['.']"  (click)="page(13,24)">2</a></li>
                   <li><a [routerLink]="['.']"  (click)="page(25,36)">3</a></li>

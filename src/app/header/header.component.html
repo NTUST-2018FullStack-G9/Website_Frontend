@@ -17,12 +17,12 @@
           <nav class="currency alignleft">
             <!--
               <ul>   轉換幣值 別鳥她
-                  <li><a href="">USD</a>
+                  <li><a [routerLink]="['/category1']">USD</a>
                     <ul class="currency-dropdown">
-                      <li><a href="">EUR</a></li>
-                      <li><a href="">GBP</a></li>
-                      <li><a href="">CAD</a></li>
-                      <li><a href="">AUD</a></li>
+                      <li><a [routerLink]="['/category1']">EUR</a></li>
+                      <li><a [routerLink]="['/category1']">GBP</a></li>
+                      <li><a [routerLink]="['/category1']">CAD</a></li>
+                      <li><a [routerLink]="['/category1']">AUD</a></li>
                     </ul>
                   </li>
               </ul>
@@ -78,46 +78,45 @@
       <a [routerLink]="['/category1']">category<i class="fa fa-bars"></i></a>
       <div class="cat_mega_menu">
         <div class="cat_left">
-          <h5>Beer</h5>
+          <h5 (click)="bigfilter(1)" [routerLink]="['/category1']">Beer</h5>
           <div class="cat_menu_line"></div>
           <ul class="cat_nav">
-            <li><a href="">Ale</a></li>
-            <li><a href="">Lager</a></li>
-            <li><a href="">Lambic</a></li>
+            <li><a (click)=filter(1) [routerLink]="['/category1']">Ale</a></li>
+            <li><a (click)=filter(2) [routerLink]="['/category1']">Lager</a></li>
+            <li><a (click)=filter(3) [routerLink]="['/category1']">Lambic</a></li>
           </ul>
         </div>
         <div class="cat_middle">
-          <h5>Spirits</h5>
+          <h5 (click)="bigfilter(2)" [routerLink]="['/category1']">Spirits</h5>
           <div class="cat_menu_line"></div>
           <ul class="cat_nav">
-            <li><a href="">Brandy</a></li>
-            <li><a href="">Whisky</a></li>
-            <li><a href="">Rum</a></li>
-            <li><a href="">Mezcal</a></li>
-            <li><a href="">Gin</a></li>
-            <li><a href="">Vodka</a></li>
+            <li><a (click)=filter(4) [routerLink]="['/category1']">Brandy</a></li>
+            <li><a (click)=filter(5) [routerLink]="['/category1']">Whisky</a></li>
+            <li><a (click)=filter(6) [routerLink]="['/category1']">Rum</a></li>
+            <li><a (click)=filter(7) [routerLink]="['/category1']">Mezcal</a></li>
+            <li><a (click)=filter(8) [routerLink]="['/category1']">Gin</a></li>
+            <li><a (click)=filter(9) [routerLink]="['/category1']">Vodka</a></li>
           </ul>
         </div>
         <div class="cat_middle">
-          <h5>Wine</h5>
+          <h5 (click)="bigfilter(3)" [routerLink]="['/category1']">Wine</h5>
           <div class="cat_menu_line"></div>
           <ul class="cat_nav">
-            <li><a href="">Sauvignon Blanc</a></li>
-            <li><a href="">Riesling</a></li>
-            <li><a href="">Cabernet Sauvignon</a></li>
-            <li><a href="">Merlet</a></li>
-            <li><a href="">Pinor Noir</a></li>
+            <li><a (click)=filter(10) [routerLink]="['/category1']">Sauvignon Blanc</a></li>
+            <li><a (click)=filter(11) [routerLink]="['/category1']">Riesling</a></li>
+            <li><a (click)=filter(12) [routerLink]="['/category1']">Cabernet Sauvignon</a></li>
+            <li><a (click)=filter(13) [routerLink]="['/category1']">Merlet</a></li>
+            <li><a (click)=filter(14) [routerLink]="['/category1']">Pinor Noir</a></li>
           </ul>
         </div>
         <div class="cat_middle_right">
-          <h5>Drinkware</h5>
+          <h5 (click)="bigfilter(4)" [routerLink]="['/category1']">Drinkware</h5>
           <div class="cat_menu_line"></div>
           <ul class="cat_nav">
-            <li><a href="">Drinkware1</a></li>
-            <li><a href="">Drinkware2</a></li>
-            <li><a href="">Drinkware3</a></li>
-            <li><a href="">Drinkware4</a></li>
-            <li><a href="">Drinkware5</a></li>
+
+            <li><a  (click)="filter(15)" [routerLink]="['/category1']" >Glassware</a></li>
+            <li><a  (click)="filter(16)" [routerLink]="['/category1']" >Wine Bucket</a></li>
+            <li><a  (click)="filter(17)" [routerLink]="['/category1']" >Wine Opener</a></li>
           </ul>
         </div>
       </div>
@@ -129,12 +128,7 @@
           <li routerLinkActive="current-page-item"><a [routerLink]="['/category2']" (click)="reload()">shop</a></li>
           <li routerLinkActive="current-page-item">
             <a [routerLink]="['/category1']" (click)="reload()">Trending</a>
-            <ul id="sub-menu">
-              <li><a href="">Top 10 Beer</a></li>
-              <li><a href="">Top 10 Spirit</a></li>
-              <li><a href="">Top 10 Wine</a></li>
-              <li class="last-child"><a href="">Top 10 Drinkware</a></li>
-            </ul>
+
           </li>
 
           <li routerLinkActive="current-page-item"><a [routerLink]="['/about']">About</a></li>
