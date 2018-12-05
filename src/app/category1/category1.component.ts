@@ -27,7 +27,6 @@ export class Category1Component implements OnInit {
   get products() {
     return this.dataService.products;
   }
-<<<<<<< HEAD
   get indexArray() {
     this.index = [];
     for ( this.num = 0 ; this.num <= this.products.length / 13; this.num++) {
@@ -37,14 +36,6 @@ export class Category1Component implements OnInit {
   }
   constructor(private dataService: ProductService, private cartService: CartService) {}
   getNum(id) { // 讀取商品數量
-=======
-  constructor(
-    private dataService: ProductService,
-    private cartService: CartService
-  ) {}
-  getNum(id) {
-    // 讀取商品數量
->>>>>>> 2b6f962997e55114f1eca42730ba9ccd53155367
     this.num = 0;
     for (const i of this.dataService.Oriproducts) {
       if (i.category_id === id) {

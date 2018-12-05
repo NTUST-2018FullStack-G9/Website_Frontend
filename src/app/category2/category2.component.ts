@@ -13,15 +13,10 @@ export class Category2Component implements OnInit {
   showNume;
   icon_img;
   isIn = false;
-<<<<<<< HEAD
   index: number[];
   num;
   constructor(private dataService: ProductService, private cartService: CartService) {}
-  filter(id) {
-    this.dataService.filter(id);
-  }
-  bigfilter(id) {
-  }
+
   get indexArray() {
     this.index = [];
     for ( this.num = 0 ; this.num <= this.products.length / 13; this.num++) {
@@ -29,16 +24,10 @@ export class Category2Component implements OnInit {
     }
     return this.index;
   }
-=======
-  constructor(
-    private dataService: ProductService,
-    private cartService: CartService
-  ) {}
   filter(id) {
     this.dataService.filter(id);
   }
   bigfilter(id) {}
->>>>>>> 2b6f962997e55114f1eca42730ba9ccd53155367
   get products() {
     return this.dataService.products;
   }
