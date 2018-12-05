@@ -1,52 +1,3 @@
-<!--
-  <div class="col-md-4 col-sm-4 col-xs-12">
-     <div class="contact_box_right">
-       <h5>Address</h5>
-       <p>44 new Design Street, Melbourne 005 <br>Australia 300</p>
-       <div class="dotted_line"></div>
-
-       <h5>Contact info</h5>
-       <p>Info@Example.com</p>
-       <a href="tel:01(800)433633">01 (800) 433 633</a>
-       <div class="dotted_line"></div>
-
-       <h5>Working hours</h5>
-       <p>Daily 10.00 to 22.00    ( Sunday Avilable ) </p>
-     </div>
-   </div>
--->
-<!--
-  <section class="contact_p_area">
-    <div class="container">
-      <div class="row">
-        <div class="col-md-8 col-sm-8 col-xs-12">
-          <div class="contact_box_left">
-            <h4>Leave A message</h4>
-            <div class="multi_line"></div>
-          </div>
-          <form >
-            <div class="input_form">
-              <div class="input_left">
-                <input [(ngModel)]="suggestion.name" type="text" placeholder="Name *" required name="name"/>
-                <input [(ngModel)]="suggestion.email" type="text" placeholder="Your Email *" required name="email"/>
-              </div>
-              <div class="input_right">
-                <textarea [(ngModel)]="suggestion.text" name="text" placeholder="Message" required></textarea>
-              </div>
-            </div>
-            <div class="submit_btn form-group submitRow">
-              <input type="button" name="submit" value="Submit form" (click)="sendSuggestion()"/>
-            </div>
-
-
-          </form>
-        </div>
-
-      </div>
-    </div>
-  </section>
--->
-
 <section class="blog_page_area">
   <div class="container">
     <div class="row">
@@ -72,44 +23,7 @@
             <div class="read_more"><a class="read_more_blog" [routerLink]="['/']">Home</a></div>
           </div>
         </div>
-        <!--
-          <div class="single_blog_in_page">
-            <div class="blog_img_l"><img src="../../assets/images/blog_page2.jpg" alt="" /></div>
-            <div class="blog_date_in_page">
-              <h2>_ <span>05</span></h2>
-              <p>april 2015</p>
-            </div>
-            <div class="blog_text_in_page">
-              <a href="single-blog.html"><h3>this is blog design for mens wear shop</h3></a>
-              <h4>By <span>Admin</span>,   comments  <span>23</span>,   summer special</h4>
-              <p>Nolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip exeap
-              quat Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepta
-              cupidar dolor sit amets non numquam thas dolorem ipsum quialas[...]</p>
-              <div class="read_more">
-                <a class="read_more_blog" href="single-blog.html">Read more</a>
-              </div>
-            </div>
-          </div>
-        -->
-        <!--
-          <div class="single_blog_in_page last_single_blog_in_page">
-            <div class="blog_img_l"><img src="../../assets/images/blog_page3.jpg" alt="" /></div>
-            <div class="blog_date_in_page">
-              <h2>_ <span>02</span></h2>
-              <p>april 2015</p>
-            </div>
-            <div class="blog_text_in_page">
-              <a href="single-blog.html"><h3>this is blog design for mens wear shop</h3></a>
-              <h4>By <span>Admin</span>,   comments  <span>23</span>,   summer special</h4>
-              <p>Nolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip exeap
-              quat Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepta
-              cupidar dolor sit amets non numquam thas dolorem ipsum quialas[...]</p>
-              <div class="read_more">
-                <a class="read_more_blog" href="single-blog.html">Read more</a>
-              </div>
-            </div>
-          </div>
-        -->
+
         <div class="row">
           <div class="col-md-12 col-sm-12 col-xs-12">
             <!-- <div class="pagi_line"></div> -->
@@ -133,96 +47,24 @@
               <form name="fForm" ngNativeValidate>
                 <!-- <div class="input_left"> -->
                 <input [(ngModel)]="suggestion.name" type="text" placeholder="Name *" required name="name" #name="ngModel" />
-                <input [(ngModel)]="suggestion.email" type="text" plabceholder="Your Email *" required name="email" #email="ngModel" />
+                <input [(ngModel)]="suggestion.email" type="email" placeholder="Your Email *" required name="email" #email="ngModel" email/>
 
-                <input #ea="ngModel" [(ngModel)]="test" required type="email" placeholder="Enter Email" name="Email" />
+                <!-- <input #ea="ngModel" [(ngModel)]="test" required type="email" placeholder="Enter Email" name="Email" /> -->
                 <!-- </div> -->
                 <!-- <div class="input_right"> -->
                 <textarea [(ngModel)]="suggestion.text" name="text" placeholder="Message" required #text="ngModel"></textarea>
                 <!-- </div> -->
-                <div class="submit_btn form-group submitRow"><input type="button" name="submit" value="Submit form" (click)="sendSuggestion()" /></div>
+                <ng-container *ngIf="(!name.valid || !email.valid || !text.valid)">
+                  <div class="submit_btn form-group submitRow">
+                    <button type="submit" value="Submit form" class="button button1 disabled">Submit form</button>
+                  </div>
+                </ng-container>
+                <ng-container *ngIf="(name.valid && email.valid && text.valid)">
+                  <button type="submit" name="submit" value="Submit form" (click)="sendSuggestion()" class="button button1">Submit form</button>
+                </ng-container>
               </form>
             </div>
-            <!-- <ng-container *ngIf="; else noValid"> -->
-
-            <!-- </ng-container> -->
           </div>
-
-          <!--
-            <div class="blog_categories">
-
-              <div class="multi_line"></div>
-              <ul id="blog_categories">
-                <li><a href="#">Stylish Looks</a></li>
-                <li><a href="#">Fashion Of the week</a></li>
-                <li><a href="#">Summer Special</a></li>
-                <li><a href="#">Offers & Discounts</a></li>
-                <li><a href="#">Seller of the day</a></li>
-                <li><a href="#">Best reviews</a></li>
-              </ul>
-            </div>
-          -->
-
-          <!--
-            <div class="blog_recent_post">
-              <h2>RECENT POST</h2>
-              <div class="multi_line"></div>
-              <div class="single_recent_post">
-                <div class="log_li_img">
-                  <img src="../../assets/images/blog_li.png" alt="" />
-                </div>
-                <div class="recent_post_text">
-
-                  <a href="single-blog.html"><h3>Beritatis et Quasi Arcteco<br>
-                    veatae Vitae</h3></a>
-                  <p>April 2015</p>
-                </div>
-                <div class="recent_post_img">
-                  <a href="single-blog.html"><img src="../../assets/images/recent_post1.png" alt="" /></a>
-                </div>
-              </div>
-              <div class="single_recent_post">
-                <div class="log_li_img">
-                  <img src="../../assets/images/blog_li.png" alt="" />
-                </div>
-                <div class="recent_post_text">
-
-                  <a href="single-blog.html"><h3>Beritatis et Quasi Arcteco<br>
-                    veatae Vitae</h3></a>
-                  <p>April 2015</p>
-                </div>
-                <div class="recent_post_img">
-                  <a href="single-blog.html"><img src="../../assets/images/recent_post2.png" alt="" /></a>
-                </div>
-              </div>
-              <div class="single_recent_post">
-                <div class="log_li_img">
-                  <img src="../../assets/images/blog_li.png" alt="" />
-                </div>
-                <div class="recent_post_text">
-
-                  <a href="single-blog.html"><h3>Beritatis et Quasi Arcteco<br>
-                    veatae Vitae</h3></a>
-                  <p>April 2015</p>
-                </div>
-                <div class="recent_post_img">
-                  <a href="single-blog.html"><img src="../../assets/images/recent_post3.png" alt="" /></a>
-                </div>
-              </div>
-            </div>
-            <div class="instrigram">
-              <h2>Instagram</h2>
-              <div class="multi_line"></div>
-              <ul id="instrigram">
-                <li><a href="single-blog.html"><img src="../../assets/images/blog-side1.jpg" alt="" /></a></li>
-                <li><a href="single-blog.html"><img src="../../assets/images/blog-side2.jpg" alt="" /></a></li>
-                <li><a href="single-blog.html"><img src="../../assets/images/blog-side3.jpg" alt="" /></a></li>
-                <li><a href="single-blog.html"><img src="../../assets/images/blog-side4.jpg" alt="" /></a></li>
-                <li><a href="single-blog.html"><img src="../../assets/images/blog-side5.jpg" alt="" /></a></li>
-                <li><a href="single-blog.html"><img src="../../assets/images/blog-side6.jpg" alt="" /></a></li>
-              </ul>
-            </div>
-          -->
         </div>
       </div>
     </div>
