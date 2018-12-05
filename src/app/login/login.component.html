@@ -1,53 +1,40 @@
-<div class="container">
-  <form name="LoginForm"  ngNativeValidate>
-    <div class="row">
-      <h2 style="text-align:center">Login with Social Media or Manually</h2>
-       <!-- <div class="vl">
-        <span class="vl-innertext">or</span>
-      </div>
+<!-- <div class="limiter"> -->
+  <div class="container-login100">
+    <!-- <div class="wrap-login100"> -->
+      <form class="login100-form" ngNativeValidate>
+        <!-- <div class="row"> -->
+        <span class="login100-form-title"> Member Login </span>
 
-      <div class="col">
-        <a href="javascript: void(0)" class="fb btn">
-          <i class="fa fa-facebook fa-fw"></i> Login with Facebook
-        </a>
-        <a href="javascript: void(0)" class="twitter btn">
-          <i class="fa fa-twitter fa-fw"></i> Login with Twitter
-        </a>
-        <a href="javascript: void(0)" class="google btn">
-          <i class="fa fa-google fa-fw"></i> Login with Google+
-        </a>
-      </div> -->
-
-      <div class="col">
-        <div class="hide-md-lg">
-          <p>Or sign in manually:</p>
+        <!-- <div class="col"> -->
+        <!-- <div class="hide-md-lg"><p>Or sign in manually:</p></div> -->
+        <div class="wrap-input100 ">
+          <input class="input100" #email="ngModel" type="email" name="username" placeholder="Email" required [(ngModel)]="user.email" email /><span class="focus-input100"></span>
+          <span class="symbol-input100"> <i class="fa fa-envelope" aria-hidden="true"></i> </span>
         </div>
 
-          <input #email="ngModel" type="email" name="username" placeholder="Email"  required [(ngModel)]="user.email" email >
-          <input #password="ngModel" type="password" name="password" placeholder="Password" required [(ngModel)]="user.password" minlength="6" >
-          <a  [routerLink]="['/forgetpw']" style="color:blue" class="btn">Forgot password?</a>
-        <ng-container *ngIf="email.valid && password.valid ; else noValid">
-          <input type="submit" value="Login" (click)="login()">
+        <div class="wrap-input100">
+          <input class="input100" #password="ngModel" type="password" name="password" placeholder="Password" required [(ngModel)]="user.password" minlength="6" /><span class="focus-input100"></span>
+          <span class="symbol-input100"> <i class="fa fa-lock" aria-hidden="true"></i> </span>
+        </div>
+
+        <ng-container *ngIf="email.valid && password.valid; else: noValid">
+          <div class="container-login100-form-btn"><button class="login100-form-btn" type="submit" value="Login" (click)="login()">Login</button></div>
         </ng-container>
-        <ng-template #noValid>
-            <input type="submit" value="Login" >
-        </ng-template>
+        <ng-template #noValid> <button class="login100-form-btn" type="submit" value="Login">Login</button> </ng-template>
+
+        <div class="text-center p-t-12"><span class="txt1"> Forgot </span><a class="txt2" [routerLink]="['/forgetpw']"> Username / Password? </a></div>
+        <!-- </div> -->
+        <!-- </div> -->
+        
+      </form>
+    </div>
+    <div class="text-center p-t-136">
+        <a [routerLink]="['/register']" routerLinkActive="router-link-active" class="txt2"> Create your Account <i class="fa fa-long-arrow-right m-l-5" aria-hidden="true"></i> </a>
       </div>
+  <!-- </div> -->
+<!-- </div> -->
+<!-- <div class="bottom-container"> -->
+<!-- <div class="row"> -->
 
-    </div>
-  </form>
-</div>
-
-<div class="bottom-container">
-  <div class="row">
-    <div class="col">
-      <a [routerLink]="['/register']" routerLinkActive="router-link-active" style="color:white" class="btn">Sign up</a>
-    </div>
-    <div class="col">
-      <a href="#" style="color:white" class="btn">Forgot password?</a>
-    </div>
-  </div>
-</div>
-
-
-
+<!-- </div> -->
+<!-- </div> -->
