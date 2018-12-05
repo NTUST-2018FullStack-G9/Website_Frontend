@@ -41,16 +41,16 @@
             <small [hidden]="IsClick">
                 <div class="dotted_line"></div>
               <tr>
-                <td style="color:darkslategrey">Product Id</td>
+                <td style="color:darkslategrey">Product Name</td>
                 <td style="color:darkslategrey">Quantity</td>
                 <td style="color:darkslategrey">Sale Price</td>
-                <td style="color:darkslategrey">Sale Id</td>
+                <td style="color:darkslategrey">Total Price</td>
               </tr>
               <!-- <ng-container *ngFor="let sale of saleItems"> -->
               <ng-container *ngFor="let item of this.saleServie.saleItem[index]">
                 <tr>
                   <td>
-                    <p>{{ item.product_id }}</p>
+                    <p>{{ item.product_name }}</p>
                   </td>
                   <td>
                     <p>{{ item.quantity }}</p>

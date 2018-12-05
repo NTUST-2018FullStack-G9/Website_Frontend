@@ -12,6 +12,7 @@ import { Sale } from '../sale';
 export class TraceComponent implements OnInit {
   saleID = 0;
   IsClick = true;
+  totalPrice = 0;
 
   constructor(public saleServie: SaleService, private router: Router) {}
 
