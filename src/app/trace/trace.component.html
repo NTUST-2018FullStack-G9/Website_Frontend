@@ -22,7 +22,8 @@
 
               <ng-container *ngFor="let sale of sales; let index = index">
                 <br />
-                <tr>
+                
+                <tr >
                   <td>{{ index + 1 }}.</td>
                   <td>
                     <!-- class="ring-in" -->
@@ -67,7 +68,7 @@
                   
                   <!-- <div id="{{index}}" class="panel-collapse collapse"> -->
                   <ng-container *ngFor="let item of this.saleServie.saleItem[index]">
-                    <tr>
+                    <tr [routerLink]="['/post',item.id]" routerLinkActive="router-link-active" class="linkk" >
                       <td>
                         <p style="color: rgb(74, 144, 144)">{{ item.product_name }}</p>
                       </td>
