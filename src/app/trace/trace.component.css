@@ -9,15 +9,21 @@ table{
 th{
 	color: #000000;
     font-size: 1.4em;
+    margin:0px auto;
     font-weight: 400;
     font-family: 'Ubuntu-Regular';
+}
+tr:hover{
+    background-color: rgb(253, 249, 243);
 }
 th, td {
     padding: 10px;
 }
 td{
-	color:#b2b2b2;
-  font-size: 1em;
+    color:#B2B2B2;
+    /* #8aa598 */
+    /* B2B2B2 */
+  font-size: 1.2em;
 }
 a.at-in {
   float: left;
@@ -27,21 +33,21 @@ a.at-in {
 	width: 74%;
 }
 .sed h5{
-  	font-size: 1.1em;
+  	font-size: 1.2em;
 	font-family: 'Ubuntu-Regular';
 }
 .sed h5 a{
-    color: #F67777;
+    color: rgb(209, 76, 76);
   	text-decoration:none;
 }
-.sed h5 a:hover{
-    color: #000;
-}
+/* .sed h5 a:hover{
+    color: rgb(114, 194, 240);
+} */
 .sed p{
-    color:#b2b2b2;
-	font-size:0.8em;
+    color:#B2B2B2;
+	font-size:1em;
 	line-height:1.8em;
-	padding:1em 0 0;
+	/* padding:1em 0 0; */
 }
 .table-responsive {
     border: none;
@@ -50,20 +56,46 @@ a.at-in {
 	width:45%;
 }
 
-.ring-in{
-  position: relative;
-}
-.close1, .close2, .close3 {
-  /* background: url('../images/close.png') no-repeat 0px 0px ; */
-  cursor: pointer;
-  width: 28px;
-  height: 28px;
-  position: absolute;
-  right: 5px;
-  bottom: 10px;
-  -webkit-transition: color 0.2s ease-in-out;
-  -moz-transition: color 0.2s ease-in-out;
-  -o-transition: color 0.2s ease-in-out;
-  transition: color 0.2s ease-in-out;
-}
 /*--//checkout--*/
+.hvr-skew-backward {
+    display: inline-block;
+    vertical-align: middle;
+    -webkit-transform: translateZ(0);
+    transform: translateZ(0);
+    -webkit-backface-visibility: hidden;
+    backface-visibility: hidden;
+    -moz-osx-font-smoothing: grayscale;
+    -webkit-transition-duration: 0.3s;
+    transition-duration: 0.3s;
+    -webkit-transition-property: transform;
+    transition-property: transform;
+    -webkit-transform-origin: 0 100%;
+    transform-origin: 0 100%;
+    background-color: rgb(209, 76, 76);
+     color: #fff;
+     padding: 0.5em 1em;
+     font-size:1em;
+  }
+  .hvr-skew-backward:hover, .hvr-skew-backward:focus, .hvr-skew-backward:active {
+      /* -webkit-transform: skew(10deg); */
+      /* transform: skew(10deg); */
+      color:#fff;
+      background: rgb(221, 161, 161);
+      text-decoration:none;
+  }
+  .hvr-skew-backward {
+    padding: 0.6em 1em;
+    font-size: 0.9em;
+}
+/* cart */
+.itemContainer{
+	width:100%;
+	float:left;
+}
+.itemContainer div{
+	float:left;
+	margin: 5px 20px 5px 20px ;
+}
+.itemContainer a{
+	text-decoration:none;
+}

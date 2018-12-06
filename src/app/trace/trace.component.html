@@ -1,6 +1,6 @@
 <!-- Custom Theme files -->
 <!-- theme-style -->
-<link href="/src/assets/css/stylef.css" rel="stylesheet" type="text/css" media="all" />
+<!-- <link href="/src/assets/css/stylef.css" rel="stylesheet" type="text/css" media="all" /> -->
 <!-- //theme-style -->
 
 <div class="check-out">
@@ -14,7 +14,7 @@
             <table class="table-heading simpleCart_shelfItem">
               <tr>
                 <th>Index</th>
-                <th>Order</th>
+                <th>Order Name / Note</th>
                 <th>Phone</th>
                 <th>Status</th>
                 <th>Date</th>
@@ -34,8 +34,8 @@
                     </div>
                   </td>
                   <td>{{ sale.order_phone }}</td>
-                  <ng-container *ngIf="sale.shipment"> <td>Shipping</td> </ng-container>
-                  <ng-container *ngIf="!sale.shipment"> <td>Still Dealling with</td> </ng-container>
+                  <ng-container *ngIf="sale.shipment" > <td style="color:rgb(36, 187, 36)">Shipping</td> </ng-container>
+                  <ng-container *ngIf="!sale.shipment" > <td style="color:rgb(238, 45, 45)">Still Dealling with</td> </ng-container>
 
                   <td class="item_price">{{ sale.order_date }}</td>
                   <!-- <div class="panel-heading"> -->
@@ -69,16 +69,16 @@
                   <ng-container *ngFor="let item of this.saleServie.saleItem[index]">
                     <tr>
                       <td>
-                        <p>{{ item.product_name }}</p>
+                        <p style="color: rgb(74, 144, 144)">{{ item.product_name }}</p>
                       </td>
                       <td>
-                        <p>{{ item.quantity }}</p>
+                        <p style="color: rgb(74, 144, 144)">{{ item.quantity }}</p>
                       </td>
                       <td>
-                        <p>{{ item.sale_price }}</p>
+                        <p style="color: rgb(74, 144, 144)">{{ item.sale_price }}</p>
                       </td>
                       <td>
-                        <p>{{ item.sale_id }}</p>
+                        <p style="color: rgb(74, 144, 144)">{{ item.sale_id }}</p>
                       </td>
                       <td><p></p></td>
                     </tr>
