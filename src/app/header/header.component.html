@@ -125,7 +125,7 @@
       <nav class="mainmenu">
         <ul id="nav">
           <li routerLinkActive="current-page-item" [routerLinkActiveOptions]="{ exact: true }"><a [routerLink]="['']">Home</a></li>
-          <li routerLinkActive="current-page-item"><a [routerLink]="['/category1']" (click)="reload()">shop</a></li>
+          <li [ngClass]="{'current-page-item': this.router.url === '/category2' || this.router.url === '/category1'}" ><a [routerLink]="['/category1']" (click)="reload()">shop</a></li>
           <!-- <li routerLinkActive="current-page-item"><a [routerLink]="['/category1']" (click)="reload()">Trending</a></li> -->
 
           <li routerLinkActive="current-page-item"><a [routerLink]="['/about']">About</a></li>

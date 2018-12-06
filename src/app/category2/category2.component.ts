@@ -83,6 +83,7 @@ export class Category2Component implements OnInit {
     }
   }
   ngOnInit() {
+    this.dataService.products = this.dataService.Oriproducts;
     this.icon_img = 'filter_ico_off.png';
     this.showNumb = 1;
     this.showNume = 12;

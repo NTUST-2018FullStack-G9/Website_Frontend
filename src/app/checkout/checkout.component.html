@@ -44,7 +44,7 @@
               </div>
               <div class="s_order">
                 <p>Order Notes <span>*</span></p>
-                <textarea #note="ngModel" cols="30" rows="10" [(ngModel)]="member.order_note" name="note" required></textarea>
+                <textarea cols="30" rows="10" [(ngModel)]="member.order_note" name="note"></textarea>
               </div>
             </div>
           </div>
@@ -84,10 +84,12 @@
               <div class="checkbox">
                 <label> <input #checked="ngModel" [(ngModel)]="check" type="checkbox" name="check" required /> I have Read & Accept <span>Terms & Conditions</span> </label>
               </div>
-              <ng-container *ngIf="name.valid && address.valid && phone.valid && note.valid && checked.value; else: noValid">
+              <ng-container *ngIf="name.valid && address.valid && phone.valid  && checked.value; else: noValid">
                 <input type="submit" (click)="checkout()" value="Place order now" />
               </ng-container>
               <ng-template #noValid> <input type="submit" value="Place order now" /> </ng-template>
+              <input type="text" placeholder="Enter Coupon code" [(ngModel)]="couponCode">
+              <input type="submit" (click)="applyCoupon()" value="Apply" />
             </div>
           </div>
         </div>

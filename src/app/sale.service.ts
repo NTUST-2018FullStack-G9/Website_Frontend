@@ -28,5 +28,7 @@ export class SaleService {
       }
     });
   }
-
+  applyCoupon(code) {
+    return this.httpClient.post(`${environment.api}/coupons/check`, code);
+  }
 }

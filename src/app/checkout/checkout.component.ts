@@ -1,3 +1,4 @@
+import { SaleService } from './../sale.service';
 import { Component, OnInit } from '@angular/core';
 import { CartService } from '../cart.service';
 import { Router } from '@angular/router';
@@ -11,6 +12,7 @@ import { WhosNow } from '../whos-now';
 })
 export class CheckoutComponent implements OnInit {
   check;
+  couponCode;
   member = {
     member_id : 0,
     order_name : '',
@@ -24,7 +26,9 @@ export class CheckoutComponent implements OnInit {
   }
   constructor( private cartService: CartService,
      private router: Router,
-     private memberService: MemberService) {
+     private memberService: MemberService,
+     private saleService: SaleService
+     ) {
   }
 
   price = 0;
@@ -52,7 +56,12 @@ export class CheckoutComponent implements OnInit {
     });
 
   }
+  applyCoupon(code) {
+    this.saleService.applyCoupon(code).subscribe(
 
+
+    );
+  }
   ngOnInit() {
     this.check = false;
     this.memberService.whoami().subscribe((data: WhosNow) => {
