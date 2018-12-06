@@ -7,73 +7,93 @@
   <div class="container">
     <div class="bs-example4" data-example-id="simple-responsive-table">
       <div class="table-responsive">
-        <table class="table-heading simpleCart_shelfItem">
-          <tr>
-            <th>Index</th>
-            <th class="table-grid">Order</th>
-            <th>Phone</th>
-            <th>Status</th>
-            <th>Date</th>
-          </tr>
+        <div class="container">
+          <div class="panel-group" id="accordion">
+            <!-- <div class="panel panel-default"> -->
 
-          <ng-container *ngFor="let sale of sales; let index = index">
-            <br />
-            <tr>
-              <td>{{index+1}}. </td>
-              <td>
-                <!-- class="ring-in" -->
-                <div class="sed">
-                  <h5>
-                    <a>{{ sale.order_name }}</a>
-                  </h5>
-                  <p>{{ sale.order_address }}</p>
-                </div>
-              </td>
-              <td>{{ sale.order_phone }}</td>
-              <ng-container *ngIf="sale.shipment"> <td>Shipping</td> </ng-container>
-              <ng-container *ngIf="!sale.shipment"> <td>Still Dealling with</td> </ng-container>
-
-              <td class="item_price">{{ sale.order_date }}</td>
-              <!-- <td class="add-check"><a (click)="click()">More Detail</a></td> -->
-            </tr>
-            <tr>
-              <td></td>
-            <small [hidden]="IsClick">
-                <div class="dotted_line"></div>
+            <table class="table-heading simpleCart_shelfItem">
               <tr>
-                <td style="color:darkslategrey">Product Name</td>
-                <td style="color:darkslategrey">Quantity</td>
-                <td style="color:darkslategrey">Sale Price</td>
-                <td style="color:darkslategrey">Total Price</td>
+                <th>Index</th>
+                <th class="table-grid">Order</th>
+                <th>Phone</th>
+                <th>Status</th>
+                <th>Date</th>
               </tr>
-              <!-- <ng-container *ngFor="let sale of saleItems"> -->
-              <ng-container *ngFor="let item of this.saleServie.saleItem[index]">
+
+              <ng-container *ngFor="let sale of sales; let index = index">
+                <br />
                 <tr>
+                  <td>{{ index + 1 }}.</td>
                   <td>
-                    <p>{{ item.product_name }}</p>
+                    <!-- class="ring-in" -->
+                    <div class="sed">
+                      <h5>
+                        <a>{{ sale.order_name }}</a>
+                      </h5>
+                      <p>{{ sale.order_address }}</p>
+                    </div>
                   </td>
-                  <td>
-                    <p>{{ item.quantity }}</p>
-                  </td>
-                  <td>
-                    <p>{{ item.sale_price }}</p>
-                  </td>
-                  <td>
-                    <p>{{ item.sale_id }}</p>
-                  </td>
-                  <td><p></p></td>
+                  <td>{{ sale.order_phone }}</td>
+                  <ng-container *ngIf="sale.shipment"> <td>Shipping</td> </ng-container>
+                  <ng-container *ngIf="!sale.shipment"> <td>Still Dealling with</td> </ng-container>
+
+                  <td class="item_price">{{ sale.order_date }}</td>
+                  <!-- <div class="panel-heading"> -->
+                  <!-- <div class="panel-title"> -->
+                  <td class="add-check"><a class="hvr-skew-backward" data-toggle="collapse" data-parent="#accordion" href="#{{index}}"> More Detail </a></td>
+                  <!-- (click)="click()" -->
+                  <!-- </div> -->
+                  <!-- </div> -->
                 </tr>
+
+                <td></td>
+                <span id="{{index}}" class="panel-collapse collapse">
+                  <!-- <div class="panel-body"> -->
+                  <!-- <small [hidden]="IsClick"> -->
+                      
+                  <div class="dotted_line"></div>
+                  <tr>
+                    <td style="color:darkslategrey">Product Name</td>
+                    <td style="color:darkslategrey">Quantity</td>
+                    <td style="color:darkslategrey">Sale Price</td>
+                    <td style="color:darkslategrey">Total Price</td>
+                    <!-- <td>test</td> -->
+                  </tr>
+
+                  <ng-container *ngFor="let item of this.saleServie.saleItem[index]">
+                    <tr>
+                      <td>
+                        <p>{{ item.product_name }}</p>
+                      </td>
+                      <td>
+                        <p>{{ item.quantity }}</p>
+                      </td>
+                      <td>
+                        <p>{{ item.sale_price }}</p>
+                      </td>
+                      <td>
+                        <p>{{ item.sale_id }}</p>
+                      </td>
+                      <td><p></p></td>
+                    </tr>
+                  </ng-container>
+                  <br />
+                  <!-- </small> -->
+                  <!-- </div> -->
+                </span>
               </ng-container>
-              <br />
-            </small>
-          </tr>
-          </ng-container>
-        </table>
+            </table>
+
+            <!-- </div> -->
+            <!-- </div> -->
+          </div>
+          <!-- </div> -->
+        </div>
       </div>
     </div>
 
     <br /><br /><br /><br />
-    <div class="produced"><a (click)="click()" class="hvr-skew-backward">Show Detail</a></div>
+    <!-- <div class="produced"><a (click)="click()" class="hvr-skew-backward">Show Detail</a></div> -->
     <br /><br /><br /><br />
     <br /><br /><br /><br />
   </div>

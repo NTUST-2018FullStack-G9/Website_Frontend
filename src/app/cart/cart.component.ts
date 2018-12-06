@@ -42,8 +42,6 @@ export class CartComponent implements OnInit {
         this.IsCoupon = false;
       }
     }
-
-// coupon/check/{}
   }
 
   get IsDP () {
