@@ -4,9 +4,9 @@
 <!-- //theme-style -->
 
 <div class="check-out">
-  <div class="container">
-    <div class="bs-example4" data-example-id="simple-responsive-table">
-      <div class="table-responsive">
+  <!-- <div class="container"> -->
+    <!-- <div class="bs-example4" data-example-id="simple-responsive-table"> -->
+      <!-- <div class="table-responsive"> -->
         <div class="container">
           <div class="panel-group" id="accordion">
             <!-- <div class="panel panel-default"> -->
@@ -14,7 +14,7 @@
             <table class="table-heading simpleCart_shelfItem">
               <tr>
                 <th>Index</th>
-                <th class="table-grid">Order</th>
+                <th>Order</th>
                 <th>Phone</th>
                 <th>Status</th>
                 <th>Date</th>
@@ -47,19 +47,25 @@
                 </tr>
 
                 <td></td>
-                <span id="{{index}}" class="panel-collapse collapse">
+                <!-- <td></td> -->
+                <!-- <td><td> -->
+
+                <!-- <div id="{{index}}" class="panel-collapse collapse"></div> -->
+                <div id="{{index}}" class="panel-collapse collapse">
                   <!-- <div class="panel-body"> -->
                   <!-- <small [hidden]="IsClick"> -->
-                      
+                  
                   <div class="dotted_line"></div>
                   <tr>
+                      <!-- <td></td> -->
                     <td style="color:darkslategrey">Product Name</td>
                     <td style="color:darkslategrey">Quantity</td>
                     <td style="color:darkslategrey">Sale Price</td>
                     <td style="color:darkslategrey">Total Price</td>
-                    <!-- <td>test</td> -->
+                  
                   </tr>
-
+                  
+                  <!-- <div id="{{index}}" class="panel-collapse collapse"> -->
                   <ng-container *ngFor="let item of this.saleServie.saleItem[index]">
                     <tr>
                       <td>
@@ -80,16 +86,16 @@
                   <br />
                   <!-- </small> -->
                   <!-- </div> -->
-                </span>
+                </div>
               </ng-container>
             </table>
 
             <!-- </div> -->
             <!-- </div> -->
-          </div>
           <!-- </div> -->
-        </div>
-      </div>
+          <!-- </div> -->
+        <!-- </div> -->
+      <!-- </div> -->
     </div>
 
     <br /><br /><br /><br />

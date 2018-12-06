@@ -1,0 +1,69 @@
+/*--checkout--*/
+.check-out{
+	padding:5em 0em 0;
+}
+table{
+	width:100%;
+	  margin: 0em 0 2em;
+}
+th{
+	color: #000000;
+    font-size: 1.4em;
+    font-weight: 400;
+    font-family: 'Ubuntu-Regular';
+}
+th, td {
+    padding: 10px;
+}
+td{
+	color:#b2b2b2;
+  font-size: 1em;
+}
+a.at-in {
+  float: left;
+    width: 20%;
+}
+.sed {
+	width: 74%;
+}
+.sed h5{
+  	font-size: 1.1em;
+	font-family: 'Ubuntu-Regular';
+}
+.sed h5 a{
+    color: #F67777;
+  	text-decoration:none;
+}
+.sed h5 a:hover{
+    color: #000;
+}
+.sed p{
+    color:#b2b2b2;
+	font-size:0.8em;
+	line-height:1.8em;
+	padding:1em 0 0;
+}
+.table-responsive {
+    border: none;
+}
+.ring-in{
+	width:45%;
+}
+
+.ring-in{
+  position: relative;
+}
+.close1, .close2, .close3 {
+  /* background: url('../images/close.png') no-repeat 0px 0px ; */
+  cursor: pointer;
+  width: 28px;
+  height: 28px;
+  position: absolute;
+  right: 5px;
+  bottom: 10px;
+  -webkit-transition: color 0.2s ease-in-out;
+  -moz-transition: color 0.2s ease-in-out;
+  -o-transition: color 0.2s ease-in-out;
+  transition: color 0.2s ease-in-out;
+}
+/*--//checkout--*/
