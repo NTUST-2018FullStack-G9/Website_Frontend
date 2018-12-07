@@ -63,13 +63,14 @@ export class CheckoutComponent implements OnInit {
     this.IsClick = true;
 
     if (this.couponCode.code !== '') {
-      this.couponService.applyCoupon(this.couponCode.code).subscribe(
+      this.couponService.applyCoupon(this.couponCode).subscribe(
         (data: Coupon) => {
           console.log(data);
           if (data.type === 0) {
             this.IsDP = false;
           } else {
             this.IsDP = true;
+            this.member.coupon = this.couponCode.code;
             if (data.type === 1) {
               // 9
               this.discount = 0.9;
@@ -81,11 +82,9 @@ export class CheckoutComponent implements OnInit {
               this.discount = 0.7;
             }
             for (const i of this.cartService.cartsInService) {
-              i.price = i.price * this.discount;
+              i.price = Math.round(i.price * this.discount);
             }
-
           }
-
         },
         response => {
           console.log(response);
@@ -94,23 +93,6 @@ export class CheckoutComponent implements OnInit {
     } else {
       this.IsClick = false;
     }
-
-    // this.IsClick = true;
-    // if (this.IsDP) {
-    //   alert('Dont try to get Dp again you stupid');
-    // } else {
-    //   if (this.couponCode.code === '6666' || this.couponCode.code === '5487') {
-    //     alert('20% off');
-    //     this.IsCoupon = true;
-    //     for (const i of this.carts) {
-    //       i.price = i.price * 0.8;
-    //     }
-    //   } else if (this.couponCode.code === '') {
-    //     this.IsClick = false;
-    //   } else {
-    //     this.IsCoupon = false;
-    //   }
-    // }
   }
 
   getCartprice() {

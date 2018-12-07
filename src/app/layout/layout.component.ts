@@ -129,7 +129,7 @@ export class LayoutComponent implements OnInit {
         minSlides: 3,
         slideMargin: 10
       });
-    }, 500);
+    }, 1000);
   }
 }
 // tslint:disable-next-line:use-life-cycle-interface
