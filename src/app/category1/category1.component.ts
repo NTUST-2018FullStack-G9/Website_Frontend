@@ -46,6 +46,7 @@ export class Category1Component implements OnInit {
   }
   all() {
     this.dataService.products = this.dataService.Oriproducts;
+    location.reload();
   }
 
   addCarts(item: Product) {
@@ -136,23 +137,25 @@ export class Category1Component implements OnInit {
   // }
 
   ngOnInit() {
-    $(function() {
-      $('#slider-range').slider({
-        range: true,
-        min: 0,
-        max: 20000,
-        values: [ 7000, 14000 ],
-        slide: function( event, ui ) {
-        $( '#amount' ).val( '$' + ui.values[ 0 ] + ' - $' + ui.values[ 1 ] );
-        }
-      });
-      $('#amount').val(
-        '$' +
-          $('#slider-range').slider('values', 0) +
-          ' - $' +
-          $('#slider-range').slider('values', 1)
-      );
-    });
+    // setTimeout(() => {
+    //   $(function() {
+    //     $( '#slider-range' ).slider({
+    //       range: true,
+    //       min: 150,
+    //       max: 1500,
+    //       values: [ 520, 1100 ],
+    //       slide: function( event, ui ) {
+    //       $( '#amount' ).val( '$' + ui.values[ 0 ] + ' - $' + ui.values[ 1 ] );
+    //       }
+    //     });
+    //     $( '#amount' ).val( '$' + $( '#slider-range' ).slider( 'values', 0 ) +
+    //       ' - $' + $( '#slider-range' ).slider( 'values', 1 ) );
+    //     });
+
+
+    // }, 500);
+
+    this.dataService.products = this.dataService.Oriproducts;
     this.icon_img = 'filter_ico.png';
     this.showNumb = 1;
     this.showNume = 12;

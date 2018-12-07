@@ -175,7 +175,7 @@
             <div class="panel panel-default">
             <div class="panel-heading" role="tab" id="headingTwo">
               <h4 class="panel-title">
-              <a class="collapsed" data-toggle="collapse" data-parent="#home-accordion" href="#collapseTwo" aria-expanded="false" aria-controls="collapseTwo">
+              <a    class="collapsed" data-toggle="collapse" data-parent="#home-accordion" href="#collapseTwo" aria-expanded="false" aria-controls="collapseTwo">
                 PRICE FILTER
                 <span class="floatright"><i class="fa fa-plus"></i></span>
               </a>
@@ -193,10 +193,6 @@
               </div>
             </div>
             </div>
-
-
-
-
             <!----------------------------------------->
           </div>
         </div>
@@ -250,3 +246,22 @@
     </div>
   </div>
 </section>
+<script>
+  $(function() {
+      $('#slider-range').slider({
+        range: true,
+        min: 0,
+        max: 10000,
+        values: [ 3000, 7000 ],
+      slide: function( event, ui ) {
+          $( '#amount' ).val( '$' + ui.values[ 0 ] + ' - $' + ui.values[ 1 ] );
+      }
+    });
+    $('#amount').val(
+      '$' +
+    $('#slider-range').slider('values', 0) +
+      ' - $' +
+    $('#slider-range').slider('values', 1)
+    );
+  });
+</script>

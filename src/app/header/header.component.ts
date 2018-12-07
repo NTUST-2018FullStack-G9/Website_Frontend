@@ -55,6 +55,7 @@ export class HeaderComponent implements OnInit {
   }
   reload() {
     this.dataService.reload();
+    location.reload();
   }
   getCartprice() {
     this.price = 0;
