@@ -15,7 +15,8 @@ export class HeaderComponent implements OnInit {
   memberID = 0;
   userName = '';
   Image_Need;
-  keyword;
+  keyword: string;
+  searchK: string;
 
   get isLogin() {
     return this.memberService.isLogin();
@@ -36,7 +37,9 @@ export class HeaderComponent implements OnInit {
   }
 
   search() {
-    this.dataService.products = this.dataService.Oriproducts.filter(products => products.name.valueOf().search(this.keyword) !== -1);
+    this.searchK = this.keyword.toUpperCase();
+    this.dataService.products =
+    this.dataService.Oriproducts.filter(products => products.name.toUpperCase().valueOf().search(this.searchK) !== -1);
   }
   constructor(
     private dataService: ProductService,
