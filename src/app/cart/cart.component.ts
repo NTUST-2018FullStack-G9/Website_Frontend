@@ -15,9 +15,6 @@ import { WhosNow } from '../whos-now';
 
 export class CartComponent implements OnInit {
   price = 0;
-  couponCode = '';
-  IsCoupon = false;
-  IsClick = false;
   memberID = 0;
 
 
@@ -25,27 +22,8 @@ export class CartComponent implements OnInit {
     private router: Router,
     private memberService: MemberService) {}
 
-  applyCoupon () {
-    this.IsClick = true;
-    if (this.IsDP) {
-      alert('Dont try to get Dp again you stupid');
-    }  else {
-      if (this.couponCode === '6666' || this.couponCode === '5487') {
-        alert('20% off');
-        this.IsCoupon = true;
-        for (const i of this.carts) {
-          i.price = i.price * 0.8;
-        }
-      } else if (this.couponCode === '') {
-        this.IsClick = false;
-      } else {
-        this.IsCoupon = false;
-      }
-    }
-  }
-
-  get IsDP () {
-    return this.IsCoupon;
+  clickIt() {
+    alert('Empty carts are not allowed!!');
   }
 
   get carts () {

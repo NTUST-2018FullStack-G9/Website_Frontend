@@ -2,7 +2,7 @@ import { Injectable } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
 import { environment } from 'src/environments/environment';
 import { Sale } from './sale';
-import { SaleItem } from './sale-item';
+
 
 @Injectable({
   providedIn: 'root'
@@ -28,7 +28,7 @@ export class SaleService {
       }
     });
   }
-  applyCoupon(code) {
-    return this.httpClient.post(`${environment.api}/coupons/check`, code);
-  }
+
+
+
 }

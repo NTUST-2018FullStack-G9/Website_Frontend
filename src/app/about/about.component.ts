@@ -25,6 +25,7 @@ export class AboutComponent implements OnInit {
           location.reload();
         }
       }, (response) => {
+        console.log(response);
         alert('plz try angain');
       });
   }
