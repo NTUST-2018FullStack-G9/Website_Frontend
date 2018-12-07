@@ -6,6 +6,6 @@ export interface Sale {
   order_address: string;
   order_note: string;
   order_date: string;
-  coupon: number;
+  totalprice: number;
   shipment: number;
 }

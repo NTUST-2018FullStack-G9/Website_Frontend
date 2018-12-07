@@ -89,17 +89,19 @@
               <ng-template #noValid> <input type="submit" value="Place order now" /> </ng-template>
               <!-- Coupon -->
               <div class="coupon_box">
-                <input type="text" placeholder="coupon code" [(ngModel)]="couponCode.code" [disabled]="IsDP" name="check"/> <input type="button" value="apply coupon" (click)="applyCoupon(couponCode.code)" />
+                <input type="text" placeholder="COUPON CODE" [(ngModel)]="couponCode.code" [disabled]="IsDP" name="check"/> <input type="button" value="apply coupon" (click)="applyCoupon(couponCode.code)" />
               </div>
 
-              <ng-container *ngIf="IsDP"> <span style="color: red;font-size: 10pt">20% OFF !!</span> </ng-container>
+              <ng-container *ngIf="IsDP && discount === 1"> <span style="color: red;font-size: 10pt">10% OFF !!</span> </ng-container>
+              <ng-container *ngIf="IsDP && discount === 2"> <span style="color: red;font-size: 10pt">20% OFF !!</span> </ng-container>
+              <ng-container *ngIf="IsDP && discount === 3"> <span style="color: red;font-size: 10pt">30% OFF !!</span> </ng-container>
               <ng-container *ngIf="!IsDP && IsClick"> <span style="color: red;font-size: 10pt">Coupon Not Exist !!</span> </ng-container>
               <!-- Coupon -->
             </div>
           </div>
         </div>
       </form>
-      <br />
+      <!-- <br /> -->
       <!--
         <input type="text" placeholder="Coupon code" [(ngModel)]="couponCode.code">
         <input type="submit" (click)="applyCoupon()" value="Apply" />
