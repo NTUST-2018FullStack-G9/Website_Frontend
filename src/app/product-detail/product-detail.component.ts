@@ -3,6 +3,7 @@ import { ProductService } from './../product.service';
 import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute } from '@angular/router';
 import { Product } from '../product';
+
 @Component({
   selector: 'app-product-detail',
   templateUrl: './product-detail.component.html',
@@ -15,6 +16,19 @@ export class ProductDetailComponent implements OnInit {
   constructor(private dataService: ProductService, private route: ActivatedRoute, private cartService: CartService) {}
   getImage(Imgname) {
     return this.dataService.getImage(Imgname);
+  }
+
+  addNumCarts(item: Product) {
+    console.log(this.quantity);
+    item.quantity = this.quantity;
+    this.cartService.addNumInCarts(item).subscribe(
+      data => {
+        console.log(data);
+      },
+      response => {
+        console.log(response);
+      }
+    );
   }
 
   addCarts(item: Product) {

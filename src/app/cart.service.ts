@@ -59,4 +59,12 @@ export class CartService {
     });
   }
 
+  addNumInCarts(cartsIds) {
+    return this.httpClient.post(`${environment.api}/carts/addnumincart`, cartsIds, {
+      headers: {
+        Authorization: `Bearer ${localStorage.getItem('token')}`
+      }
+    });
+  }
+
 }
