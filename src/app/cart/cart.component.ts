@@ -22,7 +22,9 @@ export class CartComponent implements OnInit {
     private router: Router,
     private memberService: MemberService) {}
 
-
+  clickIt() {
+    alert('Empty carts are not allowed!!');
+  }
 
   get carts () {
     return this.cartService.cartsInService;

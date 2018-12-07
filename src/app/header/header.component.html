@@ -172,7 +172,13 @@
         <div class="cart_view_bottom">
           <ng-container *ngIf="Islogin">
             <div class="c_totals_left floatleft"><a [routerLink]="['/cart']">View Cart</a></div>
-            <div class="c_totals_right floatleft"><a [routerLink]="['/checkout']">Check Out</a></div>
+            <ng-container *ngIf="this.carts.length === 0;else :hasCart;">
+            <div class="c_totals_right floatleft"><a (click)="clickIt()" style="cursor: not-allowed">Check Out</a></div>
+          </ng-container>
+          <ng-template #hasCart>
+              <div class="c_totals_right floatleft"><a [routerLink]="['/checkout']">Check Out</a></div>
+          </ng-template>
+
           </ng-container>
           <ng-container *ngIf="!Islogin">
             <div class="c_totals_left floatleft"><a [routerLink]="['/login']">View Cart</a></div>

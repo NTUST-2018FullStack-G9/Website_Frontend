@@ -26,6 +26,9 @@ export class HeaderComponent implements OnInit {
   get carts() {
     return this.cartService.cartsInService;
   }
+  clickIt() {
+    alert('Empty cart are not allowed');
+  }
 
   onEnter() {
     this.router.navigate(['/category2']);

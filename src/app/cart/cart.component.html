@@ -11,13 +11,8 @@
           </div>
           <div class="cart_item" *ngFor="let cart of carts; let index = index">
             <div class="cart_item_img">
-              <img style="width: 150px;height:150px"
-                [src]="
-                  'http://localhost:8000/storage/' + cart.product_imagename
-                "
-                alt=""
-              />
-              <p>{{ cart?.product_name }} </p>
+              <img style="width: 150px;height:150px" [src]="'http://localhost:8000/storage/' + cart.product_imagename" alt="" />
+              <p>{{ cart?.product_name }}</p>
             </div>
             <div class="cart_price">
               <p>${{ cart?.price }}</p>
@@ -42,92 +37,39 @@
               <span><i class="fa fa-close"></i></span>
             </div>
           </div>
-
-          <!-- coupon -->
-          <!-- <div class="coupon_box">
-            <input
-              type="text"
-              placeholder="coupon code"
-              [(ngModel)]="couponCode"
-              [disabled]="IsDP"
-            />
-            <input type="submit" value="apply coupon" (click)="applyCoupon()" />
-          </div>
-
-          <ng-container *ngIf="IsDP">
-            <span style="color: red;font-size: 10pt">20% OFF !!</span>
-          </ng-container>
-          <ng-container *ngIf="!IsDP && IsClick">
-            <span style="color: red;font-size: 10pt">Coupon Not Exist !!</span>
-          </ng-container> -->
-          <!-- coupon end -->
-
         </div>
       </div>
       <div class="col-md-3 col-sm-4 col-xs-12">
         <div class="main_cart_right">
           <div class="product_form_total">
-            <div
-              class="panel-group"
-              id="home-accordion"
-              role="tablist"
-              aria-multiselectable="true"
-            >
+            <div class="panel-group" id="home-accordion" role="tablist" aria-multiselectable="true">
               <div class="panel panel-default">
                 <div class="panel-heading" role="tab" id="headingOne">
                   <h4 class="panel-title">
-                    <a
-                      data-toggle="collapse"
-                      data-parent="#home-accordion"
-                      href="#collapseOne"
-                      aria-expanded="true"
-                      aria-controls="collapseOne"
-                    >
-                      Is The Website Developer Handsome?
-                      <span class="floatright"
-                        ><i class="fa fa-minus"></i
-                      ></span>
+                    <a data-toggle="collapse" data-parent="#home-accordion" href="#collapseOne" aria-expanded="true" aria-controls="collapseOne">
+                      Is The Website Developer Handsome? <span class="floatright"><i class="fa fa-minus"></i></span>
                     </a>
                   </h4>
                 </div>
-                <div
-                  id="collapseOne"
-                  class="panel-collapse collapse in"
-                  role="tabpanel"
-                  aria-labelledby="headingOne"
-                >
+                <div id="collapseOne" class="panel-collapse collapse in" role="tabpanel" aria-labelledby="headingOne">
                   <div class="panel-body">
                     <select class="selectpicker">
                       <option>God Damn yes!</option>
                       <option>Fucking yes!</option>
                       <option>Of Course!</option>
                     </select>
-
                   </div>
                 </div>
               </div>
               <div class="panel panel-default">
                 <div class="panel-heading" role="tab" id="headingTwo">
                   <h4 class="panel-title">
-                    <a
-                      class="collapsed"
-                      data-toggle="collapse"
-                      data-parent="#home-accordion"
-                      href="#collapseTwo"
-                      aria-expanded="false"
-                      aria-controls="collapseTwo"
-                    >
-                      Cart totals
-                      <span class="floatright"><i class="fa fa-plus"></i></span>
+                    <a class="collapsed" data-toggle="collapse" data-parent="#home-accordion" href="#collapseTwo" aria-expanded="false" aria-controls="collapseTwo">
+                      Cart totals <span class="floatright"><i class="fa fa-plus"></i></span>
                     </a>
                   </h4>
                 </div>
-                <div
-                  id="collapseTwo"
-                  class="panel-collapse collapse"
-                  role="tabpanel"
-                  aria-labelledby="headingTwo"
-                >
+                <div id="collapseTwo" class="panel-collapse collapse" role="tabpanel" aria-labelledby="headingTwo">
                   <div class="panel-body cart_p_body">
                     <ng-container *ngFor="let item of carts">
                       <div class="c_single_item">
@@ -145,12 +87,22 @@
               </div>
             </div>
             <!-- <a href="" class="cart_update">Update Cart</a> -->
-            <input
-              [routerLink]="['/checkout']"
-              routerLinkActive="active"
-              type="submit"
-              value="Proceed to checkout"
-            />
+
+            <ng-container *ngIf="this.carts.length === 0; else: hasCart">
+                <!-- [disabled]="this.carts.length === 0"  -->
+            <input 
+            (click)="clickIt()"
+            type="submit" 
+            value="Proceed to checkout" 
+            style="cursor: not-allowed" />
+          </ng-container>
+          <ng-template #hasCart>
+              <input [routerLink]="['/checkout']" routerLinkActive="router-link-active" 
+              type="submit" 
+              value="Proceed to checkout" 
+              style="cursor: not-allowed" />
+          </ng-template>
+
           </div>
         </div>
       </div>
