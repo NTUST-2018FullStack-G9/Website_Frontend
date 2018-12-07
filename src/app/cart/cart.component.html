@@ -12,7 +12,7 @@
           <div class="cart_item" *ngFor="let cart of carts; let index = index">
             <div class="cart_item_img">
               <img style="width: 150px;height:150px" [src]="'http://localhost:8000/storage/' + cart?.product_imagename" alt="" />
-              <p>{{ cart?.product_name }}</p>
+              <p [routerLink]="['/post', cart.product_id]" routerLinkActive="router-link-active" class="fuckcss">{{ cart?.product_name }}</p>
             </div>
             <div class="cart_price">
               <p>${{ cart?.price }}</p>

@@ -1,0 +1,6 @@
+.fuckcss{
+    cursor: pointer;
+}
+.fuckcss:hover{
+    color: rgb(44, 44, 240);
+}
