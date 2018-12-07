@@ -6,6 +6,7 @@ import { MemberService } from '../member.service';
 import { WhosNow } from '../whos-now';
 import { CouponService } from '../coupon.service';
 import { Coupon } from '../coupon';
+import { Cart } from '../carts';
 
 @Component({
   selector: 'app-checkout',
@@ -26,7 +27,7 @@ export class CheckoutComponent implements OnInit {
     order_phone: '',
     order_address: '',
     order_note: '',
-    coupon: '',
+    coupon: ''
   };
   couponCode = {
     type: 0,
@@ -37,53 +38,55 @@ export class CheckoutComponent implements OnInit {
     return this.cartService.cartsInService;
   }
 
-  constructor(private cartService: CartService,
-              private router: Router,
-              private memberService: MemberService,
-              private couponService: CouponService) {}
-
+  constructor(private cartService: CartService, private router: Router,
+    private memberService: MemberService, private couponService: CouponService) {}
 
   applyCoupon() {
     console.log(this.couponCode.code);
     this.IsClick = true;
-
-    if (this.couponCode.code !== '') {
-      this.couponService.applyCoupon(this.couponCode).subscribe(
-        (data: Coupon) => {
-          console.log(data);
-          if (data.type === 0) {
-            this.IsDP = false;
-          } else {
-            this.IsDP = true;
-            this.member.coupon = this.couponCode.code;
-            if (data.type === 1) {
-              // 9
-              this.discount = 0.9;
-            } else if (data.type === 2) {
-              // 8
-              this.discount = 0.8;
-            } else if (data.type === 3) {
-              // 7
-              this.discount = 0.7;
-            }
-            for (const i of this.cartService.cartsInService) {
-              i.price = Math.round(i.price * this.discount);
-            }
-          }
-        },
-        response => {
-          console.log(response);
-        }
-      );
+    if (this.IsDP) {
+      alert('You have used coupon already');
     } else {
-      this.IsClick = false;
+      if (this.couponCode.code !== '') {
+        this.couponService.applyCoupon(this.couponCode).subscribe(
+          (data: Coupon) => {
+            console.log(data);
+            if (data.type === 0) {
+              this.IsDP = false;
+            } else {
+              this.IsDP = true;
+              this.member.coupon = this.couponCode.code;
+              if (data.type === 1) {
+                // 9
+                this.discount = 0.9;
+              } else if (data.type === 2) {
+                // 8
+                this.discount = 0.8;
+              } else if (data.type === 3) {
+                // 7
+                this.discount = 0.7;
+              }
+              for (const i of this.cartService.cartsInService) {
+                i.price = Math.round(i.price * this.discount);
+              }
+            }
+          },
+          response => {
+            console.log(response);
+          }
+        );
+      } else {
+        this.IsClick = false;
+      }
     }
   }
 
   getCartprice() {
-
     if (this.IsDP) {
       this.orgPrice = this.price;
+      // for (const i of this.org) {
+        // this.orgPrice += i.price * i.quantity;
+      // }
     }
     this.price = 0;
     for (const i of this.cartService.cartsInService) {

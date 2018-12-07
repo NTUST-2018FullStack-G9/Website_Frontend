@@ -68,7 +68,7 @@
 
               <div class="c_total_item sp_single_item">
                 <p>Total Price</p>
-                <span [hidden]="IsDP">${{ this.orgPrice }}</span>
+                <span [hidden]="!IsDP" style="text-decoration: line-through;color: #B2B2B2">${{ this.orgPrice }}</span>
                 <p></p>
                 <span>${{ getCartprice() }}</span>
               </div>
@@ -91,7 +91,9 @@
               <ng-template #noValid> <input type="submit" value="Place order now" /> </ng-template>
               <!-- Coupon -->
               <div class="coupon_box">
-                <input type="text" placeholder="COUPON CODE" [(ngModel)]="couponCode.code" name="Coupon" [disabled]="IsDP"/> <input type="button" value="apply coupon" (click)="applyCoupon(couponCode.code)" />
+                <input type="text" placeholder="COUPON CODE" [(ngModel)]="couponCode.code" name="Coupon" [disabled]="IsDP" />
+                <ng-container *ngIf="IsDP"> <input type="button" value="apply coupon" (click)="applyCoupon(couponCode.code)" [disabled]="IsDP" style="cursor: not-allowed" /> </ng-container>
+                <ng-container *ngIf="!IsDP"> <input type="button" value="apply coupon" (click)="applyCoupon(couponCode.code)" /> </ng-container>
               </div>
 
               <ng-container *ngIf="IsDP && discount == 0.9"> <span style="color: red;font-size: 10pt">10% OFF !!</span> </ng-container>
