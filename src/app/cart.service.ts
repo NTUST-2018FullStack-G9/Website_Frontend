@@ -25,7 +25,6 @@ export class CartService {
         Authorization: `Bearer ${localStorage.getItem('token')}`
       }
     });
-
   }
 
   deleteCarts(cartsIds) {
@@ -54,6 +53,14 @@ export class CartService {
 
   addToCarts(cartsIds) {
     return this.httpClient.post(`${environment.api}/carts/addincart`, cartsIds, {
+      headers: {
+        Authorization: `Bearer ${localStorage.getItem('token')}`
+      }
+    });
+  }
+
+  addNumInCarts(cartsIds) {
+    return this.httpClient.post(`${environment.api}/carts/addnumincart`, cartsIds, {
       headers: {
         Authorization: `Bearer ${localStorage.getItem('token')}`
       }

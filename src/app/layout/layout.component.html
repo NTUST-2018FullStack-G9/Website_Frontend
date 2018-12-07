@@ -175,10 +175,11 @@
                       <img [src]="getImage(items.imagename)" alt="" />
                       <div class="tr-add-cart">
                         <ul>
-                          <li><a class="fa fa-shopping-cart tr_cart" href="#"></a></li>
+                          
                           <li><a href="javascript: void(0)" (click)="addCarts(items)" class="tr_text">ADD TO CART</a></li>
-                          <li><a class="fa fa-heart tr_heart" href="#"></a></li>
-                          <li><a class="fa fa-search tr_search" href="product-detail.html"></a></li>
+                          <li><a class="fa fa-shopping-cart tr_cart" [routerLink]="['/cart']" routerLinkActive="router-link-active" ></a></li>
+                          <!-- <li><a class="fa fa-heart tr_heart" href="#"></a></li> -->
+                          <!-- <li><a class="fa fa-search tr_search" href="product-detail.html"></a></li> -->
                         </ul>
                       </div>
                     </div>

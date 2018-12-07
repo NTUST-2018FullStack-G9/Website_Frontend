@@ -34,7 +34,7 @@
           <div class="filter_cont">
             <ul>
               <li><a [routerLink]="['/category1']">on</a></li>
-              <li><img src="../../assets/images/{{icon_img}}" alt="" /></li>
+              <li><img src="../../assets/images/{{icon_img}}" alt="" [routerLink]="['/category2']" routerLinkActive="router-link-active" style="cursor: pointer;"/></li>
               <li><a [routerLink]="['/category2']">off</a></li>
             </ul>
           </div>
@@ -208,10 +208,11 @@
                       <img [src]='getImage(item.imagename)'  alt="" />
                       <div class="tr-add-cart">
                         <ul>
-                          <li><a  class="fa fa-shopping-cart tr_cart" [routerLink]="['/cart']"></a></li>
+                          
                           <li><a href="javascript: void(0)"  (click)="addCarts(item)" class="tr_text">ADD TO CART</a></li>
-                          <li><a class="fa fa-heart tr_heart" href="#"></a></li>
-                          <li><a class="fa fa-filter tr_filter" href="product-detail.html"></a></li>
+                          <li><a  class="fa fa-shopping-cart tr_cart" [routerLink]="['/cart']"></a></li>
+                          <!-- <li><a class="fa fa-heart tr_heart" href="#"></a></li> -->
+                          <!-- <li><a class="fa fa-filter tr_filter" href="product-detail.html"></a></li> -->
                         </ul>
                       </div>
                     </div>
