@@ -1,7 +1,7 @@
 <section class="checkout_area">
-  <form ngNativeValidate>
-    <div class="container">
-      <div class="row">
+  <div class="container">
+    <div class="row">
+      <form ngNativeValidate>
         <div class="col-md-9 col-sm-8 col-xs-12">
           <div class="checkout_left">
             <h2>Shiiping Address</h2>
@@ -84,19 +84,26 @@
               <div class="checkbox">
                 <label> <input #checked="ngModel" [(ngModel)]="check" type="checkbox" name="check" required /> I have Read & Accept <span>Terms & Conditions</span> </label>
               </div>
-              <ng-container *ngIf="name.valid && address.valid && phone.valid  && checked.value; else: noValid">
-                <input type="submit" (click)="checkout()" value="Place order now" />
-              </ng-container>
 
+              <ng-container *ngIf="name.valid && address.valid && phone.valid && checked.value; else: noValid"> <input type="submit" (click)="checkout()" value="Place order now" /> </ng-container>
               <ng-template #noValid> <input type="submit" value="Place order now" /> </ng-template>
-              <br/>
-              <input type="text" placeholder="Coupon code" [(ngModel)]="couponCode">
-              <input type="submit" (click)="applyCoupon()" value="Apply" />
-            
+              <!-- Coupon -->
+              <div class="coupon_box">
+                <input type="text" placeholder="coupon code" [(ngModel)]="couponCode.code" [disabled]="IsDP" name="check"/> <input type="button" value="apply coupon" (click)="applyCoupon(couponCode.code)" />
+              </div>
+
+              <ng-container *ngIf="IsDP"> <span style="color: red;font-size: 10pt">20% OFF !!</span> </ng-container>
+              <ng-container *ngIf="!IsDP && IsClick"> <span style="color: red;font-size: 10pt">Coupon Not Exist !!</span> </ng-container>
+              <!-- Coupon -->
             </div>
           </div>
         </div>
-      </div>
+      </form>
+      <br />
+      <!--
+        <input type="text" placeholder="Coupon code" [(ngModel)]="couponCode.code">
+        <input type="submit" (click)="applyCoupon()" value="Apply" />
+      -->
     </div>
-  </form>
+  </div>
 </section>
