@@ -5,6 +5,7 @@ export interface Product {
   isSelling: number;
   imagename: string;
   name: string;
+  quantity: number;
   unit: string;
   description: string;
   category_id: number;

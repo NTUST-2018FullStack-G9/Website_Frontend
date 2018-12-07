@@ -30,13 +30,13 @@ export class ProductDetailComponent implements OnInit {
               data => {
                 setTimeout(() => {
                   console.log(data);
-                }, 100);
+                }, 500);
               },
               response => {
                 console.log(response);
               }
             );
-          }, 10);
+          }, 500);
         }
         i.quantity += this.quantity;
         this.isIn = true;
