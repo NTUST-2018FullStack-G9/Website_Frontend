@@ -2,6 +2,7 @@ import { ProductService } from './../product.service';
 import { Component, OnInit } from '@angular/core';
 import { Product } from '../product';
 import { CartService } from '../cart.service';
+import { Router } from '@angular/router';
 declare let $: any;
 
 @Component({
@@ -34,7 +35,7 @@ export class Category1Component implements OnInit {
     }
     return this.index;
   }
-  constructor(private dataService: ProductService, private cartService: CartService) {}
+  constructor(private dataService: ProductService, private cartService: CartService, private router: Router) {}
   getNum(id) { // 讀取商品數量
     this.num = 0;
     for (const i of this.dataService.Oriproducts) {
@@ -57,6 +58,9 @@ export class Category1Component implements OnInit {
           if (i.product_id === item.id) {
             i.quantity++;
             this.isIn = true;
+            this.router.navigate(['/post', item.id]);
+            alert('Add In Product-Detail is more Convenient');
+            break;
           }
         }
         if (!this.isIn) {

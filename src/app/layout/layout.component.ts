@@ -59,7 +59,8 @@ export class LayoutComponent implements OnInit {
         for (const i of this.cartService.cartsInService) {
           if (i.product_id === item.id) {
             // i.quantity++;
-            this.router.navigate(['/cart']);
+            this.router.navigate(['/post', item.id]);
+            alert('Add In Product-Detail is more Convenient');
             this.isIn = true;
             break;
           }

@@ -106,6 +106,7 @@ export class ProductDetailComponent implements OnInit {
   //   }
   // }
 
+
   ngOnInit() {
     this.quantity = 1;
     this.route.params.subscribe(data => {

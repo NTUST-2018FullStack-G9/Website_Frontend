@@ -2,6 +2,7 @@ import { CartService } from './../cart.service';
 import { Component, OnInit } from '@angular/core';
 import { ProductService } from '../product.service';
 import { Product } from '../product';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-category2',
@@ -15,7 +16,7 @@ export class Category2Component implements OnInit {
   isIn = false;
   index: number[];
   num;
-  constructor(private dataService: ProductService, private cartService: CartService) {}
+  constructor(private dataService: ProductService, private cartService: CartService, private router: Router) {}
 
   get indexArray() {
     this.index = [];
@@ -42,6 +43,9 @@ export class Category2Component implements OnInit {
           if (i.product_id === item.id) {
             i.quantity++;
             this.isIn = true;
+            this.router.navigate(['/post', item.id]);
+            alert('Add In Product-Detail is more Convenient');
+            break;
           }
         }
         if (!this.isIn) {
