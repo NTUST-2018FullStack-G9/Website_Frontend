@@ -86,6 +86,10 @@ export class LayoutComponent implements OnInit {
       }
     );
   }
+  bigfilter(id) {
+    console.log(id);
+    this.dataService.bigfilter(id);
+  }
 
   ngOnInit() {
     // console.log('ngOnInit');
