@@ -15,6 +15,7 @@ import { Coupon } from '../coupon';
 export class CheckoutComponent implements OnInit {
   check;
   price = 0;
+  orgPrice = 0;
   IsDP = false;
   discount = 1.0;
   IsClick = false;
@@ -36,27 +37,11 @@ export class CheckoutComponent implements OnInit {
     return this.cartService.cartsInService;
   }
 
-  // get Discount() {
-  //   return this.discount;
-  // }
-  // get IsDp() {
-  //   return this.IsDP;
-  // }
-
   constructor(private cartService: CartService,
               private router: Router,
               private memberService: MemberService,
               private couponService: CouponService) {}
 
-  // applyCoupon() {
-  //   console.log();
-  //   this.couponService.applyCoupon(this.couponCode.code).subscribe( data => {
-  //     console.log(data);
-  //   }, (response) => {
-  //     console.log(response);
-  //   });
-
-  // }
 
   applyCoupon() {
     console.log(this.couponCode.code);
@@ -96,6 +81,10 @@ export class CheckoutComponent implements OnInit {
   }
 
   getCartprice() {
+
+    if (this.IsDP) {
+      this.orgPrice = this.price;
+    }
     this.price = 0;
     for (const i of this.cartService.cartsInService) {
       this.price += i.quantity * i.price;

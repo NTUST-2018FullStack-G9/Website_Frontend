@@ -68,6 +68,8 @@
 
               <div class="c_total_item sp_single_item">
                 <p>Total Price</p>
+                <span [hidden]="IsDP">${{ this.orgPrice }}</span>
+                <p></p>
                 <span>${{ getCartprice() }}</span>
               </div>
 
