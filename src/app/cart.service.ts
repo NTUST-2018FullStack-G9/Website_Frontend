@@ -25,7 +25,6 @@ export class CartService {
         Authorization: `Bearer ${localStorage.getItem('token')}`
       }
     });
-
   }
 
   deleteCarts(cartsIds) {
