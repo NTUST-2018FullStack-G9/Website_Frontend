@@ -148,7 +148,7 @@
         <ng-container *ngFor="let items of carts; let index; of: index">
           <div class="cart_items">
             <div class="c_item_img floatleft">
-              <a [routerLink]="['/post', items.product_id]"><img [src]="'http://localhost:8000/storage/' + items.product_imagename" alt=""/></a>
+              <a [routerLink]="['/post', items.product_id]"><img [src]="'http://localhost:8000/storage/' + items?.product_imagename" alt=""/></a>
               <!-- -Image need -->
             </div>
             <div class="c_item_totals floatleft">
