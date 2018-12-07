@@ -67,7 +67,7 @@
                   </tr>
                   
                   <!-- <div id="{{index}}" class="panel-collapse collapse"> -->
-                  <ng-container *ngFor="let item of this.saleServie.saleItem[index]">
+                  <ng-container *ngFor="let item of this.saleServie.saleItem[index];let first = first;">
                     <tr [routerLink]="['/post',item.id]" routerLinkActive="router-link-active" class="linkk" >
                       <td>
                         <p style="color: rgb(74, 144, 144)">{{ item.product_name }}</p>
@@ -79,10 +79,11 @@
                         <p style="color: rgb(74, 144, 144)">{{ item.sale_price }}</p>
                       </td>
                       <td>
-                        <p style="color: rgb(74, 144, 144)">{{ item.sale_id }}</p>
+                          <p [hidden]="!first" style="color: rgb(74, 144, 144)">{{ sale.totalprice }}</p>
                       </td>
                       <td><p></p></td>
                     </tr>
+                    
                   </ng-container>
                   <br />
                   <!-- </small> -->
