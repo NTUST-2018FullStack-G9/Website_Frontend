@@ -8,11 +8,10 @@
               <a [routerLink]="['/']">home <span>|</span></a>
             </li>
             <li>
-
-              <a [routerLink]="['/category1']"   >shop <span>|</span></a>
+              <a [routerLink]="['/category1']">shop <span>|</span></a>
             </li>
             <li>
-              <a [routerLink]="['/cart']" >carts <span>|</span></a>
+              <a [routerLink]="['/cart']"> carts <span>|</span></a>
             </li>
           </ul>
         </div>
@@ -39,7 +38,7 @@
                     <div role="tabpanel" class="tab-pane active" id="home">
                       <div class="single_p_image">
                         <a href="images/single-large.jpg" data-lightbox="image-1" data-title="My caption"><img src="images/product-plus.png" alt=""/></a>
-                        <img id="zoom_02" [src]=getImage(product.imagename) data-zoom-image="images/single-large.jpg" alt="" />
+                        <img id="zoom_02" [src]=getImage(product?.imagename) data-zoom-image="images/single-large.jpg" alt="" />
                       </div>
                     </div>
                     <!-- <div role="tabpanel" class="tab-pane" id="profile">
@@ -62,9 +61,9 @@
             <div class="col-md-6 col-sm-6 col-xs-12">
               <div class="product_detail_heading">
                 <div class="detail_heading_left">
-                  <h3>{{product.name}}</h3>
-                  <div class="old_price_gray"><p>${{product.saleprice}}</p></div>
-                  <div class="new_price_gray"><del>${{product.listprice}}</del></div>
+                  <h3>{{product?.name}}</h3>
+                  <div class="old_price_gray"><p>${{product?.saleprice}}</p></div>
+                  <div class="new_price_gray"><del>${{product?.listprice}}</del></div>
                 </div>
               </div>
 
@@ -80,7 +79,7 @@
                   <div id="collapseOneP" class="panel-collapse collapse in" role="tabpanel" aria-labelledby="headingOneP">
                     <div class="panel-body product_ac_body">
                       <p>
-                       {{product.description}}
+                       {{product?.description}}
                       </p>
                     </div>
                   </div>
@@ -103,8 +102,8 @@
                         <div class="size_down">
                           <input type="number" size="4" class="input-text qty text" title="Qty" [(ngModel)]="quantity" name="quantity[113]" max="119" min="0" step="1">
                         </div>
-                        <div class="size_cart">
-                          <a [routerLink]="['./']" (click) = "addCarts(product)"  >Add to cart</a>
+                        <div class="size_cart" (click) = "addCarts(product)">
+                          <a [routerLink]="['./']" >Add to cart</a>
                         </div>
                       </div>
                       </div>
@@ -138,7 +137,7 @@
                 <h2>Description</h2>
                 <div class="multi_line"></div>
                 <p>
-                  {{product.description}}
+                  {{product?.description}}
                 </p>
               </div>
             </div>
