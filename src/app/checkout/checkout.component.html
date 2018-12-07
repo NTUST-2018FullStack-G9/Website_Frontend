@@ -87,9 +87,12 @@
               <ng-container *ngIf="name.valid && address.valid && phone.valid  && checked.value; else: noValid">
                 <input type="submit" (click)="checkout()" value="Place order now" />
               </ng-container>
+
               <ng-template #noValid> <input type="submit" value="Place order now" /> </ng-template>
-              <input type="text" placeholder="Enter Coupon code" [(ngModel)]="couponCode">
+              <br/>
+              <input type="text" placeholder="Coupon code" [(ngModel)]="couponCode">
               <input type="submit" (click)="applyCoupon()" value="Apply" />
+            
             </div>
           </div>
         </div>
