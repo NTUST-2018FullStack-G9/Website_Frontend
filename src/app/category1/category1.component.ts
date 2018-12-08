@@ -55,7 +55,7 @@ export class Category1Component implements OnInit {
   }
   desc() {
     this.sType = 'Top to Low';
-    this.dataService.products =  this.dataService.Oriproducts;
+    // this.dataService.products =  this.dataService.Oriproducts;
     for ( this.i = 0 ; this.i < this.dataService.products.length ; this.i ++ ) {
       for ( this.j = 0 ; this.j < this.dataService.products.length ; this.j ++ ) {
           if (this.dataService.products[this.i].saleprice > this.dataService.products[this.j].saleprice ) {
@@ -68,7 +68,7 @@ export class Category1Component implements OnInit {
   }
   asc() {
     this.sType = 'Low to Top';
-    this.dataService.products =  this.dataService.Oriproducts;
+    // this.dataService.products =  this.dataService.Oriproducts;
     for ( this.i = 0 ; this.i < this.dataService.products.length ; this.i ++ ) {
       for ( this.j = 0 ; this.j < this.dataService.products.length ; this.j ++ ) {
           if (this.dataService.products[this.i].saleprice < this.dataService.products[this.j].saleprice ) {
