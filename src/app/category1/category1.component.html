@@ -208,7 +208,7 @@
                       <img [src]='getImage(item.imagename)'  alt="" />
                       <div class="tr-add-cart">
                         <ul>
-                          
+
                           <li><a href="javascript: void(0)"  (click)="addCarts(item)" class="tr_text">ADD TO CART</a></li>
                           <li><a  class="fa fa-shopping-cart tr_cart" [routerLink]="['/cart']"></a></li>
                           <!-- <li><a class="fa fa-heart tr_heart" href="#"></a></li> -->
@@ -222,7 +222,7 @@
                     </div>
                     <div class="item-sub">
                       <a [routerLink]="['/post', item.id]" ><h5>{{item.name}}</h5></a>
-                      <p>$ {{item.saleprice }} <span><ng-container *ngIf="item.isSelling"><del>$ {{item.listprice}}</del></ng-container></span></p>
+                      <p>$ {{item.saleprice }} <span><ng-container *ngIf="item.listprice!==item.saleprice"><del>$ {{item.listprice}}</del></ng-container></span></p>
                     </div>
                   </div>
                 </div>

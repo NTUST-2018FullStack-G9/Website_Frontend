@@ -86,9 +86,13 @@ export class Category1Component implements OnInit {
     );
   }
   filter(id) {
+    this.showNumb = 1;
+    this.showNume = 12;
     this.dataService.filter(id);
   }
   bigfilter(id) {
+    this.showNumb = 1;
+    this.showNume = 12;
     this.dataService.bigfilter(id);
   }
   // bigfilter(id) {}
@@ -159,7 +163,7 @@ export class Category1Component implements OnInit {
 
     // }, 500);
 
-    this.dataService.products = this.dataService.Oriproducts;
+    // this.dataService.products = this.dataService.Oriproducts;
     this.icon_img = 'filter_ico.png';
     this.showNumb = 1;
     this.showNume = 12;
