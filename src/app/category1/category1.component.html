@@ -45,7 +45,12 @@
       </div>
       <div class="col-md-6 col-sm-4 col-xs-12">
         <div class="filter_box_right">
+          <a class="dropdown-toggle" data-toggle="dropdown" href="#">sort by {{sType}} <span class="caret"></span></a>
+          <ul class="dropdown-menu">
+          <li><a (click)="desc()" >Price desc </a></li>
+          <li><a (click)="asc()">Price asc</a></li>
 
+          </ul>
         </div>
       </div>
     </div>
@@ -247,22 +252,3 @@
     </div>
   </div>
 </section>
-<!-- <script>
-  $(function() {
-      $('#slider-range').slider({
-        range: true,
-        min: 0,
-        max: 10000,
-        values: [ 3000, 7000 ],
-      slide: function( event, ui ) {
-          $( '#amount' ).val( '$' + ui.values[ 0 ] + ' - $' + ui.values[ 1 ] );
-      }
-    });
-    $('#amount').val(
-      '$' +
-    $('#slider-range').slider('values', 0) +
-      ' - $' +
-    $('#slider-range').slider('values', 1)
-    );
-  });
-</script> -->

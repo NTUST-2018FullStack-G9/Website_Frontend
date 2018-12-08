@@ -15,6 +15,10 @@ export class Category1Component implements OnInit {
   showNumb;
   showNume;
   icon_img;
+  i: number;
+  j: number;
+  sType;
+  buf: Product;
   isIn = false;
   index: number[];
   get topPrice() {
@@ -49,7 +53,32 @@ export class Category1Component implements OnInit {
     this.dataService.products = this.dataService.Oriproducts;
     location.reload();
   }
-
+  desc() {
+    this.sType = 'Top to Low';
+    this.dataService.products =  this.dataService.Oriproducts;
+    for ( this.i = 0 ; this.i < this.dataService.products.length ; this.i ++ ) {
+      for ( this.j = 0 ; this.j < this.dataService.products.length ; this.j ++ ) {
+          if (this.dataService.products[this.i].saleprice > this.dataService.products[this.j].saleprice ) {
+            this.buf = this.dataService.products[this.i];
+            this.dataService.products[this.i] = this.dataService.products[this.j];
+            this.dataService.products[this.j] = this.buf;
+          }
+      }
+    }
+  }
+  asc() {
+    this.sType = 'Low to Top';
+    this.dataService.products =  this.dataService.Oriproducts;
+    for ( this.i = 0 ; this.i < this.dataService.products.length ; this.i ++ ) {
+      for ( this.j = 0 ; this.j < this.dataService.products.length ; this.j ++ ) {
+          if (this.dataService.products[this.i].saleprice < this.dataService.products[this.j].saleprice ) {
+            this.buf = this.dataService.products[this.i];
+            this.dataService.products[this.i] = this.dataService.products[this.j];
+            this.dataService.products[this.j] = this.buf;
+          }
+      }
+    }
+  }
   addCarts(item: Product) {
     this.isIn = false;
     this.cartService.addToCarts(item).subscribe(
@@ -162,7 +191,7 @@ export class Category1Component implements OnInit {
 
 
     // }, 500);
-
+    this.sType = 'default';
     // this.dataService.products = this.dataService.Oriproducts;
     this.icon_img = 'filter_ico.png';
     this.showNumb = 1;
